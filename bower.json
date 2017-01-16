@@ -14,7 +14,7 @@
     "plugin",
     "library",
     "engine",
-    "html",
+    "html"
   ],
   "license": "MIT",
   "homepage": "https://github.com/ushelp/EasyTemplateJS",
