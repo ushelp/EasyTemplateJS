@@ -1,0 +1,34 @@
+{
+  "name": "easytemplatejs",
+  "authors": [
+    "Ray <inthinkcolor@gmail.com>"
+  ],
+  "description": "Small, pure, high-performance JavaScript template engine.",
+  "main": "dist/easy.templatejs.min.js",
+  "keywords": [
+    "easytemplate",
+    "easytemplatejs",
+    "template",
+    "ET",
+    "javascript",
+    "plugin",
+    "library",
+    "engine",
+    "html",
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ushelp/EasyTemplateJS",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

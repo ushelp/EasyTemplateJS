@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>EasyTemplateJS Demo</title>
+		<style type="text/css">
+			div {
+				border-bottom: 1px solid #0086B3;
+				padding: 5px 0;
+			}
+		</style>
+		<script src="js/require.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+
+			require.config({
+				// 指定模块id 和其对应文件的相对路径
+				paths: {
+					Et: "../dist/easy.templatejs.min",
+					jq: "js/jquery-1.12.4.min"
+				}
+			});
+
+			require(["Et", "jq"], function(Et, jq) {
+				$(function(){
+					/*// 修改脚本表达式开始结束标记
+					var userSettings=
+					{
+						// 脚本表达式 开始结束标记 <% JS script %>
+						scriptBegin:"<%",
+						scriptEnd:"%>",
+						// 输出表达式开始结束标记 <%=name %>
+						outBegin:"<%=",
+						outEnd:"%>",
+						// 转义输出表达式开始结束标记 <%-name %>
+						escapeOutBegin:"<%-",
+						escapeOutEnd:"%>"
+					}
+					// 全局修改
+					Et.tmplSettings=userSettings;
+					// 测试
+					console.info(
+						Et.template(
+							"hello: <%= name %>, <%- name %>",  // templateText
+							{name: '<MoMo>'} // data
+						)
+					);	
+	
+					// 局部修改测试
+					console.info(
+						Et.template(
+							"hello: <%= name %>, <%- name %>",  // templateText
+							{name: '<MoMo>'}, 					// data
+							userSettings 						//settings
+						)
+					);	*/
+
+					// Basic demo
+					var compiled = Et.template("hello: { name }, {-name}");
+					var res = compiled({
+						name: 'MoMo'
+					});
+					var res2 = compiled({
+						name: '<MoMo>'
+					}); // Special label, test escape
+					console.info(res);
+					console.info(res2);
+
+					// temp demo
+					var tmpl = $("#tmpl").html();
+					var res3 = Et.template(tmpl, {
+						people: ['MoMo', 'Joy', 'Ray']
+					});
+					console.info(res3);
+
+					// temp2 demo
+					var tmpl2 = $("#tmpl2").html();
+					var res4 = Et.template(tmpl2, {
+						people: ['MoMo', 'Joy', 'Ray']
+					});
+					console.info(res4);
+
+					// temp3 demo
+					var tmpl3 = $("#tmpl3").html();
+					var res5 = Et.template(tmpl3, {
+						people: ['MoMo', 'Joy', 'Ray']
+					});
+					console.info(res5);
+
+					// Test escape (Special label)
+					var compiled2 = Et.template("<u>{- value }</u>");
+					var res6 = compiled2({
+						value: '<script>'
+					});
+					console.info(res6);
+
+					var res7 = Et.template("%{ out('Hello: '+name); }%", {
+						name: "JACK"
+					});
+					console.info(res7);
+
+					$("#res").html(res);
+					$("#res2").html(res2);
+					$("#res3").html(res3);
+					$("#res4").html(res4);
+					$("#res5").html(res5);
+					$("#res6").html(res6);
+					$("#res7").html(res7);
+				})
+			});
+
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<h1>Result</h1>
+		</div>
+		<div id="res"></div>
+		<div id="res2"></div>
+		<div id="res3"></div>
+		<div id="res4"></div>
+		<div id="res5"></div>
+		<div id="res6"></div>
+		<div id="res7"></div>
+
+		<!-- 普通模板 -->
+		<script id="tmpl" type="text/tmpl">
+			%{ for(var i in people){ }%
+			<li>{i} = { people[i] }
+			</li>
+			%{ } }%
+		</script>
+
+		<!-- 使用HTML定义模板内容时，如果有<、>等特殊内容，可以使用对应字符实体代替 -->
+		<script id="tmpl2" type="text/tmpl">
+			%{ for(var i=0; i &lt; people.length; i++){ }%
+			<li>{i} = { people[i] }</li>
+			%{ } }%
+		</script>
+
+		<!-- 使用 out 输出 -->
+		<script id="tmpl3" type="text/tmpl">
+			%{ for(var i=0; i
+			< people.length; i++){ out( "<li>"+i+ " = "+people[i]+ "</li> "); } }% </script>
+
+	</body>
+
+</html>

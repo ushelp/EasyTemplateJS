@@ -1,0 +1,39 @@
+{
+	"name": "easy.templatejs",
+	"title": "EasyTemplateJS",
+	"version": "2.1.0",
+	"description": "Small, pure, high-performance JavaScript template engine.",
+	"main": "dist/easytemplate.min.js",
+	"homepage": "https://github.com/ushelp/EasyTemplateJS#readme",
+	"author": "Ray <inthinkcolor@gmail.com>",
+	"directories": {
+		"doc": "doc",
+		"test": "test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ushelp/EasyTemplateJS.git"
+	},
+	"keywords": [
+		"easytemplate",
+		"easytemplatejs",
+		"template",
+		"ET",
+		"javascript",
+		"plugin",
+		"library",
+		"engine",
+		"html"
+	],
+	"bugs": {
+		"url": "https://github.com/ushelp/EasyTemplateJS/issues "
+	},
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"grunt": "^1.0.1",
+		"grunt-contrib-clean": "^1.0.0",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-uglify": "^2.0.0"
+	}
+}
