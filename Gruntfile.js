@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 			},
 			build: {
 				src: 'src/*.js',
-				dest: 'dist/<%= pkg.name %>.min.js'
+				dest: 'dist/easy.templatejs.min.js'
 			}
 		},
 	});
