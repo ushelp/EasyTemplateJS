@@ -1,7 +1,7 @@
 /**
  * EasyTemplate
  * 
- * Version 2.1.0
+ * Version 2.1.1
  * 
  * http://easyproject.cn 
  * https://github.com/ushelp
@@ -36,7 +36,7 @@
 	var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
 	
 	// 其他变量，函数定义...
-	var _Et = window.Et,
+	var _Et = root.Et,
 		noMatch = /(.)^/,
 		escaper = /\\|'|\r|\n|\t|\u2028|\u2029/g,
 		escapes = {

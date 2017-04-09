@@ -4,7 +4,7 @@
 
 **EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.**
 
-The latest version: `2.1.0-RELEASE`
+The latest version: `2.1.1-RELEASE`
 
 ## Feature/特点
 
@@ -48,6 +48,35 @@ The latest version: `2.1.0-RELEASE`
 From the rendering performance, **EasyTemplate** and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact.
 
 ![Performance test comparison](doc/imgs/performance.png)
+
+
+## Installation/安装
+
+- Download install/下载安装
+	
+	```HTML
+	<script type="text/javascript" src="easy.templatejs.min.js"></script>
+	```
+
+- Bower install/Bower 安装
+
+	```BASH
+	bower install easytemplatejs --save
+	```
+	
+	```HTML
+	<script src="bower_components/easytemplate/dist/easy.templatejs.min.js" type="text/javascript" charset="utf-8"></script>
+	```
+	
+- Npm install/Npm 安装
+
+	```BASH
+	npm install easytemplatejs
+	```
+	
+	```JS
+	var Et = require('easytemplatejs');
+	```
 
 
 ## Use document/使用文档

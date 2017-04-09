@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>C:\Users\easyp\Documents\HBuilderProjects\easytemplate\doc\.readme_zh_CN.md.html</title>
+<title>E:\360data\重要数据\我的文档\HBuilderProject\easytemplatejs\doc\.readme_zh_CN.md.html</title>
 
 
 <style type="text/css">
@@ -642,7 +642,7 @@ function setDocumentScrollTop(ypos)
 <h1> <a id="easytemplatejs-模板引擎使用手册" class="anchor" href="#easytemplatejs-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS 模板引擎使用手册</h1> 
 <p><strong>EasyTemplateJS（EasyTemplate JavaScript）是一款小巧，纯粹，高性能的 JavaScript 模板引擎。</strong></p> 
 <p>JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 <code>HTML</code> 字符串带来的不便和低维护性的缺点，利用反向思路，在 <code>HTML</code> 中嵌入 JavaScript 脚本，就像利用 <code>JSP</code> 和 <code>ASP</code> 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。</p> 
-<p>The latest version: <code>2.1.0-RELEASE</code></p> 
+<p>The latest version: <code>2.1.1-RELEASE</code></p> 
 <h2> <a id="特点" class="anchor" href="#%E7%89%B9%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>特点</h2> 
 <ul> 
  <li><p>小巧，纯粹</p></li> 
@@ -663,12 +663,19 @@ function setDocumentScrollTop(ypos)
   <div class="highlight highlight-text-html-basic">
    <pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>easy.templatejs.min.js<span class="pl-pds">&quot;</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre>
   </div> </li> 
- <li> <p>Bower 安装</p> 
+ <li> <p>安装</p> 
   <div class="highlight highlight-source-shell">
    <pre>bower install easytemplatejs --save</pre>
   </div> 
   <div class="highlight highlight-text-html-basic">
    <pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>bower_components/easytemplate/dist/easy.templatejs.min.js<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>utf-8<span class="pl-pds">&quot;</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre>
+  </div> </li> 
+ <li> <p>Npm 安装</p> 
+  <div class="highlight highlight-source-shell">
+   <pre>npm install easytemplatejs</pre>
+  </div> 
+  <div class="highlight highlight-source-js">
+   <pre><span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);</pre>
   </div> </li> 
 </ul> 
 <h3> <a id="2-templatejs-模板表达式" class="anchor" href="#2-templatejs-%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. TemplateJS 模板表达式</h3> 
@@ -753,7 +760,7 @@ function setDocumentScrollTop(ypos)
 <span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span>&gt;</span>
 <span class="pl-s1">    <span class="pl-c"><span class="pl-c">//</span>借助了jQuery</span></span>
 <span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-k">function</span>(){</span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">&lt;!--</span> 使用模板 --&gt;</span></span>
+<span class="pl-s1">        <span class="pl-c"><span class="pl-c">&lt;!--</span></span> 使用模板  <span class="pl-c"><span class="pl-c">--&gt;</span></span></span>
 <span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> temp demo</span></span>
 <span class="pl-s1">        <span class="pl-k">var</span> tmpl <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>();</span>
 <span class="pl-s1">        <span class="pl-k">var</span> res5 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl, {</span>
@@ -867,13 +874,13 @@ function setDocumentScrollTop(ypos)
 <ul> 
  <li> <p>核心函数</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c"><span class="pl-c">/**</span></span>
+   <pre><span class="pl-c">/**</span>
 <span class="pl-c"> * 模板引擎编译核心函数</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">tmplText</span> 模板代码</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">data</span> 模板数据；可选</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Et.tmplSettings}</span> <span class="pl-smi">settings</span> 引擎动态控制参数；可选</span>
 <span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String|function}</span> 如果 data 不为空，则返回 String 渲染结果；否则，返回一个编译后的 function 渲染函数</span>
-<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-c"> */</span>
 <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmplText, data, settings);</pre>
   </div> </li> 
  <li> <p>模板闭合标签自定义(<code>5. 模板表达式闭合标签自定义</code>)</p> 
@@ -882,38 +889,38 @@ function setDocumentScrollTop(ypos)
   </div> </li> 
  <li> <p>将字符串中的特殊字符转义为字符实体，并返回</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c"><span class="pl-c">/**</span></span>
+   <pre><span class="pl-c">/**</span>
 <span class="pl-c"> * 将字符串中的特殊字符转义为字符实体，并返回</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">text</span> 字符串</span>
 <span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> 转意后的字符串</span>
-<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-c"> */</span>
 <span class="pl-smi">Et</span>.<span class="pl-en">escape</span>(text);</pre>
   </div> </li> 
  <li> <p>escape的反向操作函数，将字符串中的字符实体转移为字符，并返回</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c"><span class="pl-c">/**</span></span>
+   <pre><span class="pl-c">/**</span>
 <span class="pl-c"> * escape的反向操作函数，将字符串中的字符实体转移为字符，并返回</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{text}</span> <span class="pl-smi">string</span> 字符串</span>
 <span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> 转意后的字符串</span>
-<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-c"> */</span>
 <span class="pl-smi">Et</span>.<span class="pl-en">unescape</span>(text);</pre>
   </div> </li> 
  <li> <p>遍历集合或对象</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c"><span class="pl-c">/**</span></span>
+   <pre><span class="pl-c">/**</span>
 <span class="pl-c"> * 遍历集合或对象。</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">obj</span> 要遍历的集合或对象</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{function}</span> <span class="pl-smi">iterator</span> 迭代函数，包括值、索引、集合对象三个参数</span>
 <span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">context</span> 将iterator绑定到context上执行，可用来向iteraotr传递一些其他元素</span>
-<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-c"> */</span>
  <span class="pl-smi">Et</span>.<span class="pl-en">each</span>(list, iterator, [context]);</pre>
   </div> </li> 
  <li> <p>将 <code>Et</code> 引用的对象还原为原始对象，并返回 <code>Et</code> 对象。</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c"><span class="pl-c">/**</span></span>
+   <pre><span class="pl-c">/**</span>
 <span class="pl-c"> * 排除冲突</span>
 <span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{Et}</span> Et 对象</span>
-<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-c"> */</span>
 <span class="pl-smi">Et</span>.<span class="pl-en">noConflict</span>();</pre>
   </div> </li> 
 </ul> 

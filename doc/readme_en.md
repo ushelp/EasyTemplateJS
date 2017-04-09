@@ -4,7 +4,7 @@
 
 JavaScript template engine as the data and interface separation of the most important part. Using JavaScript template functions to avoid the inconvenience and low maintenance of splicing `HTML` strings in JavaScript, embedding JavaScript scripts in` HTML` as opposed to using `JSP` and` ASP` Technical programming. EasyTemplate provides an ultra-high-performance rendering engine that uses template technology in JavaScript to simplify operations and enhance program design flexibility.
 
-The latest version: `2.1.0-RELEASE`
+The latest version: `2.1.1-RELEASE`
 
 
 ## Feature
@@ -35,7 +35,7 @@ From the rendering performance, **EasyTemplate** and artTemplate are using pre-s
 
 ### 1. Download
 
--  Download, install
+- Download install
 	
 	```HTML
 	<script type="text/javascript" src="easy.templatejs.min.js"></script>
@@ -49,6 +49,16 @@ From the rendering performance, **EasyTemplate** and artTemplate are using pre-s
 	
 	```HTML
 	<script src="bower_components/easytemplate/dist/easy.templatejs.min.js" type="text/javascript" charset="utf-8"></script>
+	```
+	
+- Npm install
+
+	```BASH
+	npm install easytemplatejs
+	```
+	
+	```JS
+	var Et = require('easytemplatejs');
 	```
 
 

@@ -5,7 +5,7 @@
 
 JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 `HTML` 字符串带来的不便和低维护性的缺点，利用反向思路，在 `HTML` 中嵌入 JavaScript 脚本，就像利用 `JSP` 和 `ASP` 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。
 
-The latest version: `2.1.0-RELEASE`
+The latest version: `2.1.1-RELEASE`
 
 
 ## 特点
@@ -42,7 +42,7 @@ The latest version: `2.1.0-RELEASE`
 	<script type="text/javascript" src="easy.templatejs.min.js"></script>
 	```
 
-- Bower 安装
+- 安装
 
 	```BASH
 	bower install easytemplatejs --save
@@ -50,6 +50,16 @@ The latest version: `2.1.0-RELEASE`
 	
 	```HTML
 	<script src="bower_components/easytemplate/dist/easy.templatejs.min.js" type="text/javascript" charset="utf-8"></script>
+	```
+	
+- Npm 安装
+
+	```BASH
+	npm install easytemplatejs
+	```
+	
+	```JS
+	var Et = require('easytemplatejs');
 	```
 
 ### 2. TemplateJS 模板表达式
