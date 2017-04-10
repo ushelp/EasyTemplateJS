@@ -4,7 +4,7 @@
 
 **EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.**
 
-The latest version: `2.1.1-RELEASE`
+The latest version: `2.1.2-RELEASE`
 
 ## Feature/特点
 

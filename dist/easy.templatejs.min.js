@@ -1,7 +1,7 @@
 /**
  * EasyTemplate
  * 
- * Version 2.1.1
+ * Version 2.1.2
  * 
  * http://easyproject.cn 
  * https://github.com/ushelp
