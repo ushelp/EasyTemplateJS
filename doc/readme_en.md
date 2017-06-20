@@ -384,6 +384,11 @@ console.info(
 		console.info(res2);
 	});
 	```
+	
+## Use EasyTemplateJS in Express 
+
+[Express documentation](express_en.md)
+
 
 
 ## END

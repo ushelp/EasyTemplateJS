@@ -106,9 +106,9 @@ app.set('view engine', 'etj') // register the template engine
 
 ## Documenation
 
-[EasyTemplateJS English detailed documentation](doc/readme_en.md)
+[EasyTemplateJS English detailed documentation](readme_en.md)
 
-[EasyTemplateJS 中文详细使用文档](doc/readme_zh_CN.md)
+[EasyTemplateJS 中文详细使用文档](readme_zh_CN.md)
 
 
 ## END

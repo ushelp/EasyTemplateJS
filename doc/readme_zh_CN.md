@@ -390,6 +390,10 @@ console.info(
 	});
 	```
 
+## 在 Express 框架中使用 EasyTemplateJS 
+
+[Express 使用文档](express_zh_CN.md)
+
 
 
 ## 结束
