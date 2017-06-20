@@ -5,7 +5,7 @@
 
 JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 `HTML` 字符串带来的不便和低维护性的缺点，利用反向思路，在 `HTML` 中嵌入 JavaScript 脚本，就像利用 `JSP` 和 `ASP` 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。
 
-The latest version: `2.1.2-RELEASE`
+The latest version: `2.1.3-RELEASE`
 
 
 ## 特点
@@ -23,7 +23,11 @@ The latest version: `2.1.2-RELEASE`
 - 模块化支持：`CommonJS`, `AMD`, `CMD`, `Node.js`
 
 - Bower 支持
+	
+- Node.js Express 框架支持
 
+- NPM, Bower 支持
+	
 
 ## Performance test comparison/性能测试对比
 

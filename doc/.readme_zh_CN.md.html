@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>E:\360data\重要数据\我的文档\HBuilderProject\easytemplatejs\doc\.readme_zh_CN.md.html</title>
+<title>C:\Users\Administrator\Documents\HBuilderProject\EasyTemplateJS\doc\.readme_zh_CN.md.html</title>
 
 
 <style type="text/css">
@@ -642,16 +642,18 @@ function setDocumentScrollTop(ypos)
 <h1> <a id="easytemplatejs-模板引擎使用手册" class="anchor" href="#easytemplatejs-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS 模板引擎使用手册</h1> 
 <p><strong>EasyTemplateJS（EasyTemplate JavaScript）是一款小巧，纯粹，高性能的 JavaScript 模板引擎。</strong></p> 
 <p>JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 <code>HTML</code> 字符串带来的不便和低维护性的缺点，利用反向思路，在 <code>HTML</code> 中嵌入 JavaScript 脚本，就像利用 <code>JSP</code> 和 <code>ASP</code> 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。</p> 
-<p>The latest version: <code>2.1.2-RELEASE</code></p> 
+<p>The latest version: <code>2.1.3-RELEASE</code></p> 
 <h2> <a id="特点" class="anchor" href="#%E7%89%B9%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>特点</h2> 
 <ul> 
- <li><p>小巧，纯粹</p></li> 
- <li><p>预先静态编译，高性能</p></li> 
- <li><p>灵活自定义</p></li> 
- <li><p>支持转义输出表达式</p></li> 
- <li><p>支持 out 输出</p></li> 
- <li><p>模块化支持：<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p></li> 
- <li><p>Bower 支持</p></li> 
+ <li> <p>小巧，纯粹</p> </li> 
+ <li> <p>预先静态编译，高性能</p> </li> 
+ <li> <p>灵活自定义</p> </li> 
+ <li> <p>支持转义输出表达式</p> </li> 
+ <li> <p>支持 out 输出</p> </li> 
+ <li> <p>模块化支持：<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p> </li> 
+ <li> <p>Bower 支持</p> </li> 
+ <li> <p>Node.js Express 框架支持</p> </li> 
+ <li> <p>NPM, Bower 支持</p> </li> 
 </ul> 
 <h2> <a id="performance-test-comparison性能测试对比" class="anchor" href="#performance-test-comparison%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%AF%B9%E6%AF%94" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Performance test comparison/性能测试对比</h2> 
 <p>从渲染性能上来说， <strong>EasyTemplateJS</strong> 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些实现较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。</p> 
@@ -661,35 +663,44 @@ function setDocumentScrollTop(ypos)
 <ul> 
  <li> <p>下载安装</p> 
   <div class="highlight highlight-text-html-basic">
-   <pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>easy.templatejs.min.js<span class="pl-pds">&quot;</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre>
+   <pre> &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>easy.templatejs.min.js<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
   </div> </li> 
  <li> <p>安装</p> 
   <div class="highlight highlight-source-shell">
-   <pre>bower install easytemplatejs --save</pre>
+   <pre> bower install easytemplatejs --save</pre>
   </div> 
   <div class="highlight highlight-text-html-basic">
-   <pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>bower_components/easytemplate/dist/easy.templatejs.min.js<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>utf-8<span class="pl-pds">&quot;</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre>
+   <pre> &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>bower_components/easytemplate/dist/easy.templatejs.min.js<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>utf-8<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
   </div> </li> 
  <li> <p>Npm 安装</p> 
   <div class="highlight highlight-source-shell">
-   <pre>npm install easytemplatejs</pre>
+   <pre> npm install easytemplatejs</pre>
   </div> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);</pre>
+   <pre> <span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);</pre>
   </div> </li> 
 </ul> 
 <h3> <a id="2-templatejs-模板表达式" class="anchor" href="#2-templatejs-%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. TemplateJS 模板表达式</h3> 
 <p>TemplateJS 支持三类模板表达式，表达式不允许嵌套或交叉:</p> 
 <ol> 
- <li> <p><strong>脚本表达式</strong></p> <p><code>%{ JavaScript Script }%</code>： 执行任意的 JavaScript 代码（作用JSP的<code>&lt;% %&gt;</code>小脚本相同），JS脚本中的 <code>&lt;</code>、<code>&gt;</code> 等特殊符号，也可使用对应字符实体代替。</p> </li> 
- <li> <p><strong>输出表达式</strong></p> <p><code>{expression}</code>： 插入要输出的变量（作用与 JSP 的 <code>&lt;%=expression%&gt;</code> 相同）。</p> </li> 
- <li> <p><strong>转义输出表达式</strong></p> <p><code>{-expression}</code>： 用法与<code>{expression}</code>相同，输出数据时会自动转义特殊字符为字符实体。</p> </li> 
+ <li><strong>脚本表达式</strong></li> 
 </ol> 
+<p><code>%{ JavaScript Script }%</code>： 执行任意的 JavaScript 代码（作用JSP的<code>&lt;% %&gt;</code>小脚本相同），JS脚本中的 <code>&lt;</code>、<code>&gt;</code> 等特殊符号，也可使用对应字符实体代替。</p> 
+<ol start="2"> 
+ <li><strong>输出表达式</strong></li> 
+</ol> 
+<p><code>{expression}</code>： 插入要输出的变量（作用与 JSP 的 <code>&lt;%=expression%&gt;</code> 相同）。</p> 
+<ol start="3"> 
+ <li><strong>转义输出表达式</strong></li> 
+</ol> 
+<p><code>{-expression}</code>： 用法与<code>{expression}</code>相同，输出数据时会自动转义特殊字符为字符实体。</p> 
 <ul> 
- <li> <p><strong>为什么选择 %{}%， {} 作为闭合标签？</strong></p> <p>EasyTemplateJS 没有选择常用的 <code>&lt;%%&gt;</code> 或 <code>${}</code> 作为模板引擎的默认闭合标签，因为在 <code>JSP</code>，<code>ASP</code> 等动态页面中，<code>&lt;%%&gt;</code>，<code>${}</code> 都本身是动态特殊标记，当在 <code>JSP</code> 页面定义模板标签时，会对 <code>JSP</code> 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 <code>%{}%</code> <code>{}</code>。</p> <p>尽管如此，但是如果您更喜欢使用 <code>&lt;%%&gt;</code> 或 <code>${}</code>，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 <code>&lt;%%&gt;</code>，以兼容你旧的模板代码。 (<code>参考 5. 模板表达式闭合标签自定义</code>)</p> </li> 
+ <li><strong>为什么选择 %{}%， {} 作为闭合标签？</strong></li> 
 </ul> 
+<p>EasyTemplateJS 没有选择常用的 <code>&lt;%%&gt;</code> 或 <code>${}</code> 作为模板引擎的默认闭合标签，因为在 <code>JSP</code>，<code>ASP</code> 等动态页面中，<code>&lt;%%&gt;</code>，<code>${}</code> 都本身是动态特殊标记，当在 <code>JSP</code> 页面定义模板标签时，会对 <code>JSP</code> 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 <code>%{}%</code> <code>{}</code>。</p> 
+<p>尽管如此，但是如果您更喜欢使用 <code>&lt;%%&gt;</code> 或 <code>${}</code>，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 <code>&lt;%%&gt;</code>，以兼容你旧的模板代码。 (<code>参考 5. 模板表达式闭合标签自定义</code>)</p> 
 <h3> <a id="3-使用实例" class="anchor" href="#3-%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. 使用实例</h3> 
-<p>EasyTemplateJS 向外暴露了一个名为<strong><code>Et</code></strong>的对象，用来完成模板操作。</p> 
+<p>EasyTemplateJS 向外暴露了一个名为**<code>Et</code>**的对象，用来完成模板操作。</p> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-c"><span class="pl-c">//</span> 1. 直接执行模板</span>
 <span class="pl-k">var</span> result <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmplText, data);
@@ -704,109 +715,109 @@ function setDocumentScrollTop(ypos)
 <ul> 
  <li> <p>模板基本示例</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
-<span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
-<span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
-});
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res); <span class="pl-c"><span class="pl-c">//</span> hello: MoMo, MoMo</span>
+   <pre> <span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
+ <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
+ <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
+ });
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res); <span class="pl-c"><span class="pl-c">//</span> hello: MoMo, MoMo</span>
+ 
+ <span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
+ <span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
+ }); 
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2); <span class="pl-c"><span class="pl-c">//</span> hello: &lt;MoMo&gt;, &amp;lt;MoMo&amp;gt;</span>
+ 
+ 
+ <span class="pl-c"><span class="pl-c">//</span> Test escape (Special label)</span>
+ <span class="pl-k">var</span> compiled2 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>&lt;u&gt;{- value }&lt;/u&gt;<span class="pl-pds">&quot;</span></span>);
+ <span class="pl-k">var</span> res3 <span class="pl-k">=</span> <span class="pl-en">compiled2</span>({
+ 	value<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script&gt;<span class="pl-pds">'</span></span>
+ });
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res3); <span class="pl-c"><span class="pl-c">//</span> &lt;u&gt;&amp;lt;script&amp;gt;&lt;/u&gt;</span>
 
-<span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
-<span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
-}); 
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2); <span class="pl-c"><span class="pl-c">//</span> hello: &lt;MoMo&gt;, &amp;lt;MoMo&amp;gt;</span>
 
-
-<span class="pl-c"><span class="pl-c">//</span> Test escape (Special label)</span>
-<span class="pl-k">var</span> compiled2 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>&lt;u&gt;{- value }&lt;/u&gt;<span class="pl-pds">&quot;</span></span>);
-<span class="pl-k">var</span> res3 <span class="pl-k">=</span> <span class="pl-en">compiled2</span>({
-    value<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script&gt;<span class="pl-pds">'</span></span>
-});
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res3); <span class="pl-c"><span class="pl-c">//</span> &lt;u&gt;&amp;lt;script&amp;gt;&lt;/u&gt;</span>
-
-
-<span class="pl-k">var</span> res4 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>%{ out('Hello: '+name); }%<span class="pl-pds">&quot;</span></span>, {
-    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
-});
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res4); <span class="pl-c"><span class="pl-c">//</span>Hello: JACK</span></pre>
+ <span class="pl-k">var</span> res4 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>%{ out('Hello: '+name); }%<span class="pl-pds">&quot;</span></span>, {
+ 	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
+ });
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res4); <span class="pl-c"><span class="pl-c">//</span>Hello: JACK</span></pre>
   </div> </li> 
  <li> <p>HTML 模板示例</p> 
   <div class="highlight highlight-text-html-basic">
-   <pre><span class="pl-c"><span class="pl-c">&lt;!--</span> 普通模板 <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ for(var i in people){ }%
-        &lt;<span class="pl-ent">li</span>&gt;{i} = { people[i] }&lt;/<span class="pl-ent">li</span>&gt;
-    %{ } }%
-&lt;/<span class="pl-ent">script</span>&gt;
+   <pre> <span class="pl-c"><span class="pl-c">&lt;!--</span> 普通模板 <span class="pl-c">--&gt;</span></span>
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	%{ for(var i in people){ }%</span>
+<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 	%{ } }%</span>
+<span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
-<span class="pl-c"><span class="pl-c">&lt;!--</span> 使用HTML定义模板内容时，如果有&lt;、&gt;等特殊内容，可以使用对应字符实体代替 <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl2<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ for(var i=0; i <span class="pl-c1">&amp;lt;</span> people.length; i++){ }%
-        &lt;<span class="pl-ent">li</span>&gt;{i} = { people[i] }&lt;/<span class="pl-ent">li</span>&gt;
-    %{ } }%
-&lt;/<span class="pl-ent">script</span>&gt;
+ <span class="pl-c"><span class="pl-c">&lt;!--</span> 使用HTML定义模板内容时，如果有&lt;、&gt;等特殊内容，可以使用对应字符实体代替 <span class="pl-c">--&gt;</span></span>
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl2<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	%{ for(var i=0; i &amp;lt; people.length; i++){ }%</span>
+<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 	%{ } }%</span>
+<span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
-<span class="pl-c"><span class="pl-c">&lt;!--</span> 使用 out 输出 <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ 
-        for(var i=0; i &lt; people.length; i++){ 
-            out( &quot;&lt;<span class="pl-ent">li</span>&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/<span class="pl-ent">li</span>&gt; &quot;); 
-        } 
-    }% 
-&lt;/<span class="pl-ent">script</span>&gt;
-
-
-<span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span>&gt;</span>
-<span class="pl-s1">    <span class="pl-c"><span class="pl-c">//</span>借助了jQuery</span></span>
-<span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-k">function</span>(){</span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">&lt;!--</span></span> 使用模板  <span class="pl-c"><span class="pl-c">--&gt;</span></span></span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> temp demo</span></span>
-<span class="pl-s1">        <span class="pl-k">var</span> tmpl <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>();</span>
-<span class="pl-s1">        <span class="pl-k">var</span> res5 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl, {</span>
-<span class="pl-s1">            people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
-<span class="pl-s1">        });</span>
-<span class="pl-s1">        <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res5);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> temp2 demo</span></span>
-<span class="pl-s1">        <span class="pl-k">var</span> tmpl2 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl2<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
-<span class="pl-s1">        <span class="pl-k">var</span> res6 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl2, {</span>
-<span class="pl-s1">            people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
-<span class="pl-s1">        });</span>
-<span class="pl-s1">        <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res6);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> temp3 demo</span></span>
-<span class="pl-s1">        <span class="pl-k">var</span> tmpl3 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl3<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
-<span class="pl-s1">        <span class="pl-k">var</span> res7 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl3, {</span>
-<span class="pl-s1">            people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
-<span class="pl-s1">        });</span>
-<span class="pl-s1">        <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res7);</span>
-<span class="pl-s1">    });</span>
-<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre>
+ <span class="pl-c"><span class="pl-c">&lt;!--</span> 使用 out 输出 <span class="pl-c">--&gt;</span></span>
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	%{ </span>
+<span class="pl-s1"> 		for(var i=0; i &lt; people.length; i++){ </span>
+<span class="pl-s1"> 			out( &quot;&lt;li&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/li&gt; &quot;); </span>
+<span class="pl-s1"> 		} </span>
+<span class="pl-s1"> 	}% </span>
+<span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
+ 
+ 
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	<span class="pl-c"><span class="pl-c">//</span>借助了jQuery</span></span>
+<span class="pl-s1">     <span class="pl-en">$</span>(<span class="pl-k">function</span>(){</span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">&lt;!--</span></span> 使用模板  <span class="pl-c"><span class="pl-c">--&gt;</span></span></span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">//</span> temp demo</span></span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> tmpl <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>();</span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> res5 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl, {</span>
+<span class="pl-s1"> 			people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
+<span class="pl-s1"> 		});</span>
+<span class="pl-s1"> 		<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res5);</span>
+<span class="pl-s1"> 	</span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">//</span> temp2 demo</span></span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> tmpl2 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl2<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> res6 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl2, {</span>
+<span class="pl-s1"> 			people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
+<span class="pl-s1"> 		});</span>
+<span class="pl-s1"> 		<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res6);</span>
+<span class="pl-s1"> 	</span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">//</span> temp3 demo</span></span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> tmpl3 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl3<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> res7 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl3, {</span>
+<span class="pl-s1"> 			people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
+<span class="pl-s1"> 		});</span>
+<span class="pl-s1"> 		<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res7);</span>
+<span class="pl-s1"> 	});</span>
+<span class="pl-s1"> </span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
   </div> <p>输出结果：</p> 
   <div class="highlight highlight-text-html-basic">
-   <pre>&lt;<span class="pl-ent">li</span>&gt;0 = MoMo&lt;/<span class="pl-ent">li</span>&gt;      
-&lt;<span class="pl-ent">li</span>&gt;1 = Joy&lt;/<span class="pl-ent">li</span>&gt;    
-&lt;<span class="pl-ent">li</span>&gt;2 = Ray&lt;/<span class="pl-ent">li</span>&gt;          </pre>
+   <pre> &lt;<span class="pl-ent">li</span>&gt;0 = MoMo&lt;/<span class="pl-ent">li</span>&gt;      
+ &lt;<span class="pl-ent">li</span>&gt;1 = Joy&lt;/<span class="pl-ent">li</span>&gt;    
+ &lt;<span class="pl-ent">li</span>&gt;2 = Ray&lt;/<span class="pl-ent">li</span>&gt;          </pre>
   </div> </li> 
 </ul> 
 <h3> <a id="4-使用-out-输出信息" class="anchor" href="#4-%E4%BD%BF%E7%94%A8-out-%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. 使用 out 输出信息</h3> 
 <p>您也可以在JavaScript代码中使用 <code>out</code> 函数输出信息，这样不用断开您的代码块，有时候这会比使用 <code>{name}</code> 更方便清晰。</p> 
 <div class="highlight highlight-text-html-basic">
  <pre><span class="pl-c"><span class="pl-c">&lt;!--</span> 使用 out 输出 <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ 
-        for(var i=0; i &lt; people.length; i++){ 
-            // out function
-            out( &quot;&lt;<span class="pl-ent">li</span>&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/<span class="pl-ent">li</span>&gt; &quot;); 
-        } 
-    }% 
-&lt;/<span class="pl-ent">script</span>&gt;</pre>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1">	%{ </span>
+<span class="pl-s1">		for(var i=0; i &lt; people.length; i++){ </span>
+<span class="pl-s1">			// out function</span>
+<span class="pl-s1">			out( &quot;&lt;li&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/li&gt; &quot;); </span>
+<span class="pl-s1">		} </span>
+<span class="pl-s1">	}% </span>
+<span class="pl-s1"></span>&lt;/<span class="pl-ent">script</span>&gt;</pre>
 </div> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-k">var</span> res4 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>%{ out('Hello: '+name); }%<span class="pl-pds">&quot;</span></span>, {
-        name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
-    });
+		name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
+	});
 <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res4); <span class="pl-c"><span class="pl-c">//</span>Hello: JACK</span></pre>
 </div> 
 <h3> <a id="5-模板表达式闭合标签自定义" class="anchor" href="#5-%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%AD%E5%90%88%E6%A0%87%E7%AD%BE%E8%87%AA%E5%AE%9A%E4%B9%89" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. 模板表达式闭合标签自定义</h3> 
@@ -814,21 +825,21 @@ function setDocumentScrollTop(ypos)
 <blockquote> 
  <p><strong>为什么选择 %{}%， {} 作为闭合标签？</strong></p> 
  <p>EasyTemplateJS 没有选择常用的 <code>&lt;%%&gt;</code> 或 <code>${}</code> 作为模板引擎的默认闭合标签，因为在 <code>JSP</code>，<code>ASP</code> 等动态页面中，<code>&lt;%%&gt;</code>，<code>${}</code> 都本身是动态特殊标记，当在 <code>JSP</code> 页面定义模板标签时，会对 <code>JSP</code> 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 <code>%{}%</code> <code>{}</code>。</p> 
- <p>尽管如此，但是如果您更喜欢使用 <code>&lt;%%&gt;</code> 或 <code>${}</code>，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 <code>&lt;%%&gt;</code>，以兼容你旧的模板代码。 </p> 
+ <p>尽管如此，但是如果您更喜欢使用 <code>&lt;%%&gt;</code> 或 <code>${}</code>，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 <code>&lt;%%&gt;</code>，以兼容你旧的模板代码。</p> 
 </blockquote> 
 <p><strong>注意：</strong> 如果您绝对修改模板表达式的闭合标签，您需要小心检查您的定义逻辑是否合理。</p> 
 <p><code>Et.tmplSettings</code> 默认配置：</p> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-smi">Et</span>.<span class="pl-smi">tmplSettings</span><span class="pl-k">=</span>{
-    <span class="pl-c"><span class="pl-c">//</span> 脚本表达式开始结束标记%{ JS script }%</span>
-    scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%{<span class="pl-pds">&quot;</span></span>,
-    scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}%<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> 输出表达式开始结束标记 {name}</span>
-    outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{<span class="pl-pds">&quot;</span></span>,
-    outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> 转义输出表达式开始结束标记 {-name}</span>
-    escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{-<span class="pl-pds">&quot;</span></span>,
-    escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>
+	<span class="pl-c"><span class="pl-c">//</span> 脚本表达式开始结束标记%{ JS script }%</span>
+	scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%{<span class="pl-pds">&quot;</span></span>,
+	scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}%<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> 输出表达式开始结束标记 {name}</span>
+	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{<span class="pl-pds">&quot;</span></span>,
+	outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> 转义输出表达式开始结束标记 {-name}</span>
+	escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{-<span class="pl-pds">&quot;</span></span>,
+	escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>
 }</pre>
 </div> 
 <p>重新定义示例：</p> 
@@ -836,15 +847,15 @@ function setDocumentScrollTop(ypos)
  <pre><span class="pl-c"><span class="pl-c">//</span> 修改脚本表达式开始结束标记</span>
 <span class="pl-k">var</span> userSettings<span class="pl-k">=</span>
 {
-    <span class="pl-c"><span class="pl-c">//</span> 脚本表达式开始结束标记 &lt;% JS script %&gt;</span>
-    scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%<span class="pl-pds">&quot;</span></span>,
-    scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> 输出表达式开始结束标记 &lt;%=name %&gt;</span>
-    outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%=<span class="pl-pds">&quot;</span></span>,
-    outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> 转义输出表达式开始结束标记 &lt;%-name %&gt;</span>
-    escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%-<span class="pl-pds">&quot;</span></span>,
-    escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>
+	<span class="pl-c"><span class="pl-c">//</span> 脚本表达式开始结束标记 &lt;% JS script %&gt;</span>
+	scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%<span class="pl-pds">&quot;</span></span>,
+	scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> 输出表达式开始结束标记 &lt;%=name %&gt;</span>
+	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%=<span class="pl-pds">&quot;</span></span>,
+	outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> 转义输出表达式开始结束标记 &lt;%-name %&gt;</span>
+	escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%-<span class="pl-pds">&quot;</span></span>,
+	escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>
 }</pre>
 </div> 
 <div class="highlight highlight-source-js">
@@ -853,101 +864,101 @@ function setDocumentScrollTop(ypos)
 
 <span class="pl-c"><span class="pl-c">//</span> 测试</span>
 <span class="pl-en">console</span>.<span class="pl-c1">info</span>(
-    <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
-        <span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
-        {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>} <span class="pl-c"><span class="pl-c">//</span> data</span>
-    )
-);          </pre>
+	<span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
+		<span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
+		{name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>} <span class="pl-c"><span class="pl-c">//</span> data</span>
+	)
+);			</pre>
 </div> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-c"><span class="pl-c">//</span> 局部修改测试</span>
 <span class="pl-en">console</span>.<span class="pl-c1">info</span>(
-    <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
-        <span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
-        {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>},                   <span class="pl-c"><span class="pl-c">//</span> data</span>
-        userSettings                        <span class="pl-c"><span class="pl-c">//</span>settings</span>
-    )
-);  </pre>
+	<span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
+		<span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
+		{name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>}, 					<span class="pl-c"><span class="pl-c">//</span> data</span>
+		userSettings 						<span class="pl-c"><span class="pl-c">//</span>settings</span>
+	)
+);	</pre>
 </div> 
 <h3> <a id="6-api" class="anchor" href="#6-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. API</h3> 
 <p><code>Et</code> 暴露了有限的几个 API:</p> 
 <ul> 
  <li> <p>核心函数</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * 模板引擎编译核心函数</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">tmplText</span> 模板代码</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">data</span> 模板数据；可选</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Et.tmplSettings}</span> <span class="pl-smi">settings</span> 引擎动态控制参数；可选</span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String|function}</span> 如果 data 不为空，则返回 String 渲染结果；否则，返回一个编译后的 function 渲染函数</span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmplText, data, settings);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * 模板引擎编译核心函数</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">tmplText</span> 模板代码</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">data</span> 模板数据；可选</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Et.tmplSettings}</span> <span class="pl-smi">settings</span> 引擎动态控制参数；可选</span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{String|function}</span> 如果 data 不为空，则返回 String 渲染结果；否则，返回一个编译后的 function 渲染函数</span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmplText, data, settings);</pre>
   </div> </li> 
  <li> <p>模板闭合标签自定义(<code>5. 模板表达式闭合标签自定义</code>)</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-smi">Et</span>.<span class="pl-smi">tmplSettings</span> <span class="pl-k">=</span>{<span class="pl-k">...</span>}</pre>
+   <pre> <span class="pl-smi">Et</span>.<span class="pl-smi">tmplSettings</span> <span class="pl-k">=</span>{<span class="pl-k">...</span>}</pre>
   </div> </li> 
  <li> <p>将字符串中的特殊字符转义为字符实体，并返回</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * 将字符串中的特殊字符转义为字符实体，并返回</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">text</span> 字符串</span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> 转意后的字符串</span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">escape</span>(text);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * 将字符串中的特殊字符转义为字符实体，并返回</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">text</span> 字符串</span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> 转意后的字符串</span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">escape</span>(text);</pre>
   </div> </li> 
  <li> <p>escape的反向操作函数，将字符串中的字符实体转移为字符，并返回</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * escape的反向操作函数，将字符串中的字符实体转移为字符，并返回</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{text}</span> <span class="pl-smi">string</span> 字符串</span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> 转意后的字符串</span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">unescape</span>(text);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * escape的反向操作函数，将字符串中的字符实体转移为字符，并返回</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{text}</span> <span class="pl-smi">string</span> 字符串</span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> 转意后的字符串</span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">unescape</span>(text);</pre>
   </div> </li> 
  <li> <p>遍历集合或对象</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * 遍历集合或对象。</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">obj</span> 要遍历的集合或对象</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{function}</span> <span class="pl-smi">iterator</span> 迭代函数，包括值、索引、集合对象三个参数</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">context</span> 将iterator绑定到context上执行，可用来向iteraotr传递一些其他元素</span>
-<span class="pl-c"> */</span>
- <span class="pl-smi">Et</span>.<span class="pl-en">each</span>(list, iterator, [context]);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * 遍历集合或对象。</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">obj</span> 要遍历的集合或对象</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{function}</span> <span class="pl-smi">iterator</span> 迭代函数，包括值、索引、集合对象三个参数</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">context</span> 将iterator绑定到context上执行，可用来向iteraotr传递一些其他元素</span>
+<span class="pl-c">  */</span>
+  <span class="pl-smi">Et</span>.<span class="pl-en">each</span>(list, iterator, [context]);</pre>
   </div> </li> 
  <li> <p>将 <code>Et</code> 引用的对象还原为原始对象，并返回 <code>Et</code> 对象。</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * 排除冲突</span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{Et}</span> Et 对象</span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">noConflict</span>();</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * 排除冲突</span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{Et}</span> Et 对象</span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">noConflict</span>();</pre>
   </div> </li> 
 </ul> 
 <h2> <a id="模块化支持" class="anchor" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%94%AF%E6%8C%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>模块化支持</h2> 
 <ul> 
- <li> <p>AMD Example</p> 
+ <li>AMD Example 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-smi">require</span>.<span class="pl-en">config</span>({
-    <span class="pl-c"><span class="pl-c">//</span> 指定模块id 和其对应文件的相对路径</span>
-    paths<span class="pl-k">:</span> {
-        Et<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>js/easy.templatejs.min-2.1.0<span class="pl-pds">&quot;</span></span>
-    }
-});
+   <pre> <span class="pl-smi">require</span>.<span class="pl-en">config</span>({
+ 	<span class="pl-c"><span class="pl-c">//</span> 指定模块id 和其对应文件的相对路径</span>
+ 	paths<span class="pl-k">:</span> {
+ 		Et<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>js/easy.templatejs.min-2.1.0<span class="pl-pds">&quot;</span></span>
+ 	}
+ });
 
-<span class="pl-c1">require</span>([<span class="pl-s"><span class="pl-pds">&quot;</span>Et<span class="pl-pds">&quot;</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">Et</span>) {
-    <span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
-    <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
-    <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-        name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
-    });
-    <span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-        name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
-    }); <span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
-
-    <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res);
-    <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2);
-});</pre>
+ <span class="pl-c1">require</span>([<span class="pl-s"><span class="pl-pds">&quot;</span>Et<span class="pl-pds">&quot;</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">Et</span>) {
+ 	<span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
+ 	<span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
+ 	<span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 		name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
+ 	});
+ 	<span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 		name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
+ 	}); <span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
+ 	
+ 	<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res);
+ 	<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2);
+ });</pre>
   </div> </li> 
 </ul> 
 <h2> <a id="结束" class="anchor" href="#%E7%BB%93%E6%9D%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>结束</h2> 

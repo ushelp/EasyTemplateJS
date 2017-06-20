@@ -3,7 +3,7 @@
   "authors": [
     "Ray <inthinkcolor@gmail.com>"
   ],
-  "description": "Small, pure, high-performance JavaScript template engine.",
+  "description": "Small, pure, high-performance JavaScript template engine. Support:`CommonJS`, `AMD`, `CMD`, `Node.js`, `Express`.",
   "main": "dist/easy.templatejs.min.js",
   "keywords": [
     "easytemplate",

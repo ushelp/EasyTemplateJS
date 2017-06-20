@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>C:\Users\Administrator\Documents\HBuilderProject\EasyTemplateJS\.readme.md.html</title>
+<title>C:\Users\Administrator\Documents\HBuilderProject\EasyTemplateJS\doc\.express_en.md.html</title>
 
 
 <style type="text/css">
@@ -639,80 +639,109 @@ function setDocumentScrollTop(ypos)
 
 </head>
 <body class="markdown-body">
-<h1> <a id="easytemplatejs" class="anchor" href="#easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS</h1> 
-<p><strong>EasyTemplateJS（EasyTemplate JavaScript）是一款小巧，纯粹，高性能的 JavaScript 模板引擎。</strong></p> 
-<p><strong>EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.</strong></p> 
-<p>The latest version: <code>2.1.3-RELEASE</code></p> 
-<h2> <a id="feature特点" class="anchor" href="#feature%E7%89%B9%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature/特点</h2> 
+<h1> <a id="easytemplatejs-express-manual" class="anchor" href="#easytemplatejs-express-manual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS Express manual</h1> 
+<p>Express's <code>res.render</code> support page rendering based on various template engines, just write the code and register the corresponding template engine with <code>app.engine</code>.</p> 
+<p>Pug and other template engine with a custom language, the need for high learning costs, and the need for internal transformation of the template template.</p> 
+<p>EasyTemplateJS is based on native HTML and JavaScript for template compilation and rendering. To maximize the advantages of EasyTemplateJS high performance, compact and easy to use.</p> 
+<h2> <a id="steps-for-usage" class="anchor" href="#steps-for-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Steps for usage</h2> 
+<h3> <a id="1-installation-easytemplatejs" class="anchor" href="#1-installation-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Installation EasyTemplateJS</h3> 
+<pre><code>npm install easytemplatejs –save
+</code></pre> 
+<h3> <a id="2-register-the-easytemplatejs-rendering-engine" class="anchor" href="#2-register-the-easytemplatejs-rendering-engine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Register the EasyTemplateJS Rendering Engine</h3> 
+<p>Copy the code into <code>app.js</code> with the default template engine extension <code>.etj</code>.</p> 
 <ul> 
- <li> <p><strong>中文</strong></p> 
-  <ul> 
-   <li> <p>小巧，纯粹</p> </li> 
-   <li> <p>预先静态编译，高性能</p> </li> 
-   <li> <p>灵活自定义</p> </li> 
-   <li> <p>支持转义输出表达式</p> </li> 
-   <li> <p>支持 out 输出</p> </li> 
-   <li> <p>模块化支持：<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p> </li> 
-   <li> <p>Node.js Express 框架支持</p> </li> 
-   <li> <p>NPM, Bower 支持</p> </li> 
-  </ul> </li> 
- <li> <p><strong>English</strong></p> 
-  <ul> 
-   <li> <p>Small, pure</p> </li> 
-   <li> <p>Pre-statically compiled, high-performance</p> </li> 
-   <li> <p>Flexible customization</p> </li> 
-   <li> <p>Escape output expressions are supported</p> </li> 
-   <li> <p>Support out output</p> </li> 
-   <li> <p>Module support:<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p> </li> 
-   <li> <p>Node.js Express Web Framework support</p> </li> 
-   <li> <p>Npm, Bower support</p> </li> 
-  </ul> </li> 
+ <li><strong>app.js</strong></li> 
 </ul> 
-<h2> <a id="performance-test-comparison性能测试对比" class="anchor" href="#performance-test-comparison%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%AF%B9%E6%AF%94" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Performance test comparison/性能测试对比</h2> 
-<p>从渲染性能上来说， <strong>EasyTemplateJS</strong> 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。</p> 
-<p>From the rendering performance, <strong>EasyTemplate</strong> and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact.</p> 
-<p><a href="doc/imgs/performance.png" target="_blank"><img src="doc/imgs/performance.png" alt="Performance test comparison" style="max-width:100%;" /></a></p> 
-<h2> <a id="installation安装" class="anchor" href="#installation%E5%AE%89%E8%A3%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation/安装</h2> 
+<div class="highlight highlight-source-js">
+ <pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>fs<span class="pl-pds">'</span></span>)   <span class="pl-c"><span class="pl-c">//</span> this engine requires the fs module</span>
+<span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> cache<span class="pl-k">=</span><span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> Whether to open the cache</span>
+<span class="pl-k">var</span> cacheTpl<span class="pl-k">=</span>{}; <span class="pl-c"><span class="pl-c">//</span> Cache data</span>
+
+<span class="pl-c"><span class="pl-c">//</span> define the template engine</span>
+<span class="pl-smi">app</span>.<span class="pl-en">engine</span>(<span class="pl-s"><span class="pl-pds">'</span>etj<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">filePath</span>, <span class="pl-smi">data</span>, <span class="pl-smi">callback</span>) {
+  <span class="pl-smi">fs</span>.<span class="pl-en">readFile</span>(filePath, <span class="pl-k">function</span> (<span class="pl-smi">err</span>, <span class="pl-smi">content</span>) {
+    <span class="pl-k">if</span> (err) <span class="pl-k">return</span> <span class="pl-en">callback</span>(err)
+    <span class="pl-k">var</span> compiled;
+    <span class="pl-c"><span class="pl-c">//</span> Cache controller</span>
+    <span class="pl-k">if</span>(cache){
+	    <span class="pl-k">if</span>(<span class="pl-k">!</span>cacheTpl[filePath]){
+	    	cacheTpl[filePath]<span class="pl-k">=</span><span class="pl-smi">Et</span>.<span class="pl-en">template</span>(content);
+	    }
+	    compiled<span class="pl-k">=</span>cacheTpl[filePath];
+    }<span class="pl-k">else</span>{
+    	<span class="pl-en">template</span>(content);
+    }
+    <span class="pl-k">var</span> rendered <span class="pl-k">=</span> <span class="pl-en">compiled</span>(data);
+    <span class="pl-k">return</span> <span class="pl-en">callback</span>(<span class="pl-c1">null</span>, rendered)
+  })
+})
+<span class="pl-smi">app</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>views<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./views<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">//</span> specify the views directory</span>
+<span class="pl-smi">app</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>view engine<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>etj<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">//</span> register the template engine</span></pre>
+</div> 
+<h3> <a id="3-使用" class="anchor" href="#3-%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. 使用</h3> 
 <ul> 
- <li> <p>Download install/下载安装</p> 
-  <div class="highlight highlight-text-html-basic">
-   <pre> &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>easy.templatejs.min.js<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
-  </div> </li> 
- <li> <p>Bower install/Bower 安装</p> 
-  <div class="highlight highlight-source-shell">
-   <pre> bower install easytemplatejs --save</pre>
-  </div> 
-  <div class="highlight highlight-text-html-basic">
-   <pre> &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>bower_components/easytemplate/dist/easy.templatejs.min.js<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>utf-8<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
-  </div> </li> 
- <li> <p>Npm install/Npm 安装</p> 
-  <div class="highlight highlight-source-shell">
-   <pre> npm install easytemplatejs</pre>
-  </div> 
+ <li> <p><strong>app.js</strong></p> 
   <div class="highlight highlight-source-js">
-   <pre> <span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);</pre>
+   <pre> <span class="pl-smi">app</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/index<span class="pl-pds">'</span></span>,<span class="pl-k">function</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>){
+ 	<span class="pl-smi">res</span>.<span class="pl-en">render</span>(<span class="pl-s"><span class="pl-pds">'</span>index<span class="pl-pds">'</span></span>, {name<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>Jay<span class="pl-pds">&quot;</span></span>});
+ })
+ 
+ <span class="pl-smi">app</span>.<span class="pl-c1">get</span>(<span class="pl-s"><span class="pl-pds">'</span>/users<span class="pl-pds">'</span></span>,<span class="pl-k">function</span>(<span class="pl-smi">req</span>, <span class="pl-smi">res</span>){
+ 	<span class="pl-smi">res</span>.<span class="pl-en">render</span>(<span class="pl-s"><span class="pl-pds">'</span>users<span class="pl-pds">'</span></span>, {
+ 		list<span class="pl-k">:</span>[
+ 			{name<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>Jay<span class="pl-pds">&quot;</span></span>, sex<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>M<span class="pl-pds">'</span></span>},
+ 			{name<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>Rose<span class="pl-pds">&quot;</span></span>, sex<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>F<span class="pl-pds">'</span></span>},
+ 			{name<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>Anna <span class="pl-pds">&quot;</span></span>, sex<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>F<span class="pl-pds">'</span></span>}
+ 		]
+ 	});
+ })</pre>
+  </div> </li> 
+ <li> <p><strong>view/index.etj</strong></p> 
+  <div class="highlight highlight-text-html-basic">
+   <pre> &lt;!DOCTYPE html&gt;
+ &lt;<span class="pl-ent">html</span>&gt;
+ 	&lt;<span class="pl-ent">head</span>&gt;
+ 		&lt;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>UTF-8<span class="pl-pds">&quot;</span></span>&gt;
+ 		&lt;<span class="pl-ent">title</span>&gt;Index&lt;/<span class="pl-ent">title</span>&gt;
+ 	&lt;/<span class="pl-ent">head</span>&gt;
+ 	&lt;<span class="pl-ent">body</span>&gt;
+ 		&lt;<span class="pl-ent">h1</span>&gt;Hello {name}!&lt;/<span class="pl-ent">h1</span>&gt;
+ 	&lt;/<span class="pl-ent">body</span>&gt;
+ &lt;/<span class="pl-ent">html</span>&gt;</pre>
+  </div> </li> 
+ <li> <p><strong>view/users.etj</strong></p> 
+  <div class="highlight highlight-text-html-basic">
+   <pre> &lt;!DOCTYPE HTML&gt;
+ &lt;<span class="pl-ent">html</span>&gt;
+ 	&lt;<span class="pl-ent">head</span>&gt;
+ 		&lt;<span class="pl-ent">title</span>&gt;User&lt;/<span class="pl-ent">title</span>&gt;
+ 	&lt;/<span class="pl-ent">head</span>&gt;
+ 	&lt;<span class="pl-ent">body</span>&gt;
+ 		&lt;<span class="pl-ent">h1</span>&gt;Users&lt;/<span class="pl-ent">h1</span>&gt;
+ 		&lt;<span class="pl-ent">ul</span>&gt;
+ 		%{
+ 			for(var i=0;i&lt;<span class="pl-ent">list</span>.<span class="pl-e">length</span>;<span class="pl-e">i</span>++){
+ 				<span class="pl-e">out</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;li&gt;<span class="pl-pds">'</span></span>+<span class="pl-e">list</span>[<span class="pl-e">i</span>].<span class="pl-e">name</span>+<span class="pl-s"><span class="pl-pds">&quot;</span>, <span class="pl-pds">&quot;</span></span>+<span class="pl-e">list</span>[<span class="pl-e">i</span>].<span class="pl-e">sex</span>+<span class="pl-s"><span class="pl-pds">'</span>&lt;/li&gt;<span class="pl-pds">'</span></span>);	
+ 			}
+ 		}%
+ 		&lt;/<span class="pl-e">ul</span>&gt;
+ 	&lt;/<span class="pl-ent">body</span>&gt;
+ &lt;/<span class="pl-ent">html</span>&gt;</pre>
   </div> </li> 
 </ul> 
-<h2> <a id="use-document使用文档" class="anchor" href="#use-document%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use document/使用文档</h2> 
-<h3> <a id="中文" class="anchor" href="#%E4%B8%AD%E6%96%87" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>中文</h3> 
-<p><a href="doc\.readme_zh_CN.md.html">中文详细使用文档</a></p> 
-<p><a href="doc\.express_zh_CN.md.html">Express 使用文档</a></p> 
-<p><a href="http://www.easyproject.cn/easytemplate/zh-cn/index.jsp" title="官方主页">官方主页</a></p> 
-<p><a href="http://www.easyproject.cn/easytemplate/zh-cn/index.jsp#donation" title="留言评论">留言评论</a></p> 
-<p>如果您有更好意见，建议或想法，请联系我。</p> 
-<h3> <a id="english" class="anchor" href="#english" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>English</h3> 
-<p><a href="doc\.readme_en.md.html">English detailed documentation</a></p> 
-<p><a href="doc\.express_en.md.html">Express documentation</a></p> 
-<p><a href="http://www.easyproject.cn/easytemplate/en/index.jsp" title="The official home page">The official home page</a></p> 
+<h2> <a id="documenation" class="anchor" href="#documenation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documenation</h2> 
+<p><a href="doc\.readme_en.md.html">EasyTemplateJS English detailed documentation</a></p> 
+<p><a href="doc\.readme_zh_CN.md.html">EasyTemplateJS 中文详细使用文档</a></p> 
+<h2> <a id="end" class="anchor" href="#end" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>END</h2> 
+<h3> <a id="the-official-home-page" class="anchor" href="#the-official-home-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://www.easyproject.cn/easytemplate/en/index.jsp" title="The official home page">The official home page</a> </h3> 
 <p><a href="http://www.easyproject.cn/easytemplate/en/index.jsp#donation" title="Comments">Comments</a></p> 
 <p>If you have more comments, suggestions or ideas, please contact me.</p> 
-<h2> <a id="end" class="anchor" href="#end" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>End</h2> 
+<h3> <a id="官方主页" class="anchor" href="#%E5%AE%98%E6%96%B9%E4%B8%BB%E9%A1%B5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://www.easyproject.cn/easytemplate/zh-cn/index.jsp" title="官方主页">官方主页</a> </h3> 
+<p><a href="http://www.easyproject.cn/easytemplate/zh-cn/index.jsp#donation" title="留言评论">留言评论</a></p> 
+<p>如果您有更好意见，建议或想法，请联系我。</p> 
 <p>Email：<a href="mailto:inthinkcolor@gmail.com">inthinkcolor@gmail.com</a></p> 
 <p><a href="http://www.easyproject.cn" title="EasyProject Home">http://www.easyproject.cn</a></p> 
-<p><strong>支付宝钱包扫一扫捐助：</strong></p> 
-<p>我们相信，每个人的点滴贡献，都将是推动产生更多、更好免费开源产品的一大步。</p> 
-<p><strong>感谢慷慨捐助，以支持服务器运行和鼓励更多社区成员。</strong></p> 
-<p><a href="https://camo.githubusercontent.com/0079923bf4bc9ed15a8be36a117559592e024d1b/687474703a2f2f7777772e6561737970726f6a6563742e636e2f696d616765732f732e706e67" target="_blank"><img alt="支付宝钱包扫一扫捐助" src="https://camo.githubusercontent.com/0079923bf4bc9ed15a8be36a117559592e024d1b/687474703a2f2f7777772e6561737970726f6a6563742e636e2f696d616765732f732e706e67" title="支付宝钱包扫一扫捐助" height="256" width="256" data-canonical-src="http://www.easyproject.cn/images/s.png" style="max-width:100%;" /></a></p> 
 <p>We believe that the contribution of each bit by bit, will be driven to produce more and better free and open source products a big step.</p> 
 <p><strong>Thank you donation to support the server running and encourage more community members.</strong></p> 
 <p><a href="https://www.paypal.me/easyproject/10" title="Make payments with PayPal - it's fast, free and secure!"><img src="https://camo.githubusercontent.com/25fd45a9c199091fd684c9f11b37c386b4301087/687474703a2f2f7777772e6561737970726f6a6563742e636e2f696d616765732f70617970616c646f6e6174696f6e352e6a7067" alt="PayPal" data-canonical-src="http://www.easyproject.cn/images/paypaldonation5.jpg" style="max-width:100%;" /></a></p>

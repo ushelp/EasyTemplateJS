@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>E:\360data\重要数据\我的文档\HBuilderProject\easytemplatejs\doc\.readme_en.md.html</title>
+<title>C:\Users\Administrator\Documents\HBuilderProject\EasyTemplateJS\doc\.readme_en.md.html</title>
 
 
 <style type="text/css">
@@ -642,16 +642,17 @@ function setDocumentScrollTop(ypos)
 <h1> <a id="easytemplatejs-template-engine-user-guide" class="anchor" href="#easytemplatejs-template-engine-user-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS Template Engine User Guide</h1> 
 <p><strong>EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.</strong></p> 
 <p>JavaScript template engine as the data and interface separation of the most important part. Using JavaScript template functions to avoid the inconvenience and low maintenance of splicing <code>HTML</code> strings in JavaScript, embedding JavaScript scripts in<code>HTML</code> as opposed to using <code>JSP</code> and<code>ASP</code> Technical programming. EasyTemplate provides an ultra-high-performance rendering engine that uses template technology in JavaScript to simplify operations and enhance program design flexibility.</p> 
-<p>The latest version: <code>2.1.2-RELEASE</code></p> 
+<p>The latest version: <code>2.1.3-RELEASE</code></p> 
 <h2> <a id="feature" class="anchor" href="#feature" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature</h2> 
 <ul> 
- <li><p>Small, pure</p></li> 
- <li><p>Pre-statically compiled, high-performance</p></li> 
- <li><p>Flexible customization</p></li> 
- <li><p>Escape output expressions are supported</p></li> 
- <li><p>Support out output</p></li> 
- <li><p>Module support:<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p></li> 
- <li><p>Bower support</p></li> 
+ <li> <p>Small, pure</p> </li> 
+ <li> <p>Pre-statically compiled, high-performance</p> </li> 
+ <li> <p>Flexible customization</p> </li> 
+ <li> <p>Escape output expressions are supported</p> </li> 
+ <li> <p>Support out output</p> </li> 
+ <li> <p>Module support:<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p> </li> 
+ <li> <p>Node.js Express Web Framework support</p> </li> 
+ <li> <p>Npm, Bower support</p> </li> 
 </ul> 
 <h2> <a id="performance-test-comparison" class="anchor" href="#performance-test-comparison" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Performance test comparison</h2> 
 <p>From the rendering performance, <strong>EasyTemplate</strong> and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact.</p> 
@@ -661,33 +662,42 @@ function setDocumentScrollTop(ypos)
 <ul> 
  <li> <p>Download install</p> 
   <div class="highlight highlight-text-html-basic">
-   <pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>easy.templatejs.min.js<span class="pl-pds">&quot;</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre>
+   <pre> &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>easy.templatejs.min.js<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
   </div> </li> 
  <li> <p>Bower install</p> 
   <div class="highlight highlight-source-shell">
-   <pre>bower install easytemplatejs --save</pre>
+   <pre> bower install easytemplatejs --save</pre>
   </div> 
   <div class="highlight highlight-text-html-basic">
-   <pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>bower_components/easytemplate/dist/easy.templatejs.min.js<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>utf-8<span class="pl-pds">&quot;</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre>
+   <pre> &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>bower_components/easytemplate/dist/easy.templatejs.min.js<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>utf-8<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
   </div> </li> 
  <li> <p>Npm install</p> 
   <div class="highlight highlight-source-shell">
-   <pre>npm install easytemplatejs</pre>
+   <pre> npm install easytemplatejs</pre>
   </div> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);</pre>
+   <pre> <span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);</pre>
   </div> </li> 
 </ul> 
 <h3> <a id="2-templatejs-template-expression" class="anchor" href="#2-templatejs-template-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. TemplateJS Template expression</h3> 
 <p>TemplateJS supports three types of template expressions, which do not allow nesting or crossover:</p> 
 <ol> 
- <li> <p><strong>The script expression</strong></p> <p><code>%{ JavaScript Script }%</code>: The implementation of arbitrary JavaScript code (JSP <code>&lt;%%&gt;</code> the same small script), JS script <code>&lt;</code>,<code>&gt;</code> and other special symbols can also be used instead of the corresponding character entities.</p> </li> 
- <li> <p><strong>The output expression</strong></p> <p><code>{expression}</code>： Insert the variables to be output (the same as <code>&lt;%= expression%&gt;</code> for JSP).</p> </li> 
- <li> <p><strong>The escape output expression</strong></p> <p><code>{-expression}</code>： Usage is the same as <code>{expression}</code>, and special characters are automatically escaped as character entities when outputting data.</p> </li> 
+ <li><strong>The script expression</strong></li> 
 </ol> 
+<p><code>%{ JavaScript Script }%</code>: The implementation of arbitrary JavaScript code (JSP <code>&lt;%%&gt;</code> the same small script), JS script <code>&lt;</code>,<code>&gt;</code> and other special symbols can also be used instead of the corresponding character entities.</p> 
+<ol start="2"> 
+ <li><strong>The output expression</strong></li> 
+</ol> 
+<p><code>{expression}</code>： Insert the variables to be output (the same as <code>&lt;%= expression%&gt;</code> for JSP).</p> 
+<ol start="3"> 
+ <li><strong>The escape output expression</strong></li> 
+</ol> 
+<p><code>{-expression}</code>： Usage is the same as <code>{expression}</code>, and special characters are automatically escaped as character entities when outputting data.</p> 
 <ul> 
- <li> <p><strong>Why do I choose% {}%, {} as a closed tag?</strong></p> <p>EasyTemplateJS 没有选择常用的 &lt;%%&gt; 或 ${} 作为模板引擎的默认闭合标签，因为在 JSP，ASP 等动态页面中，&lt;%%&gt;，${} 都本身是动态特殊标记，当在 JSP 页面定义模板标签时，会对 JSP 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 %{}% {}。</p> <p>尽管如此，但是如果您更喜欢使用 &lt;%%&gt; 或 ${}，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 &lt;%%&gt;，以兼容你旧的模板代码。 (参考 5. 模板自定义)</p> </li> 
+ <li><strong>Why do I choose% {}%, {} as a closed tag?</strong></li> 
 </ul> 
+<p>EasyTemplateJS 没有选择常用的 &lt;%%&gt; 或 ${} 作为模板引擎的默认闭合标签，因为在 JSP，ASP 等动态页面中，&lt;%%&gt;，${} 都本身是动态特殊标记，当在 JSP 页面定义模板标签时，会对 JSP 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 %{}% {}。</p> 
+<p>尽管如此，但是如果您更喜欢使用 &lt;%%&gt; 或 ${}，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 &lt;%%&gt;，以兼容你旧的模板代码。 (参考 5. 模板自定义)</p> 
 <h3> <a id="3-examples" class="anchor" href="#3-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Examples</h3> 
 <p>EasyTemplateJS exposes an object named <strong><code>Et</code></strong> to complete the template operation.</p> 
 <div class="highlight highlight-source-js">
@@ -704,109 +714,109 @@ function setDocumentScrollTop(ypos)
 <ul> 
  <li> <p>Basic Template Example</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
-<span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
-<span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
-});
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res); <span class="pl-c"><span class="pl-c">//</span> hello: MoMo, MoMo</span>
+   <pre> <span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
+ <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
+ <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
+ });
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res); <span class="pl-c"><span class="pl-c">//</span> hello: MoMo, MoMo</span>
+ 
+ <span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
+ <span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
+ }); 
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2); <span class="pl-c"><span class="pl-c">//</span> hello: &lt;MoMo&gt;, &amp;lt;MoMo&amp;gt;</span>
+ 
+ 
+ <span class="pl-c"><span class="pl-c">//</span> Test escape (Special label)</span>
+ <span class="pl-k">var</span> compiled2 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>&lt;u&gt;{- value }&lt;/u&gt;<span class="pl-pds">&quot;</span></span>);
+ <span class="pl-k">var</span> res3 <span class="pl-k">=</span> <span class="pl-en">compiled2</span>({
+ 	value<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script&gt;<span class="pl-pds">'</span></span>
+ });
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res3); <span class="pl-c"><span class="pl-c">//</span> &lt;u&gt;&amp;lt;script&amp;gt;&lt;/u&gt;</span>
 
-<span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
-<span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
-}); 
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2); <span class="pl-c"><span class="pl-c">//</span> hello: &lt;MoMo&gt;, &amp;lt;MoMo&amp;gt;</span>
 
-
-<span class="pl-c"><span class="pl-c">//</span> Test escape (Special label)</span>
-<span class="pl-k">var</span> compiled2 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>&lt;u&gt;{- value }&lt;/u&gt;<span class="pl-pds">&quot;</span></span>);
-<span class="pl-k">var</span> res3 <span class="pl-k">=</span> <span class="pl-en">compiled2</span>({
-    value<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;script&gt;<span class="pl-pds">'</span></span>
-});
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res3); <span class="pl-c"><span class="pl-c">//</span> &lt;u&gt;&amp;lt;script&amp;gt;&lt;/u&gt;</span>
-
-
-<span class="pl-k">var</span> res4 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>%{ out('Hello: '+name); }%<span class="pl-pds">&quot;</span></span>, {
-    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
-});
-<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res4); <span class="pl-c"><span class="pl-c">//</span>Hello: JACK</span></pre>
+ <span class="pl-k">var</span> res4 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>%{ out('Hello: '+name); }%<span class="pl-pds">&quot;</span></span>, {
+ 	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
+ });
+ <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res4); <span class="pl-c"><span class="pl-c">//</span>Hello: JACK</span></pre>
   </div> </li> 
  <li> <p>HTML Template Example</p> 
   <div class="highlight highlight-text-html-basic">
-   <pre><span class="pl-c"><span class="pl-c">&lt;!--</span> Ordinary template <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ for(var i in people){ }%
-        &lt;<span class="pl-ent">li</span>&gt;{i} = { people[i] }&lt;/<span class="pl-ent">li</span>&gt;
-    %{ } }%
-&lt;/<span class="pl-ent">script</span>&gt;
+   <pre> <span class="pl-c"><span class="pl-c">&lt;!--</span> Ordinary template <span class="pl-c">--&gt;</span></span>
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	%{ for(var i in people){ }%</span>
+<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 	%{ } }%</span>
+<span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
-<span class="pl-c"><span class="pl-c">&lt;!--</span> Use HTML to define template content, if there are special content such as &lt;,&gt;, you can use the corresponding character entity instead <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl2<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ for(var i=0; i <span class="pl-c1">&amp;lt;</span> people.length; i++){ }%
-        &lt;<span class="pl-ent">li</span>&gt;{i} = { people[i] }&lt;/<span class="pl-ent">li</span>&gt;
-    %{ } }%
-&lt;/<span class="pl-ent">script</span>&gt;
+ <span class="pl-c"><span class="pl-c">&lt;!--</span> Use HTML to define template content, if there are special content such as &lt;,&gt;, you can use the corresponding character entity instead <span class="pl-c">--&gt;</span></span>
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl2<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	%{ for(var i=0; i &amp;lt; people.length; i++){ }%</span>
+<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 	%{ } }%</span>
+<span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
-<span class="pl-c"><span class="pl-c">&lt;!--</span> Use the out output <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ 
-        for(var i=0; i &lt; people.length; i++){ 
-            out( &quot;&lt;<span class="pl-ent">li</span>&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/<span class="pl-ent">li</span>&gt; &quot;); 
-        } 
-    }% 
-&lt;/<span class="pl-ent">script</span>&gt;
-
-
-<span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span>&gt;</span>
-<span class="pl-s1">    <span class="pl-c"><span class="pl-c">//</span> With jQuery</span></span>
-<span class="pl-s1">    <span class="pl-en">$</span>(<span class="pl-k">function</span>(){</span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">&lt;!--</span></span> Use the template  <span class="pl-c"><span class="pl-c">--&gt;</span></span></span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> temp demo</span></span>
-<span class="pl-s1">        <span class="pl-k">var</span> tmpl <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>();</span>
-<span class="pl-s1">        <span class="pl-k">var</span> res5 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl, {</span>
-<span class="pl-s1">            people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
-<span class="pl-s1">        });</span>
-<span class="pl-s1">        <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res5);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> temp2 demo</span></span>
-<span class="pl-s1">        <span class="pl-k">var</span> tmpl2 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl2<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
-<span class="pl-s1">        <span class="pl-k">var</span> res6 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl2, {</span>
-<span class="pl-s1">            people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
-<span class="pl-s1">        });</span>
-<span class="pl-s1">        <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res6);</span>
-<span class="pl-s1"></span>
-<span class="pl-s1">        <span class="pl-c"><span class="pl-c">//</span> temp3 demo</span></span>
-<span class="pl-s1">        <span class="pl-k">var</span> tmpl3 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl3<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
-<span class="pl-s1">        <span class="pl-k">var</span> res7 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl3, {</span>
-<span class="pl-s1">            people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
-<span class="pl-s1">        });</span>
-<span class="pl-s1">        <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res7);</span>
-<span class="pl-s1">    });</span>
-<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre>
+ <span class="pl-c"><span class="pl-c">&lt;!--</span> Use the out output <span class="pl-c">--&gt;</span></span>
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	%{ </span>
+<span class="pl-s1"> 		for(var i=0; i &lt; people.length; i++){ </span>
+<span class="pl-s1"> 			out( &quot;&lt;li&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/li&gt; &quot;); </span>
+<span class="pl-s1"> 		} </span>
+<span class="pl-s1"> 	}% </span>
+<span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
+ 
+ 
+ &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/javascript<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1"> 	<span class="pl-c"><span class="pl-c">//</span> With jQuery</span></span>
+<span class="pl-s1">     <span class="pl-en">$</span>(<span class="pl-k">function</span>(){</span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">&lt;!--</span></span> Use the template  <span class="pl-c"><span class="pl-c">--&gt;</span></span></span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">//</span> temp demo</span></span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> tmpl <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>();</span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> res5 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl, {</span>
+<span class="pl-s1"> 			people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
+<span class="pl-s1"> 		});</span>
+<span class="pl-s1"> 		<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res5);</span>
+<span class="pl-s1"> 	</span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">//</span> temp2 demo</span></span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> tmpl2 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl2<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> res6 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl2, {</span>
+<span class="pl-s1"> 			people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
+<span class="pl-s1"> 		});</span>
+<span class="pl-s1"> 		<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res6);</span>
+<span class="pl-s1"> 	</span>
+<span class="pl-s1"> 		<span class="pl-c"><span class="pl-c">//</span> temp3 demo</span></span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> tmpl3 <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>#tmpl3<span class="pl-pds">&quot;</span></span>).<span class="pl-en">html</span>(); </span>
+<span class="pl-s1"> 		<span class="pl-k">var</span> res7 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl3, {</span>
+<span class="pl-s1"> 			people<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>]</span>
+<span class="pl-s1"> 		});</span>
+<span class="pl-s1"> 		<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res7);</span>
+<span class="pl-s1"> 	});</span>
+<span class="pl-s1"> </span><span class="pl-s1">&lt;</span>/<span class="pl-ent">script</span>&gt;</pre>
   </div> <p>Output:</p> 
   <div class="highlight highlight-text-html-basic">
-   <pre>&lt;<span class="pl-ent">li</span>&gt;0 = MoMo&lt;/<span class="pl-ent">li</span>&gt;      
-&lt;<span class="pl-ent">li</span>&gt;1 = Joy&lt;/<span class="pl-ent">li</span>&gt;    
-&lt;<span class="pl-ent">li</span>&gt;2 = Ray&lt;/<span class="pl-ent">li</span>&gt;          </pre>
+   <pre> &lt;<span class="pl-ent">li</span>&gt;0 = MoMo&lt;/<span class="pl-ent">li</span>&gt;      
+ &lt;<span class="pl-ent">li</span>&gt;1 = Joy&lt;/<span class="pl-ent">li</span>&gt;    
+ &lt;<span class="pl-ent">li</span>&gt;2 = Ray&lt;/<span class="pl-ent">li</span>&gt;          </pre>
   </div> </li> 
 </ul> 
 <h3> <a id="4-use-out-output-information" class="anchor" href="#4-use-out-output-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Use out output information</h3> 
 <p>You can also use the <code>out</code> function to output information in your JavaScript code so that you do not have to break your code block, which is sometimes easier and clearer than using <code>{name}</code> '.</p> 
 <div class="highlight highlight-text-html-basic">
  <pre><span class="pl-c"><span class="pl-c">&lt;!--</span>  out <span class="pl-c">--&gt;</span></span>
-&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;
-    %{ 
-        for(var i=0; i &lt; people.length; i++){ 
-            // out function
-            out( &quot;&lt;<span class="pl-ent">li</span>&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/<span class="pl-ent">li</span>&gt; &quot;); 
-        } 
-    }% 
-&lt;/<span class="pl-ent">script</span>&gt;</pre>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
+<span class="pl-s1">	%{ </span>
+<span class="pl-s1">		for(var i=0; i &lt; people.length; i++){ </span>
+<span class="pl-s1">			// out function</span>
+<span class="pl-s1">			out( &quot;&lt;li&gt;&quot;+i+ &quot; = &quot;+people[i]+ &quot;&lt;/li&gt; &quot;); </span>
+<span class="pl-s1">		} </span>
+<span class="pl-s1">	}% </span>
+<span class="pl-s1"></span>&lt;/<span class="pl-ent">script</span>&gt;</pre>
 </div> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-k">var</span> res4 <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>%{ out('Hello: '+name); }%<span class="pl-pds">&quot;</span></span>, {
-        name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
-    });
+		name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>JACK<span class="pl-pds">&quot;</span></span>
+	});
 <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res4); <span class="pl-c"><span class="pl-c">//</span>Hello: JACK</span></pre>
 </div> 
 <h3> <a id="5-customization-template-expression-closed-tag" class="anchor" href="#5-customization-template-expression-closed-tag" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Customization template expression closed tag</h3> 
@@ -820,30 +830,30 @@ function setDocumentScrollTop(ypos)
 <p><code>Et.tmplSettings</code> Default configuration:</p> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-smi">Et</span>.<span class="pl-smi">tmplSettings</span><span class="pl-k">=</span>{
-    <span class="pl-c"><span class="pl-c">//</span> Script expression %{ JS script }%</span>
-    scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%{<span class="pl-pds">&quot;</span></span>,
-    scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}%<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> Output expression {name}</span>
-    outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{<span class="pl-pds">&quot;</span></span>,
-    outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> Escape output expression {-name}</span>
-    escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{-<span class="pl-pds">&quot;</span></span>,
-    escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>
+	<span class="pl-c"><span class="pl-c">//</span> Script expression %{ JS script }%</span>
+	scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%{<span class="pl-pds">&quot;</span></span>,
+	scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}%<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> Output expression {name}</span>
+	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{<span class="pl-pds">&quot;</span></span>,
+	outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> Escape output expression {-name}</span>
+	escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{-<span class="pl-pds">&quot;</span></span>,
+	escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>
 }</pre>
 </div> 
 <p>Redefine the example:</p> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-k">var</span> userSettings<span class="pl-k">=</span>
 {
-    <span class="pl-c"><span class="pl-c">//</span> Script expression  &lt;% JS script %&gt;</span>
-    scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%<span class="pl-pds">&quot;</span></span>,
-    scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> Output expression &lt;%=name %&gt;</span>
-    outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%=<span class="pl-pds">&quot;</span></span>,
-    outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
-    <span class="pl-c"><span class="pl-c">//</span> Escape output expression &lt;%-name %&gt;</span>
-    escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%-<span class="pl-pds">&quot;</span></span>,
-    escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>
+	<span class="pl-c"><span class="pl-c">//</span> Script expression  &lt;% JS script %&gt;</span>
+	scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%<span class="pl-pds">&quot;</span></span>,
+	scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> Output expression &lt;%=name %&gt;</span>
+	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%=<span class="pl-pds">&quot;</span></span>,
+	outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> Escape output expression &lt;%-name %&gt;</span>
+	escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>&lt;%-<span class="pl-pds">&quot;</span></span>,
+	escapeOutEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%&gt;<span class="pl-pds">&quot;</span></span>
 }</pre>
 </div> 
 <div class="highlight highlight-source-js">
@@ -852,100 +862,100 @@ function setDocumentScrollTop(ypos)
 
 <span class="pl-c"><span class="pl-c">//</span> test</span>
 <span class="pl-en">console</span>.<span class="pl-c1">info</span>(
-    <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
-        <span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
-        {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>} <span class="pl-c"><span class="pl-c">//</span> data</span>
-    )
-);          </pre>
+	<span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
+		<span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
+		{name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>} <span class="pl-c"><span class="pl-c">//</span> data</span>
+	)
+);			</pre>
 </div> 
 <div class="highlight highlight-source-js">
  <pre><span class="pl-c"><span class="pl-c">//</span> Local modification test</span>
 <span class="pl-en">console</span>.<span class="pl-c1">info</span>(
-    <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
-        <span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
-        {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>},                   <span class="pl-c"><span class="pl-c">//</span> data</span>
-        userSettings                        <span class="pl-c"><span class="pl-c">//</span>settings</span>
-    )
-);  </pre>
+	<span class="pl-smi">Et</span>.<span class="pl-en">template</span>(
+		<span class="pl-s"><span class="pl-pds">&quot;</span>hello: &lt;%= name %&gt;, &lt;%- name %&gt;<span class="pl-pds">&quot;</span></span>,  <span class="pl-c"><span class="pl-c">//</span> templateText</span>
+		{name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>}, 					<span class="pl-c"><span class="pl-c">//</span> data</span>
+		userSettings 						<span class="pl-c"><span class="pl-c">//</span>settings</span>
+	)
+);	</pre>
 </div> 
 <h3> <a id="6-api" class="anchor" href="#6-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. API</h3> 
 <p><code>Et</code> Exposing a limited number of APIs:</p> 
 <ul> 
  <li> <p>Core function</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * The template engine compiles the core functions</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">tmplText</span> Template code</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">data</span> Template data; optional</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Et.tmplSettings}</span> <span class="pl-smi">settings</span> Engine dynamic control parameters; optional</span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String|function}</span> If the data is not empty, return String rendering results; otherwise, return a compiled function rendering function</span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmplText, data, settings);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * The template engine compiles the core functions</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">tmplText</span> Template code</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">data</span> Template data; optional</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Et.tmplSettings}</span> <span class="pl-smi">settings</span> Engine dynamic control parameters; optional</span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{String|function}</span> If the data is not empty, return String rendering results; otherwise, return a compiled function rendering function</span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmplText, data, settings);</pre>
   </div> </li> 
  <li> <p>Template closure label custom (<code>5. template expression closed tag custom</code>)</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-smi">Et</span>.<span class="pl-smi">tmplSettings</span> <span class="pl-k">=</span>{<span class="pl-k">...</span>}</pre>
+   <pre> <span class="pl-smi">Et</span>.<span class="pl-smi">tmplSettings</span> <span class="pl-k">=</span>{<span class="pl-k">...</span>}</pre>
   </div> </li> 
  <li> <p>Special characters in a string are escaped as character entities and returned</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * Special characters in a string are escaped as character entities and returned</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">text</span> </span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> </span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">escape</span>(text);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * Special characters in a string are escaped as character entities and returned</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">text</span> </span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> </span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">escape</span>(text);</pre>
   </div> </li> 
  <li> <p>Escape the reverse operation function, the string of characters into the characters, and return</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * Escape the reverse operation function, the string of characters into the characters, and return</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{text}</span> <span class="pl-smi">text</span></span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> </span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">unescape</span>(text);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * Escape the reverse operation function, the string of characters into the characters, and return</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{text}</span> <span class="pl-smi">text</span></span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{String}</span> </span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">unescape</span>(text);</pre>
   </div> </li> 
  <li> <p>Traversing a collection or object</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * Traversing a collection or object.</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">obj</span> The collection or object to be traversed</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{function}</span> <span class="pl-smi">iterator</span> Iteration functions, including the value, index, set the three parameters of the object</span>
-<span class="pl-c"> * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">context</span> Binding an iterator to the context executes it, which can be used to pass some other elements to iteraotr</span>
-<span class="pl-c"> */</span>
- <span class="pl-smi">Et</span>.<span class="pl-en">each</span>(list, iterator, [context]);</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * Traversing a collection or object.</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">obj</span> The collection or object to be traversed</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{function}</span> <span class="pl-smi">iterator</span> Iteration functions, including the value, index, set the three parameters of the object</span>
+<span class="pl-c">  * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">context</span> Binding an iterator to the context executes it, which can be used to pass some other elements to iteraotr</span>
+<span class="pl-c">  */</span>
+  <span class="pl-smi">Et</span>.<span class="pl-en">each</span>(list, iterator, [context]);</pre>
   </div> </li> 
  <li> <p>Restores the object referenced by <code>Et</code> as the original object and returns the<code>Et</code> object.</p> 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-c">/**</span>
-<span class="pl-c"> * Eliminate conflicts</span>
-<span class="pl-c"> * <span class="pl-k">@return</span> <span class="pl-en">{Et}</span> Et object</span>
-<span class="pl-c"> */</span>
-<span class="pl-smi">Et</span>.<span class="pl-en">noConflict</span>();</pre>
+   <pre> <span class="pl-c">/**</span>
+<span class="pl-c">  * Eliminate conflicts</span>
+<span class="pl-c">  * <span class="pl-k">@return</span> <span class="pl-en">{Et}</span> Et object</span>
+<span class="pl-c">  */</span>
+ <span class="pl-smi">Et</span>.<span class="pl-en">noConflict</span>();</pre>
   </div> </li> 
 </ul> 
 <h2> <a id="module-support" class="anchor" href="#module-support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module support</h2> 
 <ul> 
- <li> <p>AMD Example</p> 
+ <li>AMD Example 
   <div class="highlight highlight-source-js">
-   <pre><span class="pl-smi">require</span>.<span class="pl-en">config</span>({
-    paths<span class="pl-k">:</span> {
-        Et<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>js/easy.templatejs.min-2.1.0<span class="pl-pds">&quot;</span></span>
-    }
-});
+   <pre> <span class="pl-smi">require</span>.<span class="pl-en">config</span>({
+ 	paths<span class="pl-k">:</span> {
+ 		Et<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&quot;</span>js/easy.templatejs.min-2.1.0<span class="pl-pds">&quot;</span></span>
+ 	}
+ });
 
-<span class="pl-c1">require</span>([<span class="pl-s"><span class="pl-pds">&quot;</span>Et<span class="pl-pds">&quot;</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">Et</span>) {
-    <span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
-    <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
-    <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-        name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
-    });
-    <span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
-        name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
-    }); <span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
-
-    <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res);
-    <span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2);
-});</pre>
+ <span class="pl-c1">require</span>([<span class="pl-s"><span class="pl-pds">&quot;</span>Et<span class="pl-pds">&quot;</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">Et</span>) {
+ 	<span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
+ 	<span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
+ 	<span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 		name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
+ 	});
+ 	<span class="pl-k">var</span> res2 <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
+ 		name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;MoMo&gt;<span class="pl-pds">'</span></span>
+ 	}); <span class="pl-c"><span class="pl-c">//</span> Special label, test escape</span>
+ 	
+ 	<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res);
+ 	<span class="pl-en">console</span>.<span class="pl-c1">info</span>(res2);
+ });</pre>
   </div> </li> 
 </ul> 
 <h2> <a id="end" class="anchor" href="#end" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>END</h2> 
