@@ -4,7 +4,7 @@
 
 **EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.**
 
-The latest version: `2.1.3-RELEASE`
+The latest version: `2.2.0-RELEASE`
 
 ## Feature/特点
 
@@ -12,7 +12,7 @@ The latest version: `2.1.3-RELEASE`
 
 	- 小巧，纯粹
 	
-	- 预先静态编译，高性能
+	- 高性能，预先静态编译
 	
 	- 灵活自定义
 	
@@ -20,18 +20,20 @@ The latest version: `2.1.3-RELEASE`
 	
 	- 支持 out 输出
 	
+	- 支持内嵌 JavaScript 脚本(`<etj-script>...</etj-script>`)和 CSS 样式脚本(`<etj-script>...</etj-script>`)
+	
 	- 模块化支持：`CommonJS`, `AMD`, `CMD`, `Node.js`
 	
-	- Node.js Express 框架支持
+	- Node.js [Express 框架支持](doc/express_zh_CN.md)
 	
-	- NPM, Bower 支持
+	- npm, Bower 支持
 
 
 - **English**
 
 	- Small, pure
 	
-	- Pre-statically compiled, high-performance
+	- High-performance, pre-statically compiled
 	
 	- Flexible customization
 	
@@ -39,11 +41,13 @@ The latest version: `2.1.3-RELEASE`
 	
 	- Support out output
 	
+	- Support embedded JavaScript (`<etj-script>...</etj-script>`) and CSS(`<etj-script>...</etj-script>`)
+	
 	- Module support:`CommonJS`, `AMD`, `CMD`, `Node.js`
 
-	- Node.js Express Web Framework support
+	- Node.js [Express Web Framework support](doc/express_en.md)
 	
-	- Npm, Bower support
+	- npm, Bower support
 
 ## Performance test comparison/性能测试对比
 

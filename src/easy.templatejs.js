@@ -1,7 +1,7 @@
 /**
  * EasyTemplate
  * 
- * Version 2.1.3
+ * Version 2.2.0
  * 
  * http://easyproject.cn 
  * https://github.com/ushelp
@@ -9,7 +9,7 @@
  * Copyright 2012 Ray [ inthinkcolor@gmail.com ]
  * Released under the MIT license
  * 
- * [Support AMD, CMD, CommonJS, Node.js]
+ * [Support AMD, CMD, CommonJS, Node.js, Express]
  * 
  */
 ;(function(){
@@ -64,14 +64,18 @@
 				"&#x27;": "'"
 			}
 		},
+		scriptReg=new RegExp("<etj\-script>((.|\r|\n|\r\n|\n\r)*?)</etj\-script>","igm"),
+		scriptReplaceReg=new RegExp("<#script#></#script#>","ig"),
+		styleReg=new RegExp("<etj\-style>((.|\r|\n|\r\n|\n\r)*?)</etj\-style>","igm"),
+		styleReplaceReg=new RegExp("<#style#></#style#>","ig"),
 		has = function(obj, key) {
 			return hasOwnProperty.call(obj, key);
-		},
+		}, 
 		keys = Object.keys || function(obj) {
 			if(obj !== Object(obj)) throw new TypeError("Invalid object");
 			var keys = [];
 			for(var key in obj)
-				if(has(obj, key)) keys.push(key);
+				if(has(obj, key)) keys.push(key); 
 			return keys;
 		}, // Regexes containing the keys and values listed immediately above.
 		entityRegexes = {
@@ -132,6 +136,8 @@
 	
 	// 核心对象
 	var Et = {
+		enableScript: false,
+		enableStyle: false,
 		// 模板标签表达式
 		tmplSettings: {
 			// 脚本表达式 开始结束标记%{ JS script }%
@@ -195,6 +201,31 @@
 		 * @return {String|function} 如果 data 不为空，则返回 String 渲染结果；否则，返回一个编译后的 function 渲染函数
 		 */
 		template: function(tmplText, data, settings) {
+			// node.js buffer toString
+			tmplText+="";
+			// store etj-script, etj-style
+			var scripts=[];
+			var styles=[];
+			// Script support 
+			if(this.enableScript){
+				tmplText=tmplText.replace(scriptReg, function($0, $1){
+//					scripts.push($1); 
+					scripts.push('<script>'+
+					$1.trim()
+					.replace(/\/\/.*/g,'')
+					.replace(/\/\*[\s\S]*\*\//g,"")
+					.replace(/'|"/g,"\\'")
+					.replace(/((\r)|(\n)|(\r\n))/g,function($0, $1){
+						 return "'+"+$1+"'";
+					})
+					.replace(/^(\s+)(\S+)/g,function($0, $1, $2){
+						 return "'"+$2;
+					})
+					+'<\/script>');
+					return '<#script#></#script#>';
+				})
+			}
+			
 			if(settings){
 				// 临时定义
 				settings = defaults({}, settings, Et.tmplSettings);
@@ -216,6 +247,25 @@
 			}
 			
 			tmplText = Et.unescape(tmplText);
+			
+			// Style support, don't warp
+			if(this.enableStyle){
+				tmplText=tmplText.replace(styleReg, function($0, $1){
+					styles.push('<style>'+
+					$1
+					.replace(/\r|\n/g,"")
+					.replace(/\s+\}/g,"}")
+					.replace(/\}\s+/g,"}")
+					.replace(/\{\s+/g,"{")
+					.replace(/;\s+/g,";")
+					.replace(/\/(\*([^\/])+\*)\//g,"")
+					.replace(/'|"/g,"\\'")
+					.trim()
+					+'</style>');
+					return '<#style#></#style#>';
+				})
+			}
+			
 			var render;
 			var matcher = new RegExp([(settings.escapeOut || noMatch).source, (settings.out || noMatch).source, (settings.script || noMatch).source].join("|") + "|$", "g");
 			var index = 0;
@@ -242,6 +292,19 @@
 			var vars=getVars(source);
 			source = "'use strict';" +vars+"_t,_p='',out=function(){_p+=Array.prototype.join.call(arguments, '')};" + source + "return _p";
 			try {
+				// Script support
+				if(this.enableScript){
+					source=source.replace(scriptReplaceReg, function($0){
+//						return "';"+scripts.shift()+";_p+='";
+						return scripts.shift();
+					})
+				}
+				// Style support
+				if(this.enableStyle){
+					source=source.replace(styleReplaceReg, function($0){
+						return styles.shift();
+					})
+				}
 				render = new Function("data", "Et",  source);
 			} catch (e) {
 				e.source = "function anonymous(data,Et) {" + source + "}";;

@@ -642,17 +642,18 @@ function setDocumentScrollTop(ypos)
 <h1> <a id="easytemplatejs-template-engine-user-guide" class="anchor" href="#easytemplatejs-template-engine-user-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS Template Engine User Guide</h1> 
 <p><strong>EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.</strong></p> 
 <p>JavaScript template engine as the data and interface separation of the most important part. Using JavaScript template functions to avoid the inconvenience and low maintenance of splicing <code>HTML</code> strings in JavaScript, embedding JavaScript scripts in<code>HTML</code> as opposed to using <code>JSP</code> and<code>ASP</code> Technical programming. EasyTemplate provides an ultra-high-performance rendering engine that uses template technology in JavaScript to simplify operations and enhance program design flexibility.</p> 
-<p>The latest version: <code>2.1.3-RELEASE</code></p> 
+<p>The latest version: <code>2.2.0-RELEASE</code></p> 
 <h2> <a id="feature" class="anchor" href="#feature" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature</h2> 
 <ul> 
  <li> <p>Small, pure</p> </li> 
- <li> <p>Pre-statically compiled, high-performance</p> </li> 
+ <li> <p>High-performance, pre-statically compiled</p> </li> 
  <li> <p>Flexible customization</p> </li> 
  <li> <p>Escape output expressions are supported</p> </li> 
  <li> <p>Support out output</p> </li> 
+ <li> <p>Support embedded JavaScript (<code>&lt;etj-script&gt;...&lt;/etj-script&gt;</code>) and CSS(<code>&lt;etj-script&gt;...&lt;/etj-script&gt;</code>)</p> </li> 
  <li> <p>Module support:<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p> </li> 
- <li> <p>Node.js Express Web Framework support</p> </li> 
- <li> <p>Npm, Bower support</p> </li> 
+ <li> <p>Node.js <a href="doc\.express_en.md.html">Express Web Framework support</a></p> </li> 
+ <li> <p>npm, Bower support</p> </li> 
 </ul> 
 <h2> <a id="performance-test-comparison" class="anchor" href="#performance-test-comparison" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Performance test comparison</h2> 
 <p>From the rendering performance, <strong>EasyTemplate</strong> and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact.</p> 
@@ -878,7 +879,60 @@ function setDocumentScrollTop(ypos)
 	)
 );	</pre>
 </div> 
-<h3> <a id="6-api" class="anchor" href="#6-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. API</h3> 
+<h3> <a id="6-how-do-i-use-global-or-external-objects" class="anchor" href="#6-how-do-i-use-global-or-external-objects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. How do I use global or external objects?</h3> 
+<p>Because EasyTemplateJS is a JS cross-platform template engine that can be used in both the browser environment and the desktop environment, the global object is not managed directly.</p> 
+<p>Can be used as needed directly incoming:</p> 
+<div class="highlight highlight-source-js">
+ <pre><span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl, {
+	<span class="pl-s"><span class="pl-pds">'</span>people<span class="pl-pds">'</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>],
+	<span class="pl-s"><span class="pl-pds">'</span>console<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">window</span>.<span class="pl-smi">console</span>,
+	<span class="pl-s"><span class="pl-pds">'</span>window<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">window</span>,
+	<span class="pl-s"><span class="pl-pds">'</span>alert<span class="pl-pds">'</span></span><span class="pl-k">:</span> alert 
+});</pre>
+</div> 
+<h3> <a id="7-embedded-javascript-and-css" class="anchor" href="#7-embedded-javascript-and-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. Embedded JavaScript and CSS</h3> 
+<p>To enhance the functional experience of using templates in Express and other server-side Web application frameworks, EasyTemplateJS pioneered the provision of script scripts and style style sheet support for templates.</p> 
+<ul> 
+ <li> <p><strong>Enable scripting and CSS support</strong></p> <p>The default script and style support is turned off and can be turned on manually as needed.</p> 
+  <div class="highlight highlight-source-js">
+   <pre> <span class="pl-smi">Et</span>.<span class="pl-smi">enableScript</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-script&gt;</span>
+ <span class="pl-smi">Et</span>.<span class="pl-smi">enableStyle</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-style&gt;</span></pre>
+  </div> </li> 
+ <li> <p><strong>Script code support</strong></p> <p>Place the JavaScript code between the <code>&lt;etj-script&gt;</code> ... <code>&lt;/etj-script&gt;</code> tags. <strong>The statement must end with <code>;</code>.</strong></p> </li> 
+ <li> <p><strong>CSS code support</strong></p> <p>Place the CSS code between the <code>&lt;etj-style&gt;</code> ... <code>&lt;/etj-style&gt;</code> tags.</p> </li> 
+ <li> <p><strong>Example</strong></p> 
+  <div class="highlight highlight-text-html-basic">
+   <pre> &lt;<span class="pl-ent">etj-script</span>&gt;
+ 	function test(){
+ 		var num=100
+ 		console.info('test execute...')
+ 	}
+ 	test()
+ 	var r2=document.getElementById('res2');
+ 	r2.innerHTML='&lt;<span class="pl-ent">h3</span>&gt;etj-script&lt;/<span class="pl-ent">h3</span>&gt;'
+ 	r2.className=&quot;blue&quot;;
+ &lt;/<span class="pl-ent">etj-script</span>&gt;
+ 
+ 
+ &lt;<span class="pl-ent">etj-style</span>&gt;
+ 	#res3{
+ 		color:Red;
+ 		font-size:30px
+ 	}
+ 	.blue{color:blue; }
+ &lt;/<span class="pl-ent">etj-style</span>&gt;
+ 
+ %{ 
+ 	console.info('Global'); 
+ 	<span class="pl-c"><span class="pl-c">&lt;!--</span>alert('Global');<span class="pl-c">--&gt;</span></span>
+ 	for(var i in people){ }%
+ 	&lt;<span class="pl-ent">li</span>&gt;{i} = 
+ 		{ people[i] } 
+ 	&lt;/<span class="pl-ent">li</span>&gt;
+ %{ } }%</pre>
+  </div> </li> 
+</ul> 
+<h2> <a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2> 
 <p><code>Et</code> Exposing a limited number of APIs:</p> 
 <ul> 
  <li> <p>Core function</p> 
@@ -959,7 +1013,10 @@ function setDocumentScrollTop(ypos)
   </div> </li> 
 </ul> 
 <h2> <a id="use-easytemplatejs-in-express" class="anchor" href="#use-easytemplatejs-in-express" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use EasyTemplateJS in Express</h2> 
-<p><a href=".express_en.md.html">Express documentation</a></p> 
+<ul> 
+ <li> <p>Manual integration</p> <p><a href=".express_en.md.html">Express documentation</a></p> </li> 
+ <li> <p>Express application generator tool based on EasyTemplateJS</p> <p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a></p> </li> 
+</ul> 
 <h2> <a id="end" class="anchor" href="#end" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>END</h2> 
 <h3> <a id="the-official-home-page" class="anchor" href="#the-official-home-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://www.easyproject.cn/easytemplate/en/index.jsp" title="The official home page">The official home page</a> </h3> 
 <p><a href="http://www.easyproject.cn/easytemplate/en/index.jsp#donation" title="Comments">Comments</a></p> 

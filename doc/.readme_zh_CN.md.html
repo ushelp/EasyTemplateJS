@@ -642,18 +642,18 @@ function setDocumentScrollTop(ypos)
 <h1> <a id="easytemplatejs-模板引擎使用手册" class="anchor" href="#easytemplatejs-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS 模板引擎使用手册</h1> 
 <p><strong>EasyTemplateJS（EasyTemplate JavaScript）是一款小巧，纯粹，高性能的 JavaScript 模板引擎。</strong></p> 
 <p>JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 <code>HTML</code> 字符串带来的不便和低维护性的缺点，利用反向思路，在 <code>HTML</code> 中嵌入 JavaScript 脚本，就像利用 <code>JSP</code> 和 <code>ASP</code> 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。</p> 
-<p>The latest version: <code>2.1.3-RELEASE</code></p> 
+<p>The latest version: <code>2.2.0-RELEASE</code></p> 
 <h2> <a id="特点" class="anchor" href="#%E7%89%B9%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>特点</h2> 
 <ul> 
  <li> <p>小巧，纯粹</p> </li> 
- <li> <p>预先静态编译，高性能</p> </li> 
+ <li> <p>高性能，预先静态编译</p> </li> 
  <li> <p>灵活自定义</p> </li> 
  <li> <p>支持转义输出表达式</p> </li> 
  <li> <p>支持 out 输出</p> </li> 
+ <li> <p>支持内嵌 JavaScript 脚本(<code>&lt;etj-script&gt;...&lt;/etj-script&gt;</code>)和 CSS 样式脚本(<code>&lt;etj-script&gt;...&lt;/etj-script&gt;</code>)</p> </li> 
  <li> <p>模块化支持：<code>CommonJS</code>, <code>AMD</code>, <code>CMD</code>, <code>Node.js</code></p> </li> 
- <li> <p>Bower 支持</p> </li> 
- <li> <p>Node.js Express 框架支持</p> </li> 
- <li> <p>NPM, Bower 支持</p> </li> 
+ <li> <p>Node.js <a href="doc\.express_zh_CN.md.html">Express 框架支持</a></p> </li> 
+ <li> <p>npm, Bower 支持</p> </li> 
 </ul> 
 <h2> <a id="performance-test-comparison性能测试对比" class="anchor" href="#performance-test-comparison%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%AF%B9%E6%AF%94" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Performance test comparison/性能测试对比</h2> 
 <p>从渲染性能上来说， <strong>EasyTemplateJS</strong> 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些实现较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。</p> 
@@ -880,7 +880,60 @@ function setDocumentScrollTop(ypos)
 	)
 );	</pre>
 </div> 
-<h3> <a id="6-api" class="anchor" href="#6-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. API</h3> 
+<h3> <a id="6-如何使用全局或外部对象" class="anchor" href="#6-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%85%A8%E5%B1%80%E6%88%96%E5%A4%96%E9%83%A8%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. 如何使用全局或外部对象？</h3> 
+<p>由于 EasyTemplateJS 是一个 JS 跨平台的模板引擎，在浏览器环境和桌面环境下都可以使用，所以对于并未直接对全局对象进行管理。</p> 
+<p>使用时可以根据需要直接传入：</p> 
+<div class="highlight highlight-source-js">
+ <pre><span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(tmpl, {
+	<span class="pl-s"><span class="pl-pds">'</span>people<span class="pl-pds">'</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Joy<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Ray<span class="pl-pds">'</span></span>],
+	<span class="pl-s"><span class="pl-pds">'</span>console<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">window</span>.<span class="pl-smi">console</span>,
+	<span class="pl-s"><span class="pl-pds">'</span>window<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">window</span>,
+	<span class="pl-s"><span class="pl-pds">'</span>alert<span class="pl-pds">'</span></span><span class="pl-k">:</span> alert 
+});</pre>
+</div> 
+<h3> <a id="7-内嵌-javascript-和-css" class="anchor" href="#7-%E5%86%85%E5%B5%8C-javascript-%E5%92%8C-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. 内嵌 JavaScript 和 CSS</h3> 
+<p>为了增强在 Express 等服务端 Web 应用框架中使用模板的功能体验，EasyTemplateJS 开创性的为模板提供了 script 脚本和 style 样式表支持。</p> 
+<ul> 
+ <li> <p><strong>启用脚本和 CSS 支持</strong></p> <p>默认脚本和样式支持是关闭的，可根据需要手动开启。</p> 
+  <div class="highlight highlight-source-js">
+   <pre> <span class="pl-smi">Et</span>.<span class="pl-smi">enableScript</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-script&gt;</span>
+ <span class="pl-smi">Et</span>.<span class="pl-smi">enableStyle</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-style&gt;</span></pre>
+  </div> </li> 
+ <li> <p><strong>Script 代码支持</strong></p> <p>将 JavaScript 代码放在 <code>&lt;etj-script&gt;</code> ... <code>&lt;/etj-script&gt;</code> 标签之间。 <strong>语句必须使用 <code>;</code> 结尾。</strong></p> </li> 
+ <li> <p><strong>CSS 代码支持</strong></p> <p>将 CSS 代码放在 <code>&lt;etj-style&gt;</code> ... <code>&lt;/etj-style&gt;</code> 标签之间。</p> </li> 
+ <li> <p><strong>示例</strong></p> 
+  <div class="highlight highlight-text-html-basic">
+   <pre> &lt;<span class="pl-ent">etj-script</span>&gt;
+ 	function test(){
+ 		var num=100
+ 		console.info('test execute...')
+ 	}
+ 	test()
+ 	var r2=document.getElementById('res2');
+ 	r2.innerHTML='&lt;<span class="pl-ent">h3</span>&gt;etj-script&lt;/<span class="pl-ent">h3</span>&gt;'
+ 	r2.className=&quot;blue&quot;;
+ &lt;/<span class="pl-ent">etj-script</span>&gt;
+ 
+ 
+ &lt;<span class="pl-ent">etj-style</span>&gt;
+ 	#res3{
+ 		color:Red;
+ 		font-size:30px
+ 	}
+ 	.blue{color:blue; }
+ &lt;/<span class="pl-ent">etj-style</span>&gt;
+ 
+ %{ 
+ 	console.info('Global'); 
+ 	<span class="pl-c"><span class="pl-c">&lt;!--</span>alert('Global');<span class="pl-c">--&gt;</span></span>
+ 	for(var i in people){ }%
+ 	&lt;<span class="pl-ent">li</span>&gt;{i} = 
+ 		{ people[i] } 
+ 	&lt;/<span class="pl-ent">li</span>&gt;
+ %{ } }%</pre>
+  </div> </li> 
+</ul> 
+<h2> <a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2> 
 <p><code>Et</code> 暴露了有限的几个 API:</p> 
 <ul> 
  <li> <p>核心函数</p> 
@@ -962,7 +1015,10 @@ function setDocumentScrollTop(ypos)
   </div> </li> 
 </ul> 
 <h2> <a id="在-express-框架中使用-easytemplatejs" class="anchor" href="#%E5%9C%A8-express-%E6%A1%86%E6%9E%B6%E4%B8%AD%E4%BD%BF%E7%94%A8-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>在 Express 框架中使用 EasyTemplateJS</h2> 
-<p><a href=".express_zh_CN.md.html">Express 使用文档</a></p> 
+<ul> 
+ <li> <p>手动集成</p> <p><a href=".express_zh_CN.md.html">Express 使用文档</a></p> </li> 
+ <li> <p>基于 EasyTemplateJS 引擎的 Express 应用快速生成工具</p> <p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a></p> </li> 
+</ul> 
 <h2> <a id="结束" class="anchor" href="#%E7%BB%93%E6%9D%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>结束</h2> 
 <h3> <a id="官方主页" class="anchor" href="#%E5%AE%98%E6%96%B9%E4%B8%BB%E9%A1%B5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://www.easyproject.cn/easytemplate/zh-cn/index.jsp" title="官方主页">官方主页</a> </h3> 
 <p><a href="http://www.easyproject.cn/easytemplate/zh-cn/index.jsp#donation" title="留言评论">留言评论</a></p> 

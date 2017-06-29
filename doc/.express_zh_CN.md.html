@@ -643,11 +643,34 @@ function setDocumentScrollTop(ypos)
 <p>Express 的 <code>res.render</code> 支持基于各种模板引擎进行页面渲染，只需要编写相应代码,通过 <code>app.engine</code> 注册相应模板引擎即可。</p> 
 <p>Pug 等模板引擎带有自定义语言，需要高昂的学习成本，并且引擎内部需要对模板进行转换。</p> 
 <p>而 EasyTemplateJS 直接基于原生 HTML 和 JavaScript 进行模板编译和渲染。能更大限度发挥 EasyTemplateJS 高性能，小巧并简单易用的优势。</p> 
-<h2> <a id="使用步骤" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用步骤</h2> 
-<h3> <a id="1-安装-easytemplatejs" class="anchor" href="#1-%E5%AE%89%E8%A3%85-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. 安装 EasyTemplateJS</h3> 
+<h2> <a id="express-quicker-快速自动生成工具" class="anchor" href="#express-quicker-%E5%BF%AB%E9%80%9F%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Express-quicker 快速自动生成工具</h2> 
+<p><strong>推荐使用 Express-quicker 创建基于 EasyTemplateJS 引擎的项目。</strong></p> 
+<p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a> 是一个创建 Express 应用快速生成工具，能基于 <a href="https://github.com/ushelp/Express-quickstart">Express-quickstart</a>（EasyTemplateJS 引擎） 帮你自动生成项目骨架，并内置了开发常用模块。</p> 
+<div class="highlight highlight-source-shell">
+ <pre><span class="pl-c1">.</span>
+├── app.js
+├── package.json
+├── public
+│   ├── img
+│   ├── js
+│   └── css
+│       └── style.css
+│   └── favicon.ico
+│   └── upload.html
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.etj
+    ├── index.etj
+    └── users.etj</pre>
+</div> 
+<h2> <a id="手动集成" class="anchor" href="#%E6%89%8B%E5%8A%A8%E9%9B%86%E6%88%90" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>手动集成</h2> 
+<p>如果您需要手动集成，请参考如下步骤。</p> 
+<h4> <a id="1-安装-easytemplatejs" class="anchor" href="#1-%E5%AE%89%E8%A3%85-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. 安装 EasyTemplateJS</h4> 
 <pre><code>npm install easytemplatejs –save
 </code></pre> 
-<h3> <a id="2-注册-easytemplatejs-渲染引擎" class="anchor" href="#2-%E6%B3%A8%E5%86%8C-easytemplatejs-%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. 注册 EasyTemplateJS 渲染引擎</h3> 
+<h4> <a id="2-注册-easytemplatejs-渲染引擎" class="anchor" href="#2-%E6%B3%A8%E5%86%8C-easytemplatejs-%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. 注册 EasyTemplateJS 渲染引擎</h4> 
 <p>将代码复制到 <code>app.js</code> 中，默认模板引擎扩展名为 <code>.etj</code>。</p> 
 <ul> 
  <li><strong>app.js</strong></li> 
@@ -655,6 +678,8 @@ function setDocumentScrollTop(ypos)
 <div class="highlight highlight-source-js">
  <pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>fs<span class="pl-pds">'</span></span>) 
 <span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);
+<span class="pl-smi">Et</span>.<span class="pl-smi">enableScript</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-script&gt;</span>
+<span class="pl-smi">Et</span>.<span class="pl-smi">enableStyle</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-style&gt;</span>
 <span class="pl-k">var</span> cache<span class="pl-k">=</span><span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> 是否开启缓存</span>
 <span class="pl-k">var</span> cacheTpl<span class="pl-k">=</span>{}; <span class="pl-c"><span class="pl-c">//</span> 缓存集合</span>
 <span class="pl-c"><span class="pl-c">//</span> 定义模板引擎</span>
@@ -678,7 +703,7 @@ function setDocumentScrollTop(ypos)
 <span class="pl-smi">app</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>views<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./views<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">//</span> 视图目录</span>
 <span class="pl-smi">app</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>view engine<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>etj<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">//</span> 注册模板引擎</span></pre>
 </div> 
-<h3> <a id="3-使用" class="anchor" href="#3-%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. 使用</h3> 
+<h4> <a id="3-使用" class="anchor" href="#3-%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. 使用</h4> 
 <ul> 
  <li> <p><strong>app.js</strong></p> 
   <div class="highlight highlight-source-js">
@@ -729,6 +754,16 @@ function setDocumentScrollTop(ypos)
  &lt;/<span class="pl-ent">html</span>&gt;</pre>
   </div> </li> 
 </ul> 
+<h4> <a id="4-开启内嵌-script-和-css-支持" class="anchor" href="#4-%E5%BC%80%E5%90%AF%E5%86%85%E5%B5%8C-script-%E5%92%8C-css-%E6%94%AF%E6%8C%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. 开启内嵌 Script 和 CSS 支持</h4> 
+<p>为了增强在 Express 等服务端 Web 应用框架中使用模板的功能体验，EasyTemplateJS 开创性的为模板提供了 script 脚本和 style 样式表支持。</p> 
+<ul> 
+ <li> <p><strong>Script 代码支持</strong></p> <p>将 JavaScript 代码放在 <code>&lt;etj-script&gt;</code> ... <code>&lt;/etj-script&gt;</code> 标签之间。 <strong>语句必须使用 <code>;</code> 结尾。</strong></p> </li> 
+ <li> <p><strong>CSS 代码支持</strong></p> <p>将 CSS 代码放在 <code>&lt;etj-style&gt;</code> ... <code>&lt;/etj-style&gt;</code> 标签之间。</p> </li> 
+</ul> 
+<div class="highlight highlight-source-js">
+ <pre><span class="pl-smi">Et</span>.<span class="pl-smi">enableScript</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-script&gt;</span>
+<span class="pl-smi">Et</span>.<span class="pl-smi">enableStyle</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-style&gt;</span></pre>
+</div> 
 <h2> <a id="文档" class="anchor" href="#%E6%96%87%E6%A1%A3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文档</h2> 
 <p><a href=".readme_zh_CN.md.html">EasyTemplateJS 中文详细使用文档</a></p> 
 <p><a href=".readme_en.md.html">EasyTemplateJS English detailed documentation</a></p> 

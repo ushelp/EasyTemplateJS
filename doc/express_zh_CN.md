@@ -6,16 +6,45 @@ Pug 等模板引擎带有自定义语言，需要高昂的学习成本，并且�
 
 而 EasyTemplateJS 直接基于原生 HTML 和 JavaScript 进行模板编译和渲染。能更大限度发挥 EasyTemplateJS 高性能，小巧并简单易用的优势。
 
+## Express-quicker 快速自动生成工具
 
-## 使用步骤
+**推荐使用 Express-quicker 创建基于 EasyTemplateJS 引擎的项目。**
 
-### 1. 安装 EasyTemplateJS
+[Express-quicker](https://github.com/ushelp/Express-quicker)
+是一个创建 Express 应用快速生成工具，能基于 [Express-quickstart](https://github.com/ushelp/Express-quickstart)（EasyTemplateJS 引擎） 帮你自动生成项目骨架，并内置了开发常用模块。
+
+```sh
+.
+├── app.js
+├── package.json
+├── public
+│   ├── img
+│   ├── js
+│   └── css
+│       └── style.css
+│   └── favicon.ico
+│   └── upload.html
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.etj
+    ├── index.etj
+    └── users.etj
+```
+
+
+## 手动集成
+
+如果您需要手动集成，请参考如下步骤。
+
+#### 1. 安装 EasyTemplateJS
 
 ```
 npm install easytemplatejs –save
 ```
 
-### 2. 注册 EasyTemplateJS 渲染引擎
+#### 2. 注册 EasyTemplateJS 渲染引擎
 
 将代码复制到 `app.js` 中，默认模板引擎扩展名为 `.etj`。
 
@@ -24,6 +53,8 @@ npm install easytemplatejs –save
 ```JS
 var fs = require('fs') 
 var Et = require('easytemplatejs');
+Et.enableScript = true; // enable <etj-script>
+Et.enableStyle = true; // enable <etj-style>
 var cache=true; // 是否开启缓存
 var cacheTpl={}; // 缓存集合
 // 定义模板引擎
@@ -48,7 +79,7 @@ app.set('views', './views') // 视图目录
 app.set('view engine', 'etj') // 注册模板引擎
 ```
 
-### 3. 使用
+#### 3. 使用
 
 - **app.js**
 
@@ -103,6 +134,23 @@ app.set('view engine', 'etj') // 注册模板引擎
 		</body>
 	</html>
 	```
+
+#### 4. 开启内嵌 Script 和 CSS 支持
+
+为了增强在 Express 等服务端 Web 应用框架中使用模板的功能体验，EasyTemplateJS 开创性的为模板提供了 script 脚本和 style 样式表支持。
+
+- **Script 代码支持**
+
+	将 JavaScript 代码放在 `<etj-script>` ... `</etj-script>` 标签之间。 **语句必须使用 `;` 结尾。**
+	
+- **CSS 代码支持**
+		
+	将 CSS 代码放在 `<etj-style>` ... `</etj-style>` 标签之间。
+
+```javascript
+Et.enableScript = true; // enable <etj-script>
+Et.enableStyle = true; // enable <etj-style>
+```
 
 ## 文档
 

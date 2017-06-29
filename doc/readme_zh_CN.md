@@ -5,14 +5,14 @@
 
 JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 `HTML` 字符串带来的不便和低维护性的缺点，利用反向思路，在 `HTML` 中嵌入 JavaScript 脚本，就像利用 `JSP` 和 `ASP` 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。
 
-The latest version: `2.1.3-RELEASE`
+The latest version: `2.2.0-RELEASE`
 
 
 ## 特点
 
 - 小巧，纯粹
 
-- 预先静态编译，高性能
+- 高性能，预先静态编译
 
 - 灵活自定义
 
@@ -20,13 +20,13 @@ The latest version: `2.1.3-RELEASE`
 
 - 支持 out 输出
 
+- 支持内嵌 JavaScript 脚本(`<etj-script>...</etj-script>`)和 CSS 样式脚本(`<etj-script>...</etj-script>`)
+
 - 模块化支持：`CommonJS`, `AMD`, `CMD`, `Node.js`
 
-- Bower 支持
-	
-- Node.js Express 框架支持
+- Node.js [Express 框架支持](doc/express_zh_CN.md)
 
-- NPM, Bower 支持
+- npm, Bower 支持
 	
 
 ## Performance test comparison/性能测试对比
@@ -296,7 +296,77 @@ console.info(
 ```
 
 
-### 6. API
+### 6. 如何使用全局或外部对象？
+
+由于 EasyTemplateJS 是一个 JS 跨平台的模板引擎，在浏览器环境和桌面环境下都可以使用，所以对于并未直接对全局对象进行管理。
+
+使用时可以根据需要直接传入：
+
+```JS
+var res = Et.template(tmpl, {
+	'people': ['MoMo', 'Joy', 'Ray'],
+	'console': window.console,
+	'window': window,
+	'alert': alert 
+});
+```
+
+### 7. 内嵌 JavaScript 和 CSS
+
+为了增强在 Express 等服务端 Web 应用框架中使用模板的功能体验，EasyTemplateJS 开创性的为模板提供了 script 脚本和 style 样式表支持。
+
+- **启用脚本和 CSS 支持**
+
+	默认脚本和样式支持是关闭的，可根据需要手动开启。
+
+	```javascript
+	Et.enableScript = true; // enable <etj-script>
+	Et.enableStyle = true; // enable <etj-style>
+	```
+
+- **Script 代码支持**
+
+	将 JavaScript 代码放在 `<etj-script>` ... `</etj-script>` 标签之间。 **语句必须使用 `;` 结尾。**
+	
+- **CSS 代码支持**
+		
+	将 CSS 代码放在 `<etj-style>` ... `</etj-style>` 标签之间。
+
+- **示例**
+
+	```HTML
+	<etj-script>
+		function test(){
+			var num=100
+			console.info('test execute...')
+		}
+		test()
+		var r2=document.getElementById('res2');
+		r2.innerHTML='<h3>etj-script</h3>'
+		r2.className="blue";
+	</etj-script>
+	
+	
+	<etj-style>
+		#res3{
+			color:Red;
+			font-size:30px
+		}
+		.blue{color:blue; }
+	</etj-style>
+	
+	%{ 
+		console.info('Global'); 
+		<!--alert('Global');-->
+		for(var i in people){ }%
+		<li>{i} = 
+			{ people[i] } 
+		</li>
+	%{ } }%
+	```
+
+
+## API
 
 `Et` 暴露了有限的几个 API:
 
@@ -392,7 +462,13 @@ console.info(
 
 ## 在 Express 框架中使用 EasyTemplateJS 
 
-[Express 使用文档](express_zh_CN.md)
+- 手动集成
+
+	[Express 使用文档](express_zh_CN.md)
+
+- 基于 EasyTemplateJS 引擎的 Express 应用快速生成工具
+
+	[Express-quicker](https://github.com/ushelp/Express-quicker)
 
 
 

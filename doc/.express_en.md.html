@@ -643,11 +643,34 @@ function setDocumentScrollTop(ypos)
 <p>Express's <code>res.render</code> support page rendering based on various template engines, just write the code and register the corresponding template engine with <code>app.engine</code>.</p> 
 <p>Pug and other template engine with a custom language, the need for high learning costs, and the need for internal transformation of the template template.</p> 
 <p>EasyTemplateJS is based on native HTML and JavaScript for template compilation and rendering. To maximize the advantages of EasyTemplateJS high performance, compact and easy to use.</p> 
-<h2> <a id="steps-for-usage" class="anchor" href="#steps-for-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Steps for usage</h2> 
-<h3> <a id="1-installation-easytemplatejs" class="anchor" href="#1-installation-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Installation EasyTemplateJS</h3> 
+<h2> <a id="express-quicker-quickly-generate-tools-automatically" class="anchor" href="#express-quicker-quickly-generate-tools-automatically" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Express-quicker Quickly generate tools automatically</h2> 
+<p><strong>It is recommended to use Express-quicker to create projects based directly on the EasyTemplateJS engine.</strong></p> 
+<p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a> is a quick genertor tools for creating Express applications, Can be based on <a href="https://github.com/ushelp/Express-quickstart">Express-quickstart</a>(EasyTemplateJS engine) to help you automatically generate project skeleton, and built-in development of commonly used modules.</p> 
+<div class="highlight highlight-source-shell">
+ <pre><span class="pl-c1">.</span>
+├── app.js
+├── package.json
+├── public
+│   ├── img
+│   ├── js
+│   └── css
+│       └── style.css
+│   └── favicon.ico
+│   └── upload.html
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.etj
+    ├── index.etj
+    └── users.etj</pre>
+</div> 
+<h2> <a id="manual-integration" class="anchor" href="#manual-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manual integration</h2> 
+<p>If you need to integrate manually, please refer to the following steps.</p> 
+<h4> <a id="1-installation-easytemplatejs" class="anchor" href="#1-installation-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Installation EasyTemplateJS</h4> 
 <pre><code>npm install easytemplatejs –save
 </code></pre> 
-<h3> <a id="2-register-the-easytemplatejs-rendering-engine" class="anchor" href="#2-register-the-easytemplatejs-rendering-engine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Register the EasyTemplateJS Rendering Engine</h3> 
+<h4> <a id="2-register-the-easytemplatejs-rendering-engine" class="anchor" href="#2-register-the-easytemplatejs-rendering-engine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Register the EasyTemplateJS Rendering Engine</h4> 
 <p>Copy the code into <code>app.js</code> with the default template engine extension <code>.etj</code>.</p> 
 <ul> 
  <li><strong>app.js</strong></li> 
@@ -655,6 +678,8 @@ function setDocumentScrollTop(ypos)
 <div class="highlight highlight-source-js">
  <pre><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>fs<span class="pl-pds">'</span></span>)   <span class="pl-c"><span class="pl-c">//</span> this engine requires the fs module</span>
 <span class="pl-k">var</span> Et <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>easytemplatejs<span class="pl-pds">'</span></span>);
+<span class="pl-smi">Et</span>.<span class="pl-smi">enableScript</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-script&gt;</span>
+<span class="pl-smi">Et</span>.<span class="pl-smi">enableStyle</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-style&gt;</span>
 <span class="pl-k">var</span> cache<span class="pl-k">=</span><span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> Whether to open the cache</span>
 <span class="pl-k">var</span> cacheTpl<span class="pl-k">=</span>{}; <span class="pl-c"><span class="pl-c">//</span> Cache data</span>
 
@@ -679,7 +704,7 @@ function setDocumentScrollTop(ypos)
 <span class="pl-smi">app</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>views<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./views<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">//</span> specify the views directory</span>
 <span class="pl-smi">app</span>.<span class="pl-c1">set</span>(<span class="pl-s"><span class="pl-pds">'</span>view engine<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>etj<span class="pl-pds">'</span></span>) <span class="pl-c"><span class="pl-c">//</span> register the template engine</span></pre>
 </div> 
-<h3> <a id="3-使用" class="anchor" href="#3-%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. 使用</h3> 
+<h4> <a id="3-use" class="anchor" href="#3-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Use</h4> 
 <ul> 
  <li> <p><strong>app.js</strong></p> 
   <div class="highlight highlight-source-js">
@@ -730,6 +755,16 @@ function setDocumentScrollTop(ypos)
  &lt;/<span class="pl-ent">html</span>&gt;</pre>
   </div> </li> 
 </ul> 
+<h4> <a id="4-enable-embedded-javascript-and-css" class="anchor" href="#4-enable-embedded-javascript-and-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Enable embedded JavaScript and CSS</h4> 
+<p>To enhance the functional experience of using templates in Express and other server-side Web application frameworks, EasyTemplateJS pioneered the provision of script scripts and style style sheet support for templates.</p> 
+<ul> 
+ <li> <p><strong>Script code support</strong></p> <p>Place the JavaScript code between the <code>&lt;etj-script&gt;</code> ... <code>&lt;/etj-script&gt;</code> tags. <strong>The statement must end with <code>;</code>.</strong></p> </li> 
+ <li> <p><strong>CSS code support</strong></p> <p>Place the CSS code between the <code>&lt;etj-style&gt;</code> ... <code>&lt;/etj-style&gt;</code> tags.</p> </li> 
+</ul> 
+<div class="highlight highlight-source-js">
+ <pre><span class="pl-smi">Et</span>.<span class="pl-smi">enableScript</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-script&gt;</span>
+<span class="pl-smi">Et</span>.<span class="pl-smi">enableStyle</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>; <span class="pl-c"><span class="pl-c">//</span> enable &lt;etj-style&gt;</span></pre>
+</div> 
 <h2> <a id="documenation" class="anchor" href="#documenation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documenation</h2> 
 <p><a href=".readme_en.md.html">EasyTemplateJS English detailed documentation</a></p> 
 <p><a href=".readme_zh_CN.md.html">EasyTemplateJS 中文详细使用文档</a></p> 

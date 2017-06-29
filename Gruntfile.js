@@ -20,7 +20,7 @@ module.exports = function(grunt) {
  * Copyright 2012 Ray [ inthinkcolor@gmail.com ]
  * Released under the MIT license
  * 
- * [Support AMD, CMD, CommonJS, Node.js]
+ * [Support AMD, CMD, CommonJS, Node.js, Express]
  * 
  */
 `

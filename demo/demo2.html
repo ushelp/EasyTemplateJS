@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>EasyTemplateJS Demo</title>
+		<style type="text/css">
+			div {
+				border-bottom: 1px solid #0086B3;
+				padding: 5px 0;
+			}
+		</style>
+		<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../src/easy.templatejs.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+	
+		
+				Et.enableScript=true;
+				Et.enableStyle=true;
+		
+				// temp demo
+				var tmpl = $("#tmpl").html();
+				var res = Et.template(tmpl, {
+					'people': ['MoMo', 'Joy', 'Ray'],
+					'console': window.console,
+					'window': window,
+					'alert': alert 
+				});
+				console.info('--------------------------')
+				console.info(res)
+
+				$("#res").html(res)
+				
+
+			});
+		</script>
+	</head> 
+
+	<body>
+		<div>
+			<h1>Result</h1>
+		</div>
+		<div id="res"></div>
+		<div id="res2"></div>
+		<div id="res3">etj-style</div>
+
+		<!-- 普通模板 -->
+<script id="tmpl" type="text/tmpl">
+	
+	<etj-script>
+		function test(){
+			var num=100;
+			console.info("test execute...");
+		};
+		var jay={name:'Jay',hey:function(){
+			console.info('I’m '+this.name);}
+		};
+		test();
+		var r2=document.getElementById('res2');
+		r2.innerHTML="<h1>etj-script</h1>";
+		r2.style.color="blue"; 
+		// fafaoga 
+	</etj-script>
+	
+	<etj-style>
+		#res3{
+			color:Red;
+			font-size:30px
+		}
+		body{
+				font-family:"Comic Sans MS", sans-serif;
+			}
+		.blue{color:blue; }
+		ul li{
+			margin:20px 0px;
+		}
+	</etj-style>
+	
+	<ul>
+	%{ 
+		console.info('Global'); 
+		<!--alert('Global');-->
+		for(var i in people){ }%
+		<li>{i} = { people[i] } </li>
+	%{ } }%
+	</ul>
+	
+	
+	
+</script>
+
+
+	</body>
+
+</html>

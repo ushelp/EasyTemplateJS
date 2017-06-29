@@ -11,7 +11,7 @@
 			}
 		</style>
 		<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../dist/easy.templatejs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../src/easy.templatejs.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
 				/*// 修改脚本表达式开始结束标记
@@ -135,6 +135,7 @@
 		<!-- 使用 out 输出 -->
 		<script id="tmpl3" type="text/tmpl">
 			%{ 
+				console.info('aaaa');
 				for(var i=0; i < people.length; i++){ 
 					out( "<li>"+i+ " = "+people[i]+ "</li> "); 
 				} 

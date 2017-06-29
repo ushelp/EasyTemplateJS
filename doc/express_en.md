@@ -6,15 +6,46 @@ Pug and other template engine with a custom language, the need for high learning
 
 EasyTemplateJS is based on native HTML and JavaScript for template compilation and rendering. To maximize the advantages of EasyTemplateJS high performance, compact and easy to use.
 
-## Steps for usage
 
-### 1. Installation EasyTemplateJS
+## Express-quicker Quickly generate tools automatically
+
+**It is recommended to use Express-quicker to create projects based directly on the EasyTemplateJS engine.**
+
+[Express-quicker](https://github.com/ushelp/Express-quicker)
+is a quick genertor tools for creating Express applications, Can be based on [Express-quickstart](https://github.com/ushelp/Express-quickstart)(EasyTemplateJS engine) to help you automatically generate project skeleton, and built-in development of commonly used modules.
+
+```sh
+.
+├── app.js
+├── package.json
+├── public
+│   ├── img
+│   ├── js
+│   └── css
+│       └── style.css
+│   └── favicon.ico
+│   └── upload.html
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.etj
+    ├── index.etj
+    └── users.etj
+```
+
+
+## Manual integration
+
+If you need to integrate manually, please refer to the following steps.
+
+#### 1. Installation EasyTemplateJS
 
 ```
 npm install easytemplatejs –save
 ```
 
-### 2. Register the EasyTemplateJS Rendering Engine
+#### 2. Register the EasyTemplateJS Rendering Engine
 
 Copy the code into `app.js` with the default template engine extension `.etj`.
 
@@ -23,6 +54,8 @@ Copy the code into `app.js` with the default template engine extension `.etj`.
 ```JS
 var fs = require('fs')   // this engine requires the fs module
 var Et = require('easytemplatejs');
+Et.enableScript = true; // enable <etj-script>
+Et.enableStyle = true; // enable <etj-style>
 var cache=true; // Whether to open the cache
 var cacheTpl={}; // Cache data
 
@@ -48,7 +81,7 @@ app.set('views', './views') // specify the views directory
 app.set('view engine', 'etj') // register the template engine
 ```
 
-### 3. 使用
+#### 3. Use
 
 - **app.js**
 
@@ -103,6 +136,25 @@ app.set('view engine', 'etj') // register the template engine
 		</body>
 	</html>
 	```
+	
+	
+#### 4. Enable embedded JavaScript and CSS
+
+To enhance the functional experience of using templates in Express and other server-side Web application frameworks, EasyTemplateJS pioneered the provision of script scripts and style style sheet support for templates.
+
+- **Script code support**
+
+	Place the JavaScript code between the `<etj-script>` ... `</etj-script>` tags. **The statement must end with `;`.**
+	
+- **CSS code support**
+		
+	Place the CSS code between the `<etj-style>` ... `</etj-style>` tags.
+
+
+```javascript
+Et.enableScript = true; // enable <etj-script>
+Et.enableStyle = true; // enable <etj-style>
+```
 
 ## Documenation
 

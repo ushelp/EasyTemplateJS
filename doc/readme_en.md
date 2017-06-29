@@ -4,14 +4,14 @@
 
 JavaScript template engine as the data and interface separation of the most important part. Using JavaScript template functions to avoid the inconvenience and low maintenance of splicing `HTML` strings in JavaScript, embedding JavaScript scripts in` HTML` as opposed to using `JSP` and` ASP` Technical programming. EasyTemplate provides an ultra-high-performance rendering engine that uses template technology in JavaScript to simplify operations and enhance program design flexibility.
 
-The latest version: `2.1.3-RELEASE`
+The latest version: `2.2.0-RELEASE`
 
 
 ## Feature
 
 - Small, pure
 
-- Pre-statically compiled, high-performance
+- High-performance, pre-statically compiled
 
 - Flexible customization
 
@@ -19,11 +19,13 @@ The latest version: `2.1.3-RELEASE`
 
 - Support out output
 
+- Support embedded JavaScript (`<etj-script>...</etj-script>`) and CSS(`<etj-script>...</etj-script>`)
+
 - Module support:`CommonJS`, `AMD`, `CMD`, `Node.js`
 
-- Node.js Express Web Framework support
+- Node.js [Express Web Framework support](doc/express_en.md)
 
-- Npm, Bower support
+- npm, Bower support
 
 
 ## Performance test comparison
@@ -292,7 +294,80 @@ console.info(
 );	
 ```
 
-### 6. API
+
+
+### 6. How do I use global or external objects?
+
+Because EasyTemplateJS is a JS cross-platform template engine that can be used in both the browser environment and the desktop environment, the global object is not managed directly.
+
+Can be used as needed directly incoming:
+
+```JS
+var res = Et.template(tmpl, {
+	'people': ['MoMo', 'Joy', 'Ray'],
+	'console': window.console,
+	'window': window,
+	'alert': alert 
+});
+```
+
+### 7. Embedded JavaScript and CSS
+
+To enhance the functional experience of using templates in Express and other server-side Web application frameworks, EasyTemplateJS pioneered the provision of script scripts and style style sheet support for templates.
+
+- **Enable scripting and CSS support**
+
+	The default script and style support is turned off and can be turned on manually as needed.
+
+	```javascript
+	Et.enableScript = true; // enable <etj-script>
+	Et.enableStyle = true; // enable <etj-style>
+	```
+
+- **Script code support**
+
+	Place the JavaScript code between the `<etj-script>` ... `</etj-script>` tags. **The statement must end with `;`.**
+	
+- **CSS code support**
+		
+	Place the CSS code between the `<etj-style>` ... `</etj-style>` tags.
+
+- **Example**
+
+	```HTML
+	<etj-script>
+		function test(){
+			var num=100
+			console.info('test execute...')
+		}
+		test()
+		var r2=document.getElementById('res2');
+		r2.innerHTML='<h3>etj-script</h3>'
+		r2.className="blue";
+	</etj-script>
+	
+	
+	<etj-style>
+		#res3{
+			color:Red;
+			font-size:30px
+		}
+		.blue{color:blue; }
+	</etj-style>
+	
+	%{ 
+		console.info('Global'); 
+		<!--alert('Global');-->
+		for(var i in people){ }%
+		<li>{i} = 
+			{ people[i] } 
+		</li>
+	%{ } }%
+	```
+
+
+
+## API
 
 `Et` Exposing a limited number of APIs:
 
@@ -387,8 +462,13 @@ console.info(
 	
 ## Use EasyTemplateJS in Express 
 
-[Express documentation](express_en.md)
+- Manual integration
 
+	[Express documentation](express_en.md)
+
+- Express application generator tool based on EasyTemplateJS
+
+	[Express-quicker](https://github.com/ushelp/Express-quicker)
 
 
 ## END
