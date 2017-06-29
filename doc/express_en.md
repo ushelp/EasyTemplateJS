@@ -28,6 +28,7 @@ is a quick genertor tools for creating Express applications, Can be based on [Ex
 ├── routes
 │   ├── index.js
 │   └── users.js
+├── uploads
 └── views
     ├── error.etj
     ├── index.etj
