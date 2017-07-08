@@ -11,28 +11,82 @@ Pug 等模板引擎带有自定义语言，需要高昂的学习成本，并且�
 **推荐使用 Express-quicker 创建基于 EasyTemplateJS 引擎的项目。**
 
 [Express-quicker](https://github.com/ushelp/Express-quicker)
-是一个创建 Express 应用快速生成工具，能基于 [Express-quickstart](https://github.com/ushelp/Express-quickstart)（EasyTemplateJS 引擎） 帮你自动生成项目骨架，并内置了开发常用模块。
+是一个创建 Express 应用快速生成工具，能基于 quickstart 帮你自动生成项目骨架，内置了 EasyTemplateJS 引擎和开发常用模块。
 
 ```sh
-.
-├── app.js
-├── package.json
-├── public
-│   ├── img
-│   ├── js
-│   └── css
-│       └── style.css
-│   └── favicon.ico
-│   └── upload.html
-├── routes
-│   ├── index.js
-│   └── users.js
-├── uploads
-└── views
-    ├── error.etj
-    ├── index.etj
-    └── users.etj
+npm install express-quicker -g
 ```
+
+- [Express-quickstart](https://github.com/ushelp/Express-quickstart)
+
+	```sh
+	equicker [app-name]
+	```
+	
+	
+	```sh
+	.
+	├── app.js
+	├── package.json
+	├── public
+	│   ├── img
+	│   ├── js
+	│   └── css
+	│       └── style.css
+	│   └── favicon.ico
+	│   └── upload.html
+	├── routes
+	│   ├── index.js
+	│   └── users.js
+	├── uploads
+	└── views
+	    ├── error.etj
+	    ├── index.etj
+	    └── users.etj
+	```
+- [Express-quickstart-emp](https://github.com/ushelp/Express-quickstart-emp)
+
+	```sh
+	equicker -t emp [app-name]
+	```
+	
+	```sh
+	.
+	├── app.js
+	├── package.json
+	├── entiy
+	│   ├── Dept.js
+	│   ├── Emp.js
+	│   └── User.js
+	├── filter
+	│   └── user-filter.js
+	├── public
+	│   ├── img
+	│   ├── js
+	│   └── css
+	│       └── style.css
+	│   └── favicon.ico
+	│   └── upload.html
+	├── routes
+	│   ├── depts.js
+	│   ├── emps.js
+	│   ├── index.js
+	│   └── users.js
+	├── service
+	│   ├── dept-service.js
+	│   ├── emp-service.js
+	│   └── users-service.js
+	├── uploads
+	└── views
+		├── admin
+		│   └── admin.etj
+		├── dept
+		│   └── list.etj	
+		├── emp
+		│   └── list.etj
+	    ├── error.etj
+	    └── index.etj
+	```
 
 
 ## 手动集成

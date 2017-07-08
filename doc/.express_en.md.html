@@ -645,27 +645,77 @@ function setDocumentScrollTop(ypos)
 <p>EasyTemplateJS is based on native HTML and JavaScript for template compilation and rendering. To maximize the advantages of EasyTemplateJS high performance, compact and easy to use.</p> 
 <h2> <a id="express-quicker-quickly-generate-tools-automatically" class="anchor" href="#express-quicker-quickly-generate-tools-automatically" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Express-quicker Quickly generate tools automatically</h2> 
 <p><strong>It is recommended to use Express-quicker to create projects based directly on the EasyTemplateJS engine.</strong></p> 
-<p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a> is a quick genertor tools for creating Express applications, Can be based on <a href="https://github.com/ushelp/Express-quickstart">Express-quickstart</a>(EasyTemplateJS engine) to help you automatically generate project skeleton, and built-in development of commonly used modules.</p> 
+<p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a> is a quick application to create Express application tool, based on quickstart help you automatically generate the project skeleton, built-in EasyTemplateJS engine and the development of common modules.</p> 
 <div class="highlight highlight-source-shell">
- <pre><span class="pl-c1">.</span>
-├── app.js
-├── package.json
-├── public
-│   ├── img
-│   ├── js
-│   └── css
-│       └── style.css
-│   └── favicon.ico
-│   └── upload.html
-├── routes
-│   ├── index.js
-│   └── users.js
-├── uploads
-└── views
-    ├── error.etj
-    ├── index.etj
-    └── users.etj</pre>
+ <pre>npm install express-quicker -g</pre>
 </div> 
+<ul> 
+ <li> <p><a href="https://github.com/ushelp/Express-quickstart">Express-quickstart</a></p> 
+  <div class="highlight highlight-source-shell">
+   <pre> equicker [app-name]</pre>
+  </div> 
+  <div class="highlight highlight-source-shell">
+   <pre> <span class="pl-c1">.</span>
+ ├── app.js
+ ├── package.json
+ ├── public
+ │   ├── img
+ │   ├── js
+ │   └── css
+ │       └── style.css
+ │   └── favicon.ico
+ │   └── upload.html
+ ├── routes
+ │   ├── index.js
+ │   └── users.js
+ ├── uploads
+ └── views
+     ├── error.etj
+     ├── index.etj
+     └── users.etj</pre>
+  </div> </li> 
+ <li> <p><a href="https://github.com/ushelp/Express-quickstart-emp">Express-quickstart-emp</a></p> 
+  <div class="highlight highlight-source-shell">
+   <pre> equicker -t emp [app-name]</pre>
+  </div> 
+  <div class="highlight highlight-source-shell">
+   <pre> <span class="pl-c1">.</span>
+ ├── app.js
+ ├── package.json
+ ├── entiy
+ │   ├── Dept.js
+ │   ├── Emp.js
+ │   └── User.js
+ ├── filter
+ │   └── user-filter.js
+ ├── public
+ │   ├── img
+ │   ├── js
+ │   └── css
+ │       └── style.css
+ │   └── favicon.ico
+ │   └── upload.html
+ ├── routes
+ │   ├── depts.js
+ │   ├── emps.js
+ │   ├── index.js
+ │   └── users.js
+ ├── service
+ │   ├── dept-service.js
+ │   ├── emp-service.js
+ │   └── users-service.js
+ ├── uploads
+ └── views
+ 	├── admin
+ 	│   └── admin.etj
+ 	├── dept
+ 	│   └── list.etj	
+ 	├── emp
+ 	│   └── list.etj
+     ├── error.etj
+     └── index.etj</pre>
+  </div> </li> 
+</ul> 
 <h2> <a id="manual-integration" class="anchor" href="#manual-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Manual integration</h2> 
 <p>If you need to integrate manually, please refer to the following steps.</p> 
 <h4> <a id="1-installation-easytemplatejs" class="anchor" href="#1-installation-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Installation EasyTemplateJS</h4> 

@@ -7,7 +7,7 @@ var Et = require('../dist/easy.templatejs.min');
 
 console.info('Hello');
 
-var compiled=Et.template("Hello {name}");
+var compiled=Et.template("Hello {=name}");
 console.info(compiled({
     name:'MoMo'
 }));

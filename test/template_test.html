@@ -7,7 +7,7 @@
 <script src="./template test_files/highcharts.js"></script>
 
 <!-- EasyTemplateJS-->
-<script src="../dist/easy.templatejs.min.js"></script>
+<script src="../src/easy.templatejs.js"></script>
 
 <!-- Other test template-->
 <script src="./template test_files/wu.tmpl.10line.js"></script>
@@ -372,7 +372,7 @@ var startTest = function () {
 <script id="et" type="text/tmpl">
 <ul>
     %{for (let i = 0, l = list.length; i < l; i ++) { }%
-        <li>用户: {list[i].user}/ 网站：{list[i].site}</li>
+        <li>用户: {=list[i].user}/ 网站：{=list[i].site}</li>
     %{ } }%
 </ul>
 </script>

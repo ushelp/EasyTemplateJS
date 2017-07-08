@@ -640,13 +640,12 @@ function setDocumentScrollTop(ypos)
 </head>
 <body class="markdown-body">
 <h1> <a id="easytemplatejs-模板引擎使用手册" class="anchor" href="#easytemplatejs-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS 模板引擎使用手册</h1> 
-<p><strong>EasyTemplateJS（EasyTemplate JavaScript）是一款小巧，纯粹，高性能的 JavaScript 模板引擎。</strong></p> 
+<p><strong>EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。并为 Node.js 和 Express 框架提供增强支持。</strong></p> 
 <p>JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 <code>HTML</code> 字符串带来的不便和低维护性的缺点，利用反向思路，在 <code>HTML</code> 中嵌入 JavaScript 脚本，就像利用 <code>JSP</code> 和 <code>ASP</code> 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。</p> 
-<p>The latest version: <code>2.2.0-RELEASE</code></p> 
+<p>The latest version: <code>3.0.0-RELEASE</code></p> 
 <h2> <a id="特点" class="anchor" href="#%E7%89%B9%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>特点</h2> 
 <ul> 
- <li> <p>小巧，纯粹</p> </li> 
- <li> <p>高性能，预先静态编译</p> </li> 
+ <li> <p>超高性能，预先静态编译，小巧，纯粹</p> </li> 
  <li> <p>灵活自定义</p> </li> 
  <li> <p>支持转义输出表达式</p> </li> 
  <li> <p>支持 out 输出</p> </li> 
@@ -656,7 +655,7 @@ function setDocumentScrollTop(ypos)
  <li> <p>npm, Bower 支持</p> </li> 
 </ul> 
 <h2> <a id="performance-test-comparison性能测试对比" class="anchor" href="#performance-test-comparison%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%AF%B9%E6%AF%94" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Performance test comparison/性能测试对比</h2> 
-<p>从渲染性能上来说， <strong>EasyTemplateJS</strong> 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些实现较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。</p> 
+<p>从渲染性能上来说， <strong>EasyTemplateJS</strong> 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。</p> 
 <p><a href="imgs/performance.png" target="_blank"><img src="imgs/performance.png" alt="Performance test comparison" style="max-width:100%;" /></a></p> 
 <h2> <a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用</h2> 
 <h3> <a id="1-引入js文件" class="anchor" href="#1-%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. 引入JS文件</h3> 
@@ -689,15 +688,15 @@ function setDocumentScrollTop(ypos)
 <ol start="2"> 
  <li><strong>输出表达式</strong></li> 
 </ol> 
-<p><code>{expression}</code>： 插入要输出的变量（作用与 JSP 的 <code>&lt;%=expression%&gt;</code> 相同）。</p> 
+<p><code>{=expression}</code>： 插入要输出的变量（作用与 JSP 的 <code>&lt;%=expression%&gt;</code> 相同）。</p> 
 <ol start="3"> 
  <li><strong>转义输出表达式</strong></li> 
 </ol> 
 <p><code>{-expression}</code>： 用法与<code>{expression}</code>相同，输出数据时会自动转义特殊字符为字符实体。</p> 
 <ul> 
- <li><strong>为什么选择 %{}%， {} 作为闭合标签？</strong></li> 
+ <li><strong>为什么选择 <code>%{}%</code>， <code>{=}</code> 作为闭合标签？</strong></li> 
 </ul> 
-<p>EasyTemplateJS 没有选择常用的 <code>&lt;%%&gt;</code> 或 <code>${}</code> 作为模板引擎的默认闭合标签，因为在 <code>JSP</code>，<code>ASP</code> 等动态页面中，<code>&lt;%%&gt;</code>，<code>${}</code> 都本身是动态特殊标记，当在 <code>JSP</code> 页面定义模板标签时，会对 <code>JSP</code> 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 <code>%{}%</code> <code>{}</code>。</p> 
+<p>EasyTemplateJS 没有选择常用的 <code>&lt;%%&gt;</code> 或 <code>${}</code> 作为模板引擎的默认闭合标签，因为在 <code>JSP</code>，<code>ASP</code> 等动态页面中，<code>&lt;%%&gt;</code>，<code>${}</code> 都本身是动态特殊标记，当在 <code>JSP</code> 页面定义模板标签时，会对 <code>JSP</code> 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 <code>%{}%</code> <code>{=}</code>。</p> 
 <p>尽管如此，但是如果您更喜欢使用 <code>&lt;%%&gt;</code> 或 <code>${}</code>，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 <code>&lt;%%&gt;</code>，以兼容你旧的模板代码。 (<code>参考 5. 模板表达式闭合标签自定义</code>)</p> 
 <h3> <a id="3-使用实例" class="anchor" href="#3-%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. 使用实例</h3> 
 <p>EasyTemplateJS 向外暴露了一个名为**<code>Et</code>**的对象，用来完成模板操作。</p> 
@@ -716,7 +715,7 @@ function setDocumentScrollTop(ypos)
  <li> <p>模板基本示例</p> 
   <div class="highlight highlight-source-js">
    <pre> <span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
- <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
+ <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: {=name }, {-name}<span class="pl-pds">&quot;</span></span>);
  <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
  	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
  });
@@ -747,14 +746,14 @@ function setDocumentScrollTop(ypos)
    <pre> <span class="pl-c"><span class="pl-c">&lt;!--</span> 普通模板 <span class="pl-c">--&gt;</span></span>
  &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1"> 	%{ for(var i in people){ }%</span>
-<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 		&lt;li&gt;{=i} = {= people[i] }&lt;/li&gt;</span>
 <span class="pl-s1"> 	%{ } }%</span>
 <span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
  <span class="pl-c"><span class="pl-c">&lt;!--</span> 使用HTML定义模板内容时，如果有&lt;、&gt;等特殊内容，可以使用对应字符实体代替 <span class="pl-c">--&gt;</span></span>
  &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl2<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1"> 	%{ for(var i=0; i &amp;lt; people.length; i++){ }%</span>
-<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 		&lt;li&gt;{=i} = {= people[i] }&lt;/li&gt;</span>
 <span class="pl-s1"> 	%{ } }%</span>
 <span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
@@ -802,7 +801,7 @@ function setDocumentScrollTop(ypos)
   </div> </li> 
 </ul> 
 <h3> <a id="4-使用-out-输出信息" class="anchor" href="#4-%E4%BD%BF%E7%94%A8-out-%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. 使用 out 输出信息</h3> 
-<p>您也可以在JavaScript代码中使用 <code>out</code> 函数输出信息，这样不用断开您的代码块，有时候这会比使用 <code>{name}</code> 更方便清晰。</p> 
+<p>您也可以在JavaScript代码中使用 <code>out</code> 函数输出信息，这样不用断开您的代码块，有时候这会比使用 <code>{=name}</code> 更方便清晰。</p> 
 <div class="highlight highlight-text-html-basic">
  <pre><span class="pl-c"><span class="pl-c">&lt;!--</span> 使用 out 输出 <span class="pl-c">--&gt;</span></span>
 &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
@@ -823,8 +822,8 @@ function setDocumentScrollTop(ypos)
 <h3> <a id="5-模板表达式闭合标签自定义" class="anchor" href="#5-%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%AD%E5%90%88%E6%A0%87%E7%AD%BE%E8%87%AA%E5%AE%9A%E4%B9%89" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. 模板表达式闭合标签自定义</h3> 
 <p>由于某些模板定义和执行块在某些动态页面（<code>JSP</code>, <code>ASP</code>）中具有特殊涵义，所以在某些页面中使用模板符号会引起错误。EasyTemplate允许改变模板设置, 使用别的符号来嵌入代码。</p> 
 <blockquote> 
- <p><strong>为什么选择 %{}%， {} 作为闭合标签？</strong></p> 
- <p>EasyTemplateJS 没有选择常用的 <code>&lt;%%&gt;</code> 或 <code>${}</code> 作为模板引擎的默认闭合标签，因为在 <code>JSP</code>，<code>ASP</code> 等动态页面中，<code>&lt;%%&gt;</code>，<code>${}</code> 都本身是动态特殊标记，当在 <code>JSP</code> 页面定义模板标签时，会对 <code>JSP</code> 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 <code>%{}%</code> <code>{}</code>。</p> 
+ <p><strong>为什么选择 %{}%， {=} 作为闭合标签？</strong></p> 
+ <p>EasyTemplateJS 没有选择常用的 <code>&lt;%%&gt;</code> 或 <code>${}</code> 作为模板引擎的默认闭合标签，因为在 <code>JSP</code>，<code>ASP</code> 等动态页面中，<code>&lt;%%&gt;</code>，<code>${}</code> 都本身是动态特殊标记，当在 <code>JSP</code> 页面定义模板标签时，会对 <code>JSP</code> 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 <code>%{}%</code> <code>{=}</code>。</p> 
  <p>尽管如此，但是如果您更喜欢使用 <code>&lt;%%&gt;</code> 或 <code>${}</code>，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 <code>&lt;%%&gt;</code>，以兼容你旧的模板代码。</p> 
 </blockquote> 
 <p><strong>注意：</strong> 如果您绝对修改模板表达式的闭合标签，您需要小心检查您的定义逻辑是否合理。</p> 
@@ -835,7 +834,7 @@ function setDocumentScrollTop(ypos)
 	scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%{<span class="pl-pds">&quot;</span></span>,
 	scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}%<span class="pl-pds">&quot;</span></span>,
 	<span class="pl-c"><span class="pl-c">//</span> 输出表达式开始结束标记 {name}</span>
-	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{<span class="pl-pds">&quot;</span></span>,
+	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{=<span class="pl-pds">&quot;</span></span>,
 	outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>,
 	<span class="pl-c"><span class="pl-c">//</span> 转义输出表达式开始结束标记 {-name}</span>
 	escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{-<span class="pl-pds">&quot;</span></span>,
@@ -912,13 +911,17 @@ function setDocumentScrollTop(ypos)
  	var r2=document.getElementById('res2');
  	r2.innerHTML='&lt;<span class="pl-ent">h3</span>&gt;etj-script&lt;/<span class="pl-ent">h3</span>&gt;'
  	r2.className=&quot;blue&quot;;
+ 	// use data 
+ 	var t='{=title}';
+ 	console.info(t);
  &lt;/<span class="pl-ent">etj-script</span>&gt;
  
  
  &lt;<span class="pl-ent">etj-style</span>&gt;
  	#res3{
  		color:Red;
- 		font-size:30px
+ 		/*use data*/
+ 		font-size:{=textSize}px;
  	}
  	.blue{color:blue; }
  &lt;/<span class="pl-ent">etj-style</span>&gt;

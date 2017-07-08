@@ -1,17 +1,15 @@
 # EasyTemplateJS Template Engine User Guide
 
-**EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.**
+**EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. And provides enhanced support for Node.js and Express frameworks.**
 
 JavaScript template engine as the data and interface separation of the most important part. Using JavaScript template functions to avoid the inconvenience and low maintenance of splicing `HTML` strings in JavaScript, embedding JavaScript scripts in` HTML` as opposed to using `JSP` and` ASP` Technical programming. EasyTemplate provides an ultra-high-performance rendering engine that uses template technology in JavaScript to simplify operations and enhance program design flexibility.
 
-The latest version: `2.2.0-RELEASE`
+The latest version: `3.0.0-RELEASE`
 
 
-## Feature
+## Feature 
 
-- Small, pure
-
-- High-performance, pre-statically compiled
+- Ultra-high performance, pre-static compilation, small, pure
 
 - Flexible customization
 
@@ -30,7 +28,7 @@ The latest version: `2.2.0-RELEASE`
 
 ## Performance test comparison
 
-From the rendering performance, **EasyTemplate** and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact.
+From the rendering performance, **EasyTemplate** and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact. 
 
 ![Performance test comparison](imgs/performance.png)
 
@@ -76,18 +74,18 @@ TemplateJS supports three types of template expressions, which do not allow nest
   
 2. **The output expression**
 
-  `{expression}`： Insert the variables to be output (the same as `<%= expression%>` for JSP).
+  `{=expression}`： Insert the variables to be output (the same as `<%= expression%>` for JSP).
 
 3. **The escape output expression**
  
   `{-expression}`： Usage is the same as `{expression}`, and special characters are automatically escaped as character entities when outputting data.
   
 
--  **Why do I choose% {}%, {} as a closed tag?**
+-  **Why do I choose `%{}%`, `{=}` as a closed tag?**
+ 
+EasyTemplateJS did not select the commonly used `<%%>` or `${}` as the default closing tag of the template engine, because in the JSP, ASP and other dynamic pages, `<%%>`, `${}` itself is a dynamic special mark, When a page defines a template tag, it affects JSP parsing, resulting in compilation errors. So EasyTemplate chose `%{}%` `{=}` that will not conflict with other languages as much as possible.
 
- EasyTemplateJS 没有选择常用的  <%%> 或 ${} 作为模板引擎的默认闭合标签，因为在 JSP，ASP 等动态页面中，<%%>，${} 都本身是动态特殊标记，当在 JSP 页面定义模板标签时，会对 JSP 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 %{}% {}。
-
- 尽管如此，但是如果您更喜欢使用 <%%> 或 ${}，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 <%%>，以兼容你旧的模板代码。 (参考 5. 模板自定义)
+However, if you prefer to use `<%%>` or `${}`, the EasyTemplate template tag is external to allow customization, you can modify it to `<%%>` to match your old template code.(`Refer to 5. Template Custom`)
 
 
 ### 3. Examples
@@ -110,7 +108,7 @@ var res4 = compiled(data3);
 
 	```JS
 	// Basic demo
-	var compiled = Et.template("hello: { name }, {-name}");
+	var compiled = Et.template("hello: {=name }, {-name}");
 	var res = compiled({
 		name: 'MoMo'
 	});
@@ -144,14 +142,14 @@ var res4 = compiled(data3);
 	<!-- Ordinary template -->
 	<script id="tmpl" type="text/tmpl">
 		%{ for(var i in people){ }%
-			<li>{i} = { people[i] }</li>
+			<li>{=i} = {= people[i] }</li>
 		%{ } }%
 	</script>
 
 	<!-- Use HTML to define template content, if there are special content such as <,>, you can use the corresponding character entity instead -->
 	<script id="tmpl2" type="text/tmpl">
 		%{ for(var i=0; i &lt; people.length; i++){ }%
-			<li>{i} = { people[i] }</li>
+			<li>{=i} = {= people[i] }</li>
 		%{ } }%
 	</script>
 
@@ -203,7 +201,7 @@ var res4 = compiled(data3);
 
 ### 4. Use out output information
 
-You can also use the `out` function to output information in your JavaScript code so that you do not have to break your code block, which is sometimes easier and clearer than using `{name}` '.
+You can also use the `out` function to output information in your JavaScript code so that you do not have to break your code block, which is sometimes easier and clearer than using `{=name}` '.
 
 ```HTML
 <!--  out -->
@@ -229,11 +227,11 @@ console.info(res4); //Hello: JACK
 
 Because certain template definition and execution blocks have special meanings in some dynamic pages (`JSP`,` ASP`), the use of template symbols on some pages can cause errors. EasyTemplate allows you to change the template settings and use other symbols to embed the code.
 
-> **Why do I choose% {}%, {} as a closed tag?**
+> **Why do I choose `%{}%`, `{=}` as a closed tag?**
 >
-> EasyTemplateJS did not select the commonly used <%%> or $ {} as the default closing tag of the template engine, because in the JSP, ASP and other dynamic pages, <%%>, $ {} itself is a dynamic special mark, When a page defines a template tag, it affects JSP parsing, resulting in compilation errors. So EasyTemplate chose% {}% {} that will not conflict with other languages as much as possible.
+> EasyTemplateJS did not select the commonly used `<%%>` or `${}` as the default closing tag of the template engine, because in the JSP, ASP and other dynamic pages, `<%%>`, `${}` itself is a dynamic special mark, When a page defines a template tag, it affects JSP parsing, resulting in compilation errors. So EasyTemplate chose `%{}%` `{=}` that will not conflict with other languages as much as possible.
 >
-> However, if you prefer to use <%%> or $ {}, the EasyTemplate template tag is external to allow customization, you can modify it to <%%> to match your old template code.
+> However, if you prefer to use `<%%>` or `${}`, the EasyTemplate template tag is external to allow customization, you can modify it to `<%%>` to match your old template code.
 
 **Note:** If you absolutely modify the closing label of a template expression, you need to be careful to check that your definition logic is reasonable.
 
@@ -245,7 +243,7 @@ Et.tmplSettings={
 	scriptBegin:"%{",
 	scriptEnd:"}%",
 	// Output expression {name}
-	outBegin:"{",
+	outBegin:"{=",
 	outEnd:"}",
 	// Escape output expression {-name}
 	escapeOutBegin:"{-",
@@ -344,13 +342,17 @@ To enhance the functional experience of using templates in Express and other ser
 		var r2=document.getElementById('res2');
 		r2.innerHTML='<h3>etj-script</h3>'
 		r2.className="blue";
+		// use data 
+		var t='{=title}';
+		console.info(t);
 	</etj-script>
 	
 	
 	<etj-style>
 		#res3{
 			color:Red;
-			font-size:30px
+			/*use data*/
+			font-size:{=textSize}px;
 		}
 		.blue{color:blue; }
 	</etj-style>

@@ -22,13 +22,15 @@
 				// temp demo
 				var tmpl = $("#tmpl").html();
 				var res = Et.template(tmpl, {
+					'title': 'Test title',
+					'textSize':30,
 					'people': ['MoMo', 'Joy', 'Ray'],
 					'console': window.console,
 					'window': window,
 					'alert': alert 
 				});
 				console.info('--------------------------')
-				console.info(res)
+//				console.info(res)
 
 				$("#res").html(res)
 				
@@ -56,17 +58,20 @@
 		var jay={name:'Jay',hey:function(){
 			console.info('I’m '+this.name);}
 		};
-		test();
+		test(); 
 		var r2=document.getElementById('res2');
 		r2.innerHTML="<h1>etj-script</h1>";
 		r2.style.color="blue"; 
-		// fafaoga 
+		// use data 
+		var t='{=title}';
+		console.info(t);
 	</etj-script>
 	
 	<etj-style>
 		#res3{
 			color:Red;
-			font-size:30px
+			/*use data*/
+			font-size:{=textSize}px
 		}
 		body{
 				font-family:"Comic Sans MS", sans-serif;
@@ -82,7 +87,7 @@
 		console.info('Global'); 
 		<!--alert('Global');-->
 		for(var i in people){ }%
-		<li>{i} = { people[i] } </li>
+		<li>{=i} = {= people[i] } </li>
 	%{ } }%
 	</ul>
 	

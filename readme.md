@@ -1,18 +1,16 @@
 # EasyTemplateJS
 
-**EasyTemplateJS（EasyTemplate JavaScript）是一款小巧，纯粹，高性能的 JavaScript 模板引擎。**
+**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。并为 Node.js 和 Express 框架提供增强支持。**
 
-**EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.**
+**EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. And provides enhanced support for Node.js and Express frameworks.**
 
-The latest version: `2.2.0-RELEASE`
+The latest version: `3.0.0-RELEASE`
 
 ## Feature/特点
 
 - **中文**
 
-	- 小巧，纯粹
-	
-	- 高性能，预先静态编译
+	- 超高性能，预先静态编译，小巧，纯粹
 	
 	- 灵活自定义
 	
@@ -31,9 +29,7 @@ The latest version: `2.2.0-RELEASE`
 
 - **English**
 
-	- Small, pure
-	
-	- High-performance, pre-statically compiled
+	- Ultra-high performance, pre-static compilation, small, pure
 	
 	- Flexible customization
 	
@@ -53,7 +49,7 @@ The latest version: `2.2.0-RELEASE`
 
 从渲染性能上来说， **EasyTemplateJS** 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。
 
-From the rendering performance, **EasyTemplate** and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact.
+From the rendering performance, **EasyTemplate** and artTemplate are using pre-static compilation principle, can be said to have close to the performance limit, is the highest performance of the template engine. Some poor engine may not only affect the customer experience, but also cause the browser to crash or abnormal termination, Baidu engine performance is poor, the implementation of the browser rendering a huge impact. 
 
 ![Performance test comparison](doc/imgs/performance.png)
 

@@ -640,13 +640,12 @@ function setDocumentScrollTop(ypos)
 </head>
 <body class="markdown-body">
 <h1> <a id="easytemplatejs-template-engine-user-guide" class="anchor" href="#easytemplatejs-template-engine-user-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EasyTemplateJS Template Engine User Guide</h1> 
-<p><strong>EasyTemplateJS(EasyTemplate JavaScript) is a small, pure, high-performance JavaScript template engine.</strong></p> 
+<p><strong>EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. And provides enhanced support for Node.js and Express frameworks.</strong></p> 
 <p>JavaScript template engine as the data and interface separation of the most important part. Using JavaScript template functions to avoid the inconvenience and low maintenance of splicing <code>HTML</code> strings in JavaScript, embedding JavaScript scripts in<code>HTML</code> as opposed to using <code>JSP</code> and<code>ASP</code> Technical programming. EasyTemplate provides an ultra-high-performance rendering engine that uses template technology in JavaScript to simplify operations and enhance program design flexibility.</p> 
-<p>The latest version: <code>2.2.0-RELEASE</code></p> 
+<p>The latest version: <code>3.0.0-RELEASE</code></p> 
 <h2> <a id="feature" class="anchor" href="#feature" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature</h2> 
 <ul> 
- <li> <p>Small, pure</p> </li> 
- <li> <p>High-performance, pre-statically compiled</p> </li> 
+ <li> <p>Ultra-high performance, pre-static compilation, small, pure</p> </li> 
  <li> <p>Flexible customization</p> </li> 
  <li> <p>Escape output expressions are supported</p> </li> 
  <li> <p>Support out output</p> </li> 
@@ -689,16 +688,16 @@ function setDocumentScrollTop(ypos)
 <ol start="2"> 
  <li><strong>The output expression</strong></li> 
 </ol> 
-<p><code>{expression}</code>： Insert the variables to be output (the same as <code>&lt;%= expression%&gt;</code> for JSP).</p> 
+<p><code>{=expression}</code>： Insert the variables to be output (the same as <code>&lt;%= expression%&gt;</code> for JSP).</p> 
 <ol start="3"> 
  <li><strong>The escape output expression</strong></li> 
 </ol> 
 <p><code>{-expression}</code>： Usage is the same as <code>{expression}</code>, and special characters are automatically escaped as character entities when outputting data.</p> 
 <ul> 
- <li><strong>Why do I choose% {}%, {} as a closed tag?</strong></li> 
+ <li><strong>Why do I choose <code>%{}%</code>, <code>{=}</code> as a closed tag?</strong></li> 
 </ul> 
-<p>EasyTemplateJS 没有选择常用的 &lt;%%&gt; 或 ${} 作为模板引擎的默认闭合标签，因为在 JSP，ASP 等动态页面中，&lt;%%&gt;，${} 都本身是动态特殊标记，当在 JSP 页面定义模板标签时，会对 JSP 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 %{}% {}。</p> 
-<p>尽管如此，但是如果您更喜欢使用 &lt;%%&gt; 或 ${}，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 &lt;%%&gt;，以兼容你旧的模板代码。 (参考 5. 模板自定义)</p> 
+<p>EasyTemplateJS did not select the commonly used <code>&lt;%%&gt;</code> or <code>${}</code> as the default closing tag of the template engine, because in the JSP, ASP and other dynamic pages, <code>&lt;%%&gt;</code>, <code>${}</code> itself is a dynamic special mark, When a page defines a template tag, it affects JSP parsing, resulting in compilation errors. So EasyTemplate chose <code>%{}%</code> <code>{=}</code> that will not conflict with other languages as much as possible.</p> 
+<p>However, if you prefer to use <code>&lt;%%&gt;</code> or <code>${}</code>, the EasyTemplate template tag is external to allow customization, you can modify it to <code>&lt;%%&gt;</code> to match your old template code.(<code>Refer to 5. Template Custom</code>)</p> 
 <h3> <a id="3-examples" class="anchor" href="#3-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Examples</h3> 
 <p>EasyTemplateJS exposes an object named <strong><code>Et</code></strong> to complete the template operation.</p> 
 <div class="highlight highlight-source-js">
@@ -716,7 +715,7 @@ function setDocumentScrollTop(ypos)
  <li> <p>Basic Template Example</p> 
   <div class="highlight highlight-source-js">
    <pre> <span class="pl-c"><span class="pl-c">//</span> Basic demo</span>
- <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: { name }, {-name}<span class="pl-pds">&quot;</span></span>);
+ <span class="pl-k">var</span> compiled <span class="pl-k">=</span> <span class="pl-smi">Et</span>.<span class="pl-en">template</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>hello: {=name }, {-name}<span class="pl-pds">&quot;</span></span>);
  <span class="pl-k">var</span> res <span class="pl-k">=</span> <span class="pl-en">compiled</span>({
  	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>MoMo<span class="pl-pds">'</span></span>
  });
@@ -747,14 +746,14 @@ function setDocumentScrollTop(ypos)
    <pre> <span class="pl-c"><span class="pl-c">&lt;!--</span> Ordinary template <span class="pl-c">--&gt;</span></span>
  &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1"> 	%{ for(var i in people){ }%</span>
-<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 		&lt;li&gt;{=i} = {= people[i] }&lt;/li&gt;</span>
 <span class="pl-s1"> 	%{ } }%</span>
 <span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
  <span class="pl-c"><span class="pl-c">&lt;!--</span> Use HTML to define template content, if there are special content such as &lt;,&gt;, you can use the corresponding character entity instead <span class="pl-c">--&gt;</span></span>
  &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl2<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
 <span class="pl-s1"> 	%{ for(var i=0; i &amp;lt; people.length; i++){ }%</span>
-<span class="pl-s1"> 		&lt;li&gt;{i} = { people[i] }&lt;/li&gt;</span>
+<span class="pl-s1"> 		&lt;li&gt;{=i} = {= people[i] }&lt;/li&gt;</span>
 <span class="pl-s1"> 	%{ } }%</span>
 <span class="pl-s1"> </span>&lt;/<span class="pl-ent">script</span>&gt;
 
@@ -802,7 +801,7 @@ function setDocumentScrollTop(ypos)
   </div> </li> 
 </ul> 
 <h3> <a id="4-use-out-output-information" class="anchor" href="#4-use-out-output-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Use out output information</h3> 
-<p>You can also use the <code>out</code> function to output information in your JavaScript code so that you do not have to break your code block, which is sometimes easier and clearer than using <code>{name}</code> '.</p> 
+<p>You can also use the <code>out</code> function to output information in your JavaScript code so that you do not have to break your code block, which is sometimes easier and clearer than using <code>{=name}</code> '.</p> 
 <div class="highlight highlight-text-html-basic">
  <pre><span class="pl-c"><span class="pl-c">&lt;!--</span>  out <span class="pl-c">--&gt;</span></span>
 &lt;<span class="pl-ent">script</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>tmpl3<span class="pl-pds">&quot;</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">&quot;</span>text/tmpl<span class="pl-pds">&quot;</span></span>&gt;<span class="pl-s1"></span>
@@ -823,9 +822,9 @@ function setDocumentScrollTop(ypos)
 <h3> <a id="5-customization-template-expression-closed-tag" class="anchor" href="#5-customization-template-expression-closed-tag" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Customization template expression closed tag</h3> 
 <p>Because certain template definition and execution blocks have special meanings in some dynamic pages (<code>JSP</code>,<code>ASP</code>), the use of template symbols on some pages can cause errors. EasyTemplate allows you to change the template settings and use other symbols to embed the code.</p> 
 <blockquote> 
- <p><strong>Why do I choose% {}%, {} as a closed tag?</strong></p> 
- <p>EasyTemplateJS did not select the commonly used &lt;%%&gt; or $ {} as the default closing tag of the template engine, because in the JSP, ASP and other dynamic pages, &lt;%%&gt;, $ {} itself is a dynamic special mark, When a page defines a template tag, it affects JSP parsing, resulting in compilation errors. So EasyTemplate chose% {}% {} that will not conflict with other languages as much as possible.</p> 
- <p>However, if you prefer to use &lt;%%&gt; or $ {}, the EasyTemplate template tag is external to allow customization, you can modify it to &lt;%%&gt; to match your old template code.</p> 
+ <p><strong>Why do I choose <code>%{}%</code>, <code>{=}</code> as a closed tag?</strong></p> 
+ <p>EasyTemplateJS did not select the commonly used <code>&lt;%%&gt;</code> or <code>${}</code> as the default closing tag of the template engine, because in the JSP, ASP and other dynamic pages, <code>&lt;%%&gt;</code>, <code>${}</code> itself is a dynamic special mark, When a page defines a template tag, it affects JSP parsing, resulting in compilation errors. So EasyTemplate chose <code>%{}%</code> <code>{=}</code> that will not conflict with other languages as much as possible.</p> 
+ <p>However, if you prefer to use <code>&lt;%%&gt;</code> or <code>${}</code>, the EasyTemplate template tag is external to allow customization, you can modify it to <code>&lt;%%&gt;</code> to match your old template code.</p> 
 </blockquote> 
 <p><strong>Note:</strong> If you absolutely modify the closing label of a template expression, you need to be careful to check that your definition logic is reasonable.</p> 
 <p><code>Et.tmplSettings</code> Default configuration:</p> 
@@ -835,7 +834,7 @@ function setDocumentScrollTop(ypos)
 	scriptBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>%{<span class="pl-pds">&quot;</span></span>,
 	scriptEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}%<span class="pl-pds">&quot;</span></span>,
 	<span class="pl-c"><span class="pl-c">//</span> Output expression {name}</span>
-	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{<span class="pl-pds">&quot;</span></span>,
+	outBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{=<span class="pl-pds">&quot;</span></span>,
 	outEnd<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>}<span class="pl-pds">&quot;</span></span>,
 	<span class="pl-c"><span class="pl-c">//</span> Escape output expression {-name}</span>
 	escapeOutBegin<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&quot;</span>{-<span class="pl-pds">&quot;</span></span>,
@@ -911,13 +910,17 @@ function setDocumentScrollTop(ypos)
  	var r2=document.getElementById('res2');
  	r2.innerHTML='&lt;<span class="pl-ent">h3</span>&gt;etj-script&lt;/<span class="pl-ent">h3</span>&gt;'
  	r2.className=&quot;blue&quot;;
+ 	// use data 
+ 	var t='{=title}';
+ 	console.info(t);
  &lt;/<span class="pl-ent">etj-script</span>&gt;
  
  
  &lt;<span class="pl-ent">etj-style</span>&gt;
  	#res3{
  		color:Red;
- 		font-size:30px
+ 		/*use data*/
+ 		font-size:{=textSize}px;
  	}
  	.blue{color:blue; }
  &lt;/<span class="pl-ent">etj-style</span>&gt;

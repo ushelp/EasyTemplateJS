@@ -12,28 +12,83 @@ EasyTemplateJS is based on native HTML and JavaScript for template compilation a
 **It is recommended to use Express-quicker to create projects based directly on the EasyTemplateJS engine.**
 
 [Express-quicker](https://github.com/ushelp/Express-quicker)
-is a quick genertor tools for creating Express applications, Can be based on [Express-quickstart](https://github.com/ushelp/Express-quickstart)(EasyTemplateJS engine) to help you automatically generate project skeleton, and built-in development of commonly used modules.
+is a quick application to create Express application tool, based on quickstart help you automatically generate the project skeleton, built-in EasyTemplateJS engine and the development of common modules.
 
 ```sh
-.
-├── app.js
-├── package.json
-├── public
-│   ├── img
-│   ├── js
-│   └── css
-│       └── style.css
-│   └── favicon.ico
-│   └── upload.html
-├── routes
-│   ├── index.js
-│   └── users.js
-├── uploads
-└── views
-    ├── error.etj
-    ├── index.etj
-    └── users.etj
+npm install express-quicker -g
 ```
+
+- [Express-quickstart](https://github.com/ushelp/Express-quickstart)
+
+	```sh
+	equicker [app-name]
+	```
+	
+	
+	```sh
+	.
+	├── app.js
+	├── package.json
+	├── public
+	│   ├── img
+	│   ├── js
+	│   └── css
+	│       └── style.css
+	│   └── favicon.ico
+	│   └── upload.html
+	├── routes
+	│   ├── index.js
+	│   └── users.js
+	├── uploads
+	└── views
+	    ├── error.etj
+	    ├── index.etj
+	    └── users.etj
+	```
+- [Express-quickstart-emp](https://github.com/ushelp/Express-quickstart-emp)
+
+	```sh
+	equicker -t emp [app-name]
+	```
+	
+	```sh
+	.
+	├── app.js
+	├── package.json
+	├── entiy
+	│   ├── Dept.js
+	│   ├── Emp.js
+	│   └── User.js
+	├── filter
+	│   └── user-filter.js
+	├── public
+	│   ├── img
+	│   ├── js
+	│   └── css
+	│       └── style.css
+	│   └── favicon.ico
+	│   └── upload.html
+	├── routes
+	│   ├── depts.js
+	│   ├── emps.js
+	│   ├── index.js
+	│   └── users.js
+	├── service
+	│   ├── dept-service.js
+	│   ├── emp-service.js
+	│   └── users-service.js
+	├── uploads
+	└── views
+		├── admin
+		│   └── admin.etj
+		├── dept
+		│   └── list.etj	
+		├── emp
+		│   └── list.etj
+	    ├── error.etj
+	    └── index.etj
+	```
+
 
 
 ## Manual integration

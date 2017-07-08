@@ -645,27 +645,77 @@ function setDocumentScrollTop(ypos)
 <p>而 EasyTemplateJS 直接基于原生 HTML 和 JavaScript 进行模板编译和渲染。能更大限度发挥 EasyTemplateJS 高性能，小巧并简单易用的优势。</p> 
 <h2> <a id="express-quicker-快速自动生成工具" class="anchor" href="#express-quicker-%E5%BF%AB%E9%80%9F%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Express-quicker 快速自动生成工具</h2> 
 <p><strong>推荐使用 Express-quicker 创建基于 EasyTemplateJS 引擎的项目。</strong></p> 
-<p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a> 是一个创建 Express 应用快速生成工具，能基于 <a href="https://github.com/ushelp/Express-quickstart">Express-quickstart</a>（EasyTemplateJS 引擎） 帮你自动生成项目骨架，并内置了开发常用模块。</p> 
+<p><a href="https://github.com/ushelp/Express-quicker">Express-quicker</a> 是一个创建 Express 应用快速生成工具，能基于 quickstart 帮你自动生成项目骨架，内置了 EasyTemplateJS 引擎和开发常用模块。</p> 
 <div class="highlight highlight-source-shell">
- <pre><span class="pl-c1">.</span>
-├── app.js
-├── package.json
-├── public
-│   ├── img
-│   ├── js
-│   └── css
-│       └── style.css
-│   └── favicon.ico
-│   └── upload.html
-├── routes
-│   ├── index.js
-│   └── users.js
-├── uploads
-└── views
-    ├── error.etj
-    ├── index.etj
-    └── users.etj</pre>
+ <pre>npm install express-quicker -g</pre>
 </div> 
+<ul> 
+ <li> <p><a href="https://github.com/ushelp/Express-quickstart">Express-quickstart</a></p> 
+  <div class="highlight highlight-source-shell">
+   <pre> equicker [app-name]</pre>
+  </div> 
+  <div class="highlight highlight-source-shell">
+   <pre> <span class="pl-c1">.</span>
+ ├── app.js
+ ├── package.json
+ ├── public
+ │   ├── img
+ │   ├── js
+ │   └── css
+ │       └── style.css
+ │   └── favicon.ico
+ │   └── upload.html
+ ├── routes
+ │   ├── index.js
+ │   └── users.js
+ ├── uploads
+ └── views
+     ├── error.etj
+     ├── index.etj
+     └── users.etj</pre>
+  </div> </li> 
+ <li> <p><a href="https://github.com/ushelp/Express-quickstart-emp">Express-quickstart-emp</a></p> 
+  <div class="highlight highlight-source-shell">
+   <pre> equicker -t emp [app-name]</pre>
+  </div> 
+  <div class="highlight highlight-source-shell">
+   <pre> <span class="pl-c1">.</span>
+ ├── app.js
+ ├── package.json
+ ├── entiy
+ │   ├── Dept.js
+ │   ├── Emp.js
+ │   └── User.js
+ ├── filter
+ │   └── user-filter.js
+ ├── public
+ │   ├── img
+ │   ├── js
+ │   └── css
+ │       └── style.css
+ │   └── favicon.ico
+ │   └── upload.html
+ ├── routes
+ │   ├── depts.js
+ │   ├── emps.js
+ │   ├── index.js
+ │   └── users.js
+ ├── service
+ │   ├── dept-service.js
+ │   ├── emp-service.js
+ │   └── users-service.js
+ ├── uploads
+ └── views
+ 	├── admin
+ 	│   └── admin.etj
+ 	├── dept
+ 	│   └── list.etj	
+ 	├── emp
+ 	│   └── list.etj
+     ├── error.etj
+     └── index.etj</pre>
+  </div> </li> 
+</ul> 
 <h2> <a id="手动集成" class="anchor" href="#%E6%89%8B%E5%8A%A8%E9%9B%86%E6%88%90" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>手动集成</h2> 
 <p>如果您需要手动集成，请参考如下步骤。</p> 
 <h4> <a id="1-安装-easytemplatejs" class="anchor" href="#1-%E5%AE%89%E8%A3%85-easytemplatejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. 安装 EasyTemplateJS</h4> 

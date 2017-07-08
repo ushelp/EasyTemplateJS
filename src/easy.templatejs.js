@@ -1,7 +1,7 @@
 /**
  * EasyTemplate
  * 
- * Version 2.2.0
+ * Version 3.0.0
  * 
  * http://easyproject.cn 
  * https://github.com/ushelp
@@ -37,8 +37,8 @@
 	
 	// 其他变量，函数定义...
 	var _Et = root.Et,
-		noMatch = /(.)^/,
-		escaper = /\\|'|\r|\n|\t|\u2028|\u2029/g,
+		noMatch = new RegExp(/(.)^/),
+		escaper = new RegExp(/\\|'|\r|\n|\t|\u2028|\u2029/g),
 		escapes = {
 			"'": "'",
 			"\\": "\\",
@@ -64,10 +64,10 @@
 				"&#x27;": "'"
 			}
 		},
-		scriptReg=new RegExp("<etj\-script>((.|\r|\n|\r\n|\n\r)*?)</etj\-script>","igm"),
-		scriptReplaceReg=new RegExp("<#script#></#script#>","ig"),
-		styleReg=new RegExp("<etj\-style>((.|\r|\n|\r\n|\n\r)*?)</etj\-style>","igm"),
-		styleReplaceReg=new RegExp("<#style#></#style#>","ig"),
+//		scriptReg=new RegExp("<etj\-script>((.|\r|\n|\r\n|\n\r)*?)</etj\-script>","igm"),
+//		scriptReplaceReg=new RegExp("<#script#></#script#>","ig"),
+//		styleReg=new RegExp("<etj\-style>((.|\r|\n|\r\n|\n\r)*?)</etj\-style>","igm"),
+//		styleReplaceReg=new RegExp("<#style#></#style#>","ig"),
 		has = function(obj, key) {
 			return hasOwnProperty.call(obj, key);
 		}, 
@@ -94,12 +94,12 @@
 			return obj;
 		},
 		// 静态编译部分
-		REMOVE=/\/\*[\w\W]*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|"(?:[^"\\]|\\[\w\W])*"|'(?:[^'\\]|\\[\w\W])*'|\s*\.\s*[$\w\.]+/g,
-		SPLIT= /[^\w$]+/g,
+		REMOVE=new RegExp(/\/\*[\w\W]*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|"(?:[^"\\]|\\[\w\W])*"|'(?:[^'\\]|\\[\w\W])*'|\s*\.\s*[$\w\.]+/g),
+		SPLIT= new RegExp(/[^\w$]+/g),
 		KEYWORDS= new RegExp(["\\b" + "break,case,catch,continue,debugger,default,delete,do,else,false,finally,for,function,if,in,instanceof,new,null,return,switch,this,throw,true,try,typeof,var,void,while,with,abstract,boolean,byte,char,class,const,double,enum,export,extends,final,float,goto,implements,import,int,interface,long,native,package,private,protected,public,short,static,super,synchronized,throws,transient,volatile,arguments,let,yield,undefined".replace(/,/g, '\\b|\\b') + "\\b"].join('|'), 'g'),
-		NUMBER= /^\d[^,]*|,\d[^,]*/g,
-		BOUNDARY= /^,+|,+$/g,
-		SPLIT2= /^$|,+/,
+		NUMBER= new RegExp(/^\d[^,]*|,\d[^,]*/g),
+		BOUNDARY= new RegExp(/^,+|,+$/g),
+		SPLIT2= new RegExp(/^$|,+/),
 		// 返回静态编译的变量列表
 		getVars=function(code) {
 		    var varArray= code
@@ -125,7 +125,8 @@
 			}
 			return vars;
 		},
-		cacheTmplSettings;
+		cacheTmplSettings,
+		dotRegExp=new RegExp(/(.)/g);
 	
 	/*--------------------------------------------------------------------------*/
 	
@@ -143,8 +144,8 @@
 			// 脚本表达式 开始结束标记%{ JS script }%
 			scriptBegin:"%{",
 			scriptEnd:"}%",
-			// 输出表达式开始结束标记 {name}
-			outBegin:"{",
+			// 输出表达式开始结束标记 {=name}
+			outBegin:"{=",
 			outEnd:"}",
 			// 转义输出表达式开始结束标记 {-name}
 			escapeOutBegin:"{-",
@@ -203,69 +204,35 @@
 		template: function(tmplText, data, settings) {
 			// node.js buffer toString
 			tmplText+="";
-			// store etj-script, etj-style
-			var scripts=[];
-			var styles=[];
-			// Script support 
-			if(this.enableScript){
-				tmplText=tmplText.replace(scriptReg, function($0, $1){
-//					scripts.push($1); 
-					scripts.push('<script>'+
-					$1.trim()
-					.replace(/\/\/.*/g,'')
-					.replace(/\/\*[\s\S]*\*\//g,"")
-					.replace(/'|"/g,"\\'")
-					.replace(/((\r)|(\n)|(\r\n))/g,function($0, $1){
-						 return "'+"+$1+"'";
-					})
-					.replace(/^(\s+)(\S+)/g,function($0, $1, $2){
-						 return "'"+$2;
-					})
-					+'<\/script>');
-					return '<#script#></#script#>';
-				})
-			}
 			
 			if(settings){
 				// 临时定义
 				settings = defaults({}, settings, Et.tmplSettings);
 				settings={
-						script: new RegExp(settings.scriptBegin.replace(/(.)/g,"\\$1")+"([\\s\\S]+?)"+settings.scriptEnd.replace(/(.)/g,"\\$1"),"g"),
-						out: new RegExp(settings.outBegin.replace(/(.)/g,"\\$1")+"([\\s\\S]+?)"+settings.outEnd.replace(/(.)/g,"\\$1"),"g"),
-						escapeOut: new RegExp(settings.escapeOutBegin.replace(/(.)/g,"\\$1")+"([\\s\\S]+?)"+settings.escapeOutEnd.replace(/(.)/g,"\\$1"),"g"),
+						script: new RegExp(settings.scriptBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+settings.scriptEnd.replace(dotRegExp,"\\$1"),"g"),
+						out: new RegExp(settings.outBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+settings.outEnd.replace(dotRegExp,"\\$1"),"g"),
+						escapeOut: new RegExp(settings.escapeOutBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+settings.escapeOutEnd.replace(dotRegExp,"\\$1"),"g"),
 				};
 			}else{
 				// 模板标签
-				if(!cacheTmplSettings){
+				if(
+					Et.tmplSettings.scriptBegin!="%{" ||
+					Et.tmplSettings.scriptEnd!="}%" ||
+					Et.tmplSettings.outBegin!="{=" ||
+					Et.tmplSettings.outEnd!="}" ||
+					Et.tmplSettings.escapeOutBegin!="{-" ||
+					Et.tmplSettings.escapeOutEnd!="}" 
+				){
 					cacheTmplSettings={
-						script: new RegExp(Et.tmplSettings.scriptBegin.replace(/(.)/g,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.scriptEnd.replace(/(.)/g,"\\$1"),"g"),
-						out: new RegExp(Et.tmplSettings.outBegin.replace(/(.)/g,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.outEnd.replace(/(.)/g,"\\$1"),"g"),
-						escapeOut: new RegExp(Et.tmplSettings.escapeOutBegin.replace(/(.)/g,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.escapeOutEnd.replace(/(.)/g,"\\$1"),"g"),
+						script: new RegExp(Et.tmplSettings.scriptBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.scriptEnd.replace(dotRegExp,"\\$1"),"g"),
+						out: new RegExp(Et.tmplSettings.outBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.outEnd.replace(dotRegExp,"\\$1"),"g"),
+						escapeOut: new RegExp(Et.tmplSettings.escapeOutBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.escapeOutEnd.replace(dotRegExp,"\\$1"),"g"),
 					};
 				}
 				settings=cacheTmplSettings;
 			}
 			
 			tmplText = Et.unescape(tmplText);
-			
-			// Style support, don't warp
-			if(this.enableStyle){
-				tmplText=tmplText.replace(styleReg, function($0, $1){
-					styles.push('<style>'+
-					$1
-					.replace(/\r|\n/g,"")
-					.replace(/\s+\}/g,"}")
-					.replace(/\}\s+/g,"}")
-					.replace(/\{\s+/g,"{")
-					.replace(/;\s+/g,";")
-					.replace(/\/(\*([^\/])+\*)\//g,"")
-					.replace(/'|"/g,"\\'")
-					.trim()
-					+'</style>');
-					return '<#style#></#style#>';
-				})
-			}
-			
 			var render;
 			var matcher = new RegExp([(settings.escapeOut || noMatch).source, (settings.out || noMatch).source, (settings.script || noMatch).source].join("|") + "|$", "g");
 			var index = 0;
@@ -289,22 +256,24 @@
 				return match;
 			});
 			source += "';";
-			var vars=getVars(source);
-			source = "'use strict';" +vars+"_t,_p='',out=function(){_p+=Array.prototype.join.call(arguments, '')};" + source + "return _p";
+			var vars=getVars(source); 
+			// Script support 
+			if(this.enableScript){
+//				source=source.replace(scriptReg, function($0, $1){
+//					return '<script>'+$1.trim()+'<\/script>'
+//				})
+				source=source.replace("<etj-script>",'<script>').replace("</etj-script>",'<\/script>');
+			}
+			// Style support, don't warp
+			if(this.enableStyle){
+//				source=source.replace(styleReg, function($0, $1){
+//					return '<style>'+$1.trim()+'</style>';
+//				})
+				source=source.replace("<etj-style>",'<style>').replace("</etj-style>",'<\/style>');
+			}
+//			console.info(source);
+			source = "'use strict';"+vars+"_t,_p='',out=function(){_p+=Array.prototype.join.call(arguments, '')};" + source + "return _p";
 			try {
-				// Script support
-				if(this.enableScript){
-					source=source.replace(scriptReplaceReg, function($0){
-//						return "';"+scripts.shift()+";_p+='";
-						return scripts.shift();
-					})
-				}
-				// Style support
-				if(this.enableStyle){
-					source=source.replace(styleReplaceReg, function($0){
-						return styles.shift();
-					})
-				}
 				render = new Function("data", "Et",  source);
 			} catch (e) {
 				e.source = "function anonymous(data,Et) {" + source + "}";;
@@ -339,6 +308,13 @@
 		}
 	};
 
+
+	cacheTmplSettings={
+		script: new RegExp(Et.tmplSettings.scriptBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.scriptEnd.replace(dotRegExp,"\\$1"),"g"),
+		out: new RegExp(Et.tmplSettings.outBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.outEnd.replace(dotRegExp,"\\$1"),"g"),
+		escapeOut: new RegExp(Et.tmplSettings.escapeOutBegin.replace(dotRegExp,"\\$1")+"([\\s\\S]+?)"+Et.tmplSettings.escapeOutEnd.replace(dotRegExp,"\\$1"),"g"),
+	}
+
 	/*--------------------------------------------------------------------------*/
 	// Export Et
 	
@@ -366,3 +342,5 @@
 		root.Et = Et;
    }
 }.call(this));
+
+ 

@@ -1,18 +1,16 @@
 # EasyTemplateJS 模板引擎使用手册
 
 
-**EasyTemplateJS（EasyTemplate JavaScript）是一款小巧，纯粹，高性能的 JavaScript 模板引擎。**
+**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。并为 Node.js 和 Express 框架提供增强支持。**
 
 JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 `HTML` 字符串带来的不便和低维护性的缺点，利用反向思路，在 `HTML` 中嵌入 JavaScript 脚本，就像利用 `JSP` 和 `ASP` 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。
 
-The latest version: `2.2.0-RELEASE`
+The latest version: `3.0.0-RELEASE`
 
-
+ 
 ## 特点
 
-- 小巧，纯粹
-
-- 高性能，预先静态编译
+- 超高性能，预先静态编译，小巧，纯粹
 
 - 灵活自定义
 
@@ -29,9 +27,9 @@ The latest version: `2.2.0-RELEASE`
 - npm, Bower 支持
 	
 
-## Performance test comparison/性能测试对比
+## Performance test comparison/性能测试对比 
 
-从渲染性能上来说， **EasyTemplateJS** 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些实现较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。
+从渲染性能上来说， **EasyTemplateJS** 和 artTemplate 都是使用预先静态编译原理，可以说已经接近的性能极限，是当前性能最高的模板引擎。一些较差的引擎不仅可能影响客户体验，还会会引起浏览器崩溃或异常终止，百度的引擎则性能较差，对浏览器渲染执行影响巨大。
 
 ![Performance test comparison](imgs/performance.png)
 
@@ -76,16 +74,16 @@ TemplateJS 支持三类模板表达式，表达式不允许嵌套或交叉:
   
 2. **输出表达式**
 
-  `{expression}`： 插入要输出的变量（作用与 JSP 的 `<%=expression%>` 相同）。
+  `{=expression}`： 插入要输出的变量（作用与 JSP 的 `<%=expression%>` 相同）。
 
 3. **转义输出表达式**
  
   `{-expression}`： 用法与`{expression}`相同，输出数据时会自动转义特殊字符为字符实体。
   
 
--  **为什么选择 %{}%， {} 作为闭合标签？**
+-  **为什么选择 `%{}%`， `{=}` 作为闭合标签？**
 
- EasyTemplateJS 没有选择常用的  `<%%>` 或 `${}` 作为模板引擎的默认闭合标签，因为在 `JSP`，`ASP` 等动态页面中，`<%%>`，`${}` 都本身是动态特殊标记，当在 `JSP` 页面定义模板标签时，会对 `JSP` 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 `%{}%` `{}`。
+ EasyTemplateJS 没有选择常用的  `<%%>` 或 `${}` 作为模板引擎的默认闭合标签，因为在 `JSP`，`ASP` 等动态页面中，`<%%>`，`${}` 都本身是动态特殊标记，当在 `JSP` 页面定义模板标签时，会对 `JSP` 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 `%{}%` `{=}`。
 
  尽管如此，但是如果您更喜欢使用 `<%%>` 或 `${}`，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 `<%%>`，以兼容你旧的模板代码。 (`参考 5. 模板表达式闭合标签自定义`)
 
@@ -110,7 +108,7 @@ var res4 = compiled(data3);
 
 	```JS
 	// Basic demo
-	var compiled = Et.template("hello: { name }, {-name}");
+	var compiled = Et.template("hello: {=name }, {-name}");
 	var res = compiled({
 		name: 'MoMo'
 	});
@@ -144,14 +142,14 @@ var res4 = compiled(data3);
 	<!-- 普通模板 -->
 	<script id="tmpl" type="text/tmpl">
 		%{ for(var i in people){ }%
-			<li>{i} = { people[i] }</li>
+			<li>{=i} = {= people[i] }</li>
 		%{ } }%
 	</script>
 
 	<!-- 使用HTML定义模板内容时，如果有<、>等特殊内容，可以使用对应字符实体代替 -->
 	<script id="tmpl2" type="text/tmpl">
 		%{ for(var i=0; i &lt; people.length; i++){ }%
-			<li>{i} = { people[i] }</li>
+			<li>{=i} = {= people[i] }</li>
 		%{ } }%
 	</script>
 
@@ -203,7 +201,7 @@ var res4 = compiled(data3);
 
 ### 4. 使用 out 输出信息
 
-您也可以在JavaScript代码中使用 `out` 函数输出信息，这样不用断开您的代码块，有时候这会比使用  `{name}` 更方便清晰。
+您也可以在JavaScript代码中使用 `out` 函数输出信息，这样不用断开您的代码块，有时候这会比使用  `{=name}` 更方便清晰。
 
 ```HTML
 <!-- 使用 out 输出 -->
@@ -229,9 +227,9 @@ console.info(res4); //Hello: JACK
 
 由于某些模板定义和执行块在某些动态页面（`JSP`, `ASP`）中具有特殊涵义，所以在某些页面中使用模板符号会引起错误。EasyTemplate允许改变模板设置, 使用别的符号来嵌入代码。
 
-> **为什么选择 %{}%， {} 作为闭合标签？**
+> **为什么选择 %{}%， {=} 作为闭合标签？**
 >
-> EasyTemplateJS 没有选择常用的  `<%%>` 或 `${}` 作为模板引擎的默认闭合标签，因为在 `JSP`，`ASP` 等动态页面中，`<%%>`，`${}` 都本身是动态特殊标记，当在 `JSP` 页面定义模板标签时，会对 `JSP` 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 `%{}%` `{}`。
+> EasyTemplateJS 没有选择常用的  `<%%>` 或 `${}` 作为模板引擎的默认闭合标签，因为在 `JSP`，`ASP` 等动态页面中，`<%%>`，`${}` 都本身是动态特殊标记，当在 `JSP` 页面定义模板标签时，会对 `JSP` 解析造成影响，导致编译错误。所以 EasyTemplate 选择了尽量不会与其他语言冲突的 `%{}%` `{=}`。
 > 
 > 尽管如此，但是如果您更喜欢使用 `<%%>` 或 `${}`，本身 EasyTemplate 模板标签是对外允许自定义的，您可以修改为 `<%%>`，以兼容你旧的模板代码。 
 
@@ -245,7 +243,7 @@ Et.tmplSettings={
 	scriptBegin:"%{",
 	scriptEnd:"}%",
 	// 输出表达式开始结束标记 {name}
-	outBegin:"{",
+	outBegin:"{=",
 	outEnd:"}",
 	// 转义输出表达式开始结束标记 {-name}
 	escapeOutBegin:"{-",
@@ -270,7 +268,7 @@ var userSettings=
 	escapeOutEnd:"%>"
 }
 ```
-
+ 
 ```JS
 // 全局修改
 Et.tmplSettings=userSettings;
@@ -344,13 +342,17 @@ var res = Et.template(tmpl, {
 		var r2=document.getElementById('res2');
 		r2.innerHTML='<h3>etj-script</h3>'
 		r2.className="blue";
+		// use data 
+		var t='{=title}';
+		console.info(t);
 	</etj-script>
 	
 	
 	<etj-style>
 		#res3{
 			color:Red;
-			font-size:30px
+			/*use data*/
+			font-size:{=textSize}px;
 		}
 		.blue{color:blue; }
 	</etj-style>

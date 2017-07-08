@@ -1,7 +1,7 @@
 {
 	"name": "easytemplatejs",
 	"title": "EasyTemplateJS",
-	"version": "2.2.0",
+	"version": "3.0.0",
 	"description": "High-performance, small, pure, JavaScript template engine. Support:`CommonJS`, `AMD`, `CMD`, `Node.js`, `Express`, `<etj-script>`, `<etj-style>`.",
 	"main": "dist/easy.templatejs.min.js",
 	"homepage": "https://github.com/ushelp/EasyTemplateJS#readme",
