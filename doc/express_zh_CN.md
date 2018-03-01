@@ -120,11 +120,11 @@ app.engine('etj', function (filePath, data, callback) {
     // 缓存控制
     if(cache){
 	    if(!cacheTpl[filePath]){
-	    	cacheTpl[filePath]=Et.template(content);
+	    	cacheTpl[filePath] = Et.template(content);
 	    }
-	    compiled=cacheTpl[filePath];
+	    compiled = cacheTpl[filePath];
     }else{
-    	template(content);
+    	compiled = template(content);
     }
     var rendered = compiled(data);
     return callback(null, rendered)
