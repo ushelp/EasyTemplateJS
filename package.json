@@ -1,8 +1,8 @@
 {
 	"name": "easytemplatejs",
 	"title": "EasyTemplateJS",
-	"version": "3.0.0",
-	"description": "High-performance, small, pure, JavaScript template engine. Support:`CommonJS`, `AMD`, `CMD`, `Node.js`, `Express`, `<etj-script>`, `<etj-style>`.",
+	"version": "3.0.1",
+	"description": "High-performance, small, pure, JavaScript template engine. Support:`CommonJS`, `AMD`, `CMD`, `Node.js`, `Express`, `koa`, `<etj-script>`, `<etj-style>`.",
 	"main": "dist/easy.templatejs.min.js",
 	"homepage": "https://github.com/ushelp/EasyTemplateJS#readme",
 	"author": "Ray <inthinkcolor@gmail.com>",
@@ -28,6 +28,8 @@
 		"easyproject",
 		"easy",
 		"express",
+		"koa",
+		"koajs",
 		"node",
 		"node.js",
 		"html"

@@ -1,10 +1,9 @@
 # EasyTemplateJS Template Engine User Guide
 
-**EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. And provides enhanced support for Node.js and Express frameworks.**
+**EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. Support for browser environment, Node.js environment, Express framework and Koa framework.**
 
 JavaScript template engine as the data and interface separation of the most important part. Using JavaScript template functions to avoid the inconvenience and low maintenance of splicing `HTML` strings in JavaScript, embedding JavaScript scripts in` HTML` as opposed to using `JSP` and` ASP` Technical programming. EasyTemplate provides an ultra-high-performance rendering engine that uses template technology in JavaScript to simplify operations and enhance program design flexibility.
 
-The latest version: `3.0.0-RELEASE`
 
 
 ## Feature 
@@ -21,7 +20,9 @@ The latest version: `3.0.0-RELEASE`
 
 - Module support:`CommonJS`, `AMD`, `CMD`, `Node.js`
 
-- Node.js [Express Web Framework support](doc/express_en.md)
+- Node.js enviroment support
+
+- `Express`, `koa` framework support
 
 - npm, Bower support
 
@@ -311,7 +312,7 @@ var res = Et.template(tmpl, {
 
 ### 7. Embedded JavaScript and CSS
 
-To enhance the functional experience of using templates in Express and other server-side Web application frameworks, EasyTemplateJS pioneered the provision of script scripts and style style sheet support for templates.
+To enhance the functional experience of using templates in Express, koa and other server-side Web application frameworks, EasyTemplateJS pioneered the provision of script scripts and style style sheet support for templates.
 
 - **Enable scripting and CSS support**
 
@@ -462,15 +463,24 @@ To enhance the functional experience of using templates in Express and other ser
 	});
 	```
 	
-## Use EasyTemplateJS in Express 
 
-- Manual integration
+## Express Middleware
 
-	[Express documentation](express_en.md)
+- [EasyTemplateJS-express ](https://github.com/ushelp/EasyTemplateJS-express)
 
-- Express application generator tool based on EasyTemplateJS
+	Express Middleware
 
-	[Express-quicker](https://github.com/ushelp/Express-quicker)
+
+- [Express-quicker](https://github.com/ushelp/Express-quicker)
+
+	Express application generator tool based on EasyTemplateJS
+
+
+## Koa Middleware
+
+- [EasyTemplateJS-koa ](https://github.com/ushelp/EasyTemplateJS-koa)
+
+	Koa Middleware
 
 
 ## END

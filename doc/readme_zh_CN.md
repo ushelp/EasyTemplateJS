@@ -1,11 +1,9 @@
 # EasyTemplateJS 模板引擎使用手册
 
 
-**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。并为 Node.js 和 Express 框架提供增强支持。**
+**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。支持浏览器环境， Node.js 环境，Express 框架和 Koa 框架。**
 
 JavaScript 模板引擎作为数据与界面分离工作中最重要一环。使用 JavaScript 模板函数能够避免在 JavaScript 中拼接 `HTML` 字符串带来的不便和低维护性的缺点，利用反向思路，在 `HTML` 中嵌入 JavaScript 脚本，就像利用 `JSP` 和 `ASP` 技术编程一样。EasyTemplate 能够提供超高性能的渲染引擎，在 JavaScript 中使用模板技术来简化操作，并增强程序设计的灵活性。
-
-The latest version: `3.0.0-RELEASE`
 
  
 ## 特点
@@ -22,7 +20,9 @@ The latest version: `3.0.0-RELEASE`
 
 - 模块化支持：`CommonJS`, `AMD`, `CMD`, `Node.js`
 
-- Node.js [Express 框架支持](doc/express_zh_CN.md)
+- Node.js 环境支持
+
+- `Express`, `koa` 框架支持
 
 - npm, Bower 支持
 	
@@ -311,7 +311,7 @@ var res = Et.template(tmpl, {
 
 ### 7. 内嵌 JavaScript 和 CSS
 
-为了增强在 Express 等服务端 Web 应用框架中使用模板的功能体验，EasyTemplateJS 开创性的为模板提供了 script 脚本和 style 样式表支持。
+为了增强在 Express, koa 等服务端 Web 应用框架中使用模板的功能体验，EasyTemplateJS 开创性的为模板提供了 script 脚本和 style 样式表支持。
 
 - **启用脚本和 CSS 支持**
 
@@ -462,16 +462,23 @@ var res = Et.template(tmpl, {
 	});
 	```
 
-## 在 Express 框架中使用 EasyTemplateJS 
+## Express 集成
 
-- 手动集成
+- [EasyTemplateJS-express ](https://github.com/ushelp/EasyTemplateJS-express)
 
-	[Express 使用文档](express_zh_CN.md)
+	Express 集成中间件
 
-- 基于 EasyTemplateJS 引擎的 Express 应用快速生成工具
 
-	[Express-quicker](https://github.com/ushelp/Express-quicker)
+- [Express-quicker](https://github.com/ushelp/Express-quicker)
 
+	基于 EasyTemplateJS 引擎的 Express 应用快速生成工具
+
+
+## Koa 集成
+
+- [EasyTemplateJS-koa ](https://github.com/ushelp/EasyTemplateJS-koa)
+
+	Koa 集成中间件
 
 
 ## 结束

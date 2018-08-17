@@ -1,10 +1,9 @@
 # EasyTemplateJS
 
-**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。并为 Node.js 和 Express 框架提供增强支持。**
+**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。支持浏览器环境， Node.js 环境，Express 框架和 Koa 框架。**
 
-**EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. And provides enhanced support for Node.js and Express frameworks.**
+**EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. Support for browser environment, Node.js environment, Express framework and Koa framework.**
 
-The latest version: `3.0.0-RELEASE`
 
 ## Feature/特点
 
@@ -22,7 +21,9 @@ The latest version: `3.0.0-RELEASE`
 	
 	- 模块化支持：`CommonJS`, `AMD`, `CMD`, `Node.js`
 	
-	- Node.js [Express 框架支持](doc/express_zh_CN.md)
+	- Node.js 环境支持
+	
+	- `Express`, `koa` 框架支持
 	
 	- npm, Bower 支持
 
@@ -41,7 +42,9 @@ The latest version: `3.0.0-RELEASE`
 	
 	- Module support:`CommonJS`, `AMD`, `CMD`, `Node.js`
 
-	- Node.js [Express Web Framework support](doc/express_en.md)
+	- Node.js enviroment support
+	
+	- `Express`, `koa` framework support
 	
 	- npm, Bower support
 
@@ -89,7 +92,9 @@ From the rendering performance, **EasyTemplate** and artTemplate are using pre-s
 
 [中文详细使用文档](doc/readme_zh_CN.md)
 
-[Express 使用文档](doc/express_zh_CN.md)
+[Express 使用文档](https://github.com/ushelp/EasyTemplateJS-express "EasyTemplateJS-express")
+
+[Koa 使用文档](https://github.com/ushelp/EasyTemplateJS-koa "EasyTemplateJS-koa")
 
 [官方主页](http://www.easyproject.cn/easytemplate/zh-cn/index.jsp '官方主页')
 
@@ -101,7 +106,9 @@ From the rendering performance, **EasyTemplate** and artTemplate are using pre-s
 
 [English detailed documentation](doc/readme_en.md)
 
-[Express documentation](doc/express_en.md)
+[Express documentation](https://github.com/ushelp/EasyTemplateJS-express "EasyTemplateJS-express")
+
+[Koa documentation](https://github.com/ushelp/EasyTemplateJS-koa "EasyTemplateJS-koa")
 
 [The official home page](http://www.easyproject.cn/easytemplate/en/index.jsp 'The official home page')
 
