@@ -1,6 +1,6 @@
 # EasyTemplateJS
 
-**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。支持浏览器环境， Node.js 环境，Express 框架和 Koa 框架。**
+**EasyTemplateJS（EasyTemplate JavaScript）是一款超高性能，小巧纯粹，功能全面的 JavaScript 模板引擎。支持浏览器环境， Node.js 环境，Express 和 Koa 框架。**
 
 **EasyTemplateJS(EasyTemplate JavaScript) is an ultra-high performance, compact, full-featured JavaScript template engine. Support for browser environment, Node.js environment, Express framework and Koa framework.**
 
